@@ -1,0 +1,33 @@
+<div class="admin-page-product"> 
+<h1 class="admin-page-allproducts-title">База данных</h1>
+
+<div class="table-container">
+    <p>
+        <input
+        #query
+        (keyup)="filter(query.value)"
+        type="text" class="form-search-input" placeholder="Поиск.."> 
+        
+    </p> 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredProducts">
+            <td> {{ p.title }} </td>
+            <td> {{ p.price }} </td>
+            <td>
+               <a [routerLink]="['/admin/products/', p.$key]">Изменить</a>   
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<a routerLink="/admin/products/new" class="btn-admin-edit-event"> Новое событие/продукт </a> 
+</div>
+

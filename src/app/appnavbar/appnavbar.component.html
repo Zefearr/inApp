@@ -1,0 +1,31 @@
+
+ <header class="appheader">
+  <div class="container-inapp">
+    <a class="appheader-brand" routerLink="/">in<strong>Dev</strong></a>
+<nav class="header-nav">
+  <ul class="main-navigation">
+    <li><a routerLink="/shopping-kart">Корзина</a></li> 
+    <li><a routerLink="/my/orders">Мой профиль</a></li>
+    <ng-template #anonymousUser>
+      <li> <a  routerLink="/login">Войти</a></li>    
+    </ng-template>
+     
+     
+      
+      <li *ngIf="appUser"  ngbDropdown class="dropdown">
+        <a *ngIf="appUser.isAdmin"  ngbDropdownToggle class="dropdown-toggle"> 
+      Администрирование
+        </a> 
+      <ul ngbDropdownMenu class="main-nav-dropdown">
+        <li *ngIf="appUser.isAdmin" ><a routerLink="/admin/orders">Ред. заказы</a></li>
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">Ред. продукты </a></li> 
+      </ul>
+    </li>
+    <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.name }}</a></li> 
+    <li *ngIf="appUser"><a (click)="logout()" class="quit">Выйти</a></li> 
+   
+   
+  </ul>
+</nav>
+</div>
+</header>
