@@ -3,6 +3,10 @@ import { ProductService } from '../../product.service';
 import { RouterModule } from '@angular/router'; 
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription';
+import { Product } from '../../models/product';
+import { Router } from '@angular/router'; 
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-products',
@@ -10,11 +14,16 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-products: {title: string}[];
+products: Product[]; 
 filteredProducts: any[];
 subscription: Subscription;
-  constructor(private productService: ProductService) {
+id;
 
+  constructor(
+    private router: Router,
+    private productService: ProductService,
+    private route: ActivatedRoute) {
+   
     this.subscription = this.productService.getAll()
     .subscribe(products => this.filteredProducts = this.products = products);
 
@@ -30,5 +39,6 @@ subscription: Subscription;
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+ 
 
 }

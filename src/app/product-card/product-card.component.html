@@ -1,0 +1,48 @@
+
+<!-- <div [@divState]="state" style="width: 100px; height: 100px"></div> -->
+<div class="event-cart">
+    <div class="event-cart-img-cont">
+      <p class="event-cart-close-x">X</p> 
+      <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> 
+    
+        <div class="event-cart-content-cont"> 
+            <h3 class="event-cart-title"> {{ product.title }} </h3> 
+            <h4 class="event-cart-date-title" *ngIf="product.date"><i class="fa fa-calendar"></i>{{ product.date }}</h4>
+            <p  *ngIf="product.price" class="event-cart-price"><i class="fa fa-eur"></i>{{ product.price }}</p> 
+            <i class="fa fa-sort-desc event-cart-expand" (click)="expandContent()"></i>
+            <div [@divState]="state"  class="event-cart-desc"><p>{{ product.content }}</p>  </div>  
+            <p class="event-cart-category" *ngIf="product.category"> <i class="fa fa-tag"></i> {{ product.category }}</p>
+           
+            </div>
+          
+             
+  
+          
+           
+            <div class="btn-cont"  *ngIf="showActions">
+                <button
+                
+                 (click)="addToCart(product)"
+                  class="btn-register">Зарегистрироваться</button> 
+                  
+                <hr>
+                <a 
+                routerLink="/check-out">Register</a>
+               
+                  <button
+                  (click)="removeFromCart(product)" class="btn-unregister">Убрать</button> 
+               
+                
+                
+          </div>  
+         
+        
+        </div>
+
+        
+
+
+
+
+
+    </div>

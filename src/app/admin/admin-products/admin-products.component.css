@@ -6,12 +6,14 @@
     margin-top: 25px;
     max-width: 960px;
     margin: 0 auto;
+  
 }
 
 .admin-page-product {
     max-width:960px;
     overflow: hidden;
     margin: 0 auto;
+    min-height: 100vh;
 
 }
 .form-search-input {
@@ -25,7 +27,7 @@
     text-align: center; 
     font-weight: 400;
     letter-spacing: 0.05rem;
-    background-color:#fefefe;
+  
     margin-top:2rem;
     margin-bottom:2rem;
 }

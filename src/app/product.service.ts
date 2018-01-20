@@ -8,6 +8,9 @@ export class ProductService {
   create(product) {
     return this.db.list('/products').push(product); 
   }
+  createUpvote(productId) {
+    return this.db.list('/upvotes').push(productId); 
+  }
   getAll() {
     return this.db.list('/products'); 
   }

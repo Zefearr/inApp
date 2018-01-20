@@ -5,10 +5,19 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppUser } from './models/app-user';
 import { FormsModule } from '@angular/forms'; 
-import { CustomFormsModule } from "ng2-validation";
+import { CustomFormsModule } from "ng2-validation"; 
+import { DatePipe } from '@angular/common'; 
+
+
+
+  
+ 
+
+
 
 
 
@@ -19,7 +28,7 @@ import { AppComponent } from './app.component';
 import { AppnavbarComponent } from './appnavbar/appnavbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
-import { ShoppingKartComponent } from './shopping-kart/shopping-kart.component';
+
 import { CheckOutComponent } from './check-out/check-out.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
@@ -33,6 +42,30 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
+import { FpItemsComponent } from './fp-items/fp-items.component';
+import { FpItemsService } from './fp-items.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CollectionComponent } from './collection/collection.component';
+import { PaginationService } from './pagination.service';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { DateComponent } from './date/date.component';
+import { TrimpipeComponent } from './trimpipe/trimpipe.component';
+import { SlicePipe } from '@angular/common';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service'; 
+import { ShoppingCart } from './models/shopping-cart';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+
+
+
+
+
+
+
+
+
+
+
 
 
  
@@ -42,26 +75,51 @@ import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [
+   
+   TrimpipeComponent,
     AppComponent,
-    AppnavbarComponent, HomeComponent, ProductsComponent, ShoppingKartComponent, CheckOutComponent, OrderSuccessComponent, MyOrdersComponent, AdminProductsComponent, AdminOrdersComponent, LoginComponent, ProductFormComponent
+    AppnavbarComponent,
+    HomeComponent,
+    ProductsComponent,
+    CheckOutComponent,
+    OrderSuccessComponent,
+    ShoppingCartComponent,
+    MyOrdersComponent,
+    AdminProductsComponent,
+    AdminOrdersComponent,
+    LoginComponent,
+    ProductFormComponent,
+    FpItemsComponent,
+    CollectionComponent,
+    SpinnerComponent,
+    DateComponent,
+    ProductCardComponent,
+   
+  
+   
+   
+  
+    
   ],
-  imports: [
+  imports: [ 
+    BrowserAnimationsModule, 
+    InfiniteScrollModule, 
     BrowserModule,
-    FormsModule,
+    FormsModule, 
     CustomFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),  
+    AngularFireModule.initializeApp(environment.firebase),     
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([ 
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent }, 
       { path: 'login', component: LoginComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'shopping-kart', component: ShoppingKartComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent },   
 
-      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
+      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
-      { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+      { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]}, 
 
       { path: 'admin/products/new', 
        component: ProductFormComponent,
@@ -82,6 +140,14 @@ import { ProductService } from './product.service';
        component: AdminOrdersComponent,
        canActivate: [AuthGuard, AdminAuthGuardService] 
       }, 
+
+      { path: 'items',
+      component: FpItemsComponent, 
+     },
+     { path: 'collections',
+     component: CollectionComponent,  
+    },
+    
     ])
 
 
@@ -93,10 +159,14 @@ import { ProductService } from './product.service';
     AuthGuard,
     AdminAuthGuardService,
     CategoryService,
-    ProductService
-  
+    ProductService,
+    FpItemsService,
+    PaginationService,
+    ShoppingCartService
+    
+   
    
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 

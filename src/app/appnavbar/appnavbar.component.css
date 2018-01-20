@@ -19,28 +19,36 @@
 
 
 .appheader {
-  width:100vw;
-  background-color:#171c22;
-  position: absolute;
+  width:100%;
+  /* background-color:#171c22; */
+  background: url('navback.jpg');
+ 
+  position: fixed;
+
   top:0;
   margin:0;
   padding:0;
   padding-right:1rem;
+  z-index: 9999;
+  
 
 
 }
+
 .main-navigation {
   list-style: none;
   text-align: right;
-
+z-index: 1;
   margin: 0;
   padding:0;
 
 }
 
+
+
 .main-navigation li {
   display: inline;
-
+  
 
 }
 .appheader-brand {
@@ -64,7 +72,8 @@
   cursor: pointer;
 }
 .main-nav-dropdown {
-  background-color:#171C22;
+  /* background-color:#171C22; */
+  background: url('navback.png');
 transform: translateX(-5%);
   padding:0;
   text-align: left;
@@ -98,8 +107,8 @@ transform: translateX(-5%);
 
 .main-navigation a {
   color:#fff;
-  font-family: Montserrat;
-  font-size: .9rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .8rem;
   display: inline-block;
   padding-right:1rem;
   font-weight: 500;

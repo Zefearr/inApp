@@ -1,7 +1,7 @@
 <div class="admin-page-product"> 
-<h1 class="admin-page-allproducts-title">in<strong>Dev</strong> Cloud</h1>
-
-<div class="table-container">
+<h1 class="admin-page-allproducts-title"> <i class="fa fa-cloud"></i> in<strong>Dev</strong> Cloud</h1>
+<a routerLink="/admin/products/new" class="btn-admin-edit-event"> Новое событие/продукт </a> 
+<div class="table-container"> 
     <p>
         <input
         #query
@@ -20,14 +20,17 @@
     <tbody>
         <tr *ngFor="let p of filteredProducts">
             <td> {{ p.title }} </td>
-            <td> {{ p.price }} </td>
+            <td> {{ p.price }} EUR </td>
             <td>
                <a [routerLink]="['/admin/products/', p.$key]">Изменить</a>   
+            </td>
+            <td>
+                   
             </td>
         </tr>
     </tbody>
 </table>
 </div>
-<a routerLink="/admin/products/new" class="btn-admin-edit-event"> Новое событие/продукт </a> 
+
 </div>
 
