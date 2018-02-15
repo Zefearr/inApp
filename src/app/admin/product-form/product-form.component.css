@@ -1,36 +1,19 @@
-.event-cart {
-    width:500px;
-    overflow: hidden;
-    margin: 0 auto;
-    /* border:1px solid lightgray; */
-    padding:0;
-    /* background-color:#fff; */
-   
-    
-   
-    
-}
-.img-container {
-    width:100%;
-    margin: 0 auto;
-}
-.event-text-content {
-   border:1px solid lightgray;
-    background-color:#fff;
-   max-width:750px;
-   overflow-wrap: break-word;
-   min-height: 300px;
-   padding:.3rem;
-   
 
-    
+
+.product-content-prev {
+    max-width: 977px;
+    margin: 0 auto;
 }
-.event-text-content p {
-    width:350px;
-    padding:10px;
+
+.desc-input {
+   
+    width:100%;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid lightgray;
 }
 .content-input {
-    min-height: 60px;
+    min-height: 150px;
     width:100%;
     text-align: left;
     border-radius: 5px;
@@ -96,11 +79,20 @@
         justify-content: space-between;
     }     
 }
+.event-content {
+border: 1px solid lightgray; 
+font-size: .9rem;
+padding:.5rem;
+word-break: break-all;
+
+overflow: hidden;
+}
 .edit-page-container {
-    max-width:1000px;
+   
     margin:0px auto 0 auto;
     overflow:hidden;
-    min-height: 100vh;
+   max-width: 977px;
+    margin-bottom:1rem;
    
     
 }
@@ -129,13 +121,21 @@
 }
 .edit-page-edit {
     padding:1rem;
-    flex-basis: 35%;
+    flex-basis: 50%;
+    border-right: 1px solid lightgray;
   
   
 }
+.preview-cart {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom:1rem;
+    border-bottom:1px solid lightgray;
+    padding-bottom:1rem;
+}
 .admin-page-form {
     padding:.5rem;
-    border: 1px solid lightgray;
+    
 }
 .Userintro {
     
@@ -143,7 +143,7 @@
     min-height:50px;
     padding: .5rem;
     border:1px solid lightgray;
-    max-width:960px;
+    max-width:977px;
     margin: 0 auto;
     margin-top: 3rem;
     margin-bottom:2rem;
@@ -153,31 +153,10 @@
 }
 
 .admin-edit-page-cart { 
-    flex-basis: 55%;
-    padding: .5rem;
-}
-.event-cart-date-title {
-    font-family: Montserrat, sans-serif;
-    font-size: 0.9rem;
-    margin:0;
-    font-weight: 600;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    text-align: center;
-    border-bottom:1px solid lightgray;
+    flex-basis: 48%;
+   
+   
 }
 
-.event-cart-title {
-    margin:0;
-    padding:0;
-    font-size: 1.4rem;
-    text-align: center;
-    font-weight: 400;
-    font-family: Montserrat, sans-serif;
-    letter-spacing: .05rem;
-    padding-bottom:.5rem;
-    padding-top:.5rem; 
-    border-bottom: 1px solid lightgray;
-    display: block;
-}
+
 

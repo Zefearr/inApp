@@ -1,0 +1,7 @@
+.cont {
+    max-width: 977px; 
+    margin:0 auto;
+    border:1x solid lightgray;
+    background-color:#fff;
+    min-height: 50vh;
+}

@@ -1,0 +1,47 @@
+p {
+    margin-top:50px; 
+}
+
+.single-event {
+   
+   
+    max-width:977px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    margin-top:20px;
+    border-top: 1px solid lightgray;
+    padding-top:20px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
+    background-color:#fff;
+ 
+  
+    
+}
+.event-cart-image {
+    float: left;
+    max-width: 350px;
+    shape-outside: square;
+    margin-right: 1.5rem;
+}
+.single-event-full-content {
+    margin:0;
+    padding:0;
+   
+    font-size: 1rem;
+    font-style: italic;
+}
+.single-event-title {
+    font-size: 1.2rem;
+    text-align: left;
+    margin:0;
+    padding:0;
+}
+.single-event-date {
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 600;
+    margin:0;
+    padding:0;
+}

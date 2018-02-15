@@ -7,7 +7,7 @@ describe('AdminProductsComponent', () => {
   let fixture: ComponentFixture<AdminProductsComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed.configureTestingModule({ 
       declarations: [ AdminProductsComponent ]
     })
     .compileComponents();

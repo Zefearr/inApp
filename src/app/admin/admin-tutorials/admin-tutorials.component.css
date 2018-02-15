@@ -1,0 +1,14 @@
+.cont {
+    max-width: 977px;
+    margin:0 auto;
+    border:1x solid lightgray;
+    background-color:#fff;
+    min-height: 50vh;
+}
+.newtutor {
+    background-color:rgb(7, 49, 102);
+    padding: 1rem 1.5rem;
+    margin:0;
+    display: block;
+    color:#fff;
+}

@@ -1,0 +1,28 @@
+.signup-container {
+    width:500px;
+    padding:1rem;
+    margin:auto;
+    border-top:1px solid lightgray;
+     display: block;
+     
+    
+   
+     
+ }
+ .signin { 
+     border:1px solid black;
+     background-color:#4285F4;
+     border-radius: 3px;
+     color:#fff;
+     padding:.5rem;
+     font-size: 1rem;
+     font-weight: 600;
+     padding-left:1.5rem;
+     padding-right: 1.5rem;
+     
+ }
+ .cont {
+    display: flex;
+    padding-bottom: 1.5rem;
+
+ }

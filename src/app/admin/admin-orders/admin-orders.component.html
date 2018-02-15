@@ -1,3 +1,28 @@
-<p>
-  admin-orders works!
-</p>
+<!-- <div *ngFor="let p of orders$ | async"> 
+  <p> {{ p.title }} </p>
+  <p> {{ p.datePlaced }} </p>
+  <p> {{ p.order.city }} </p>
+</div> -->
+<div class="cont">
+<table class="admintable">
+    <thead>
+        <tr>
+            <th class="ttitle">title</th>
+            <th class="ttitle">price</th> 
+            <th class="ttitle">todo</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr *ngFor="let p of orders$ | async"> 
+            <td> {{ p.title }} </td>
+            <td> {{ p.order.email }}</td>
+            <td>
+                {{ p.order.name }}   
+            </td>
+            <td>
+               <a routerLink="/">view details</a>    
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

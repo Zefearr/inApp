@@ -1,31 +1,29 @@
-h3 {
-  text-align: center;
+h5 {
+  
   margin-top:2rem;
 }
 .LoginWithGoogle {
   border:none;
   border:1px solid black;
   padding: .5rem;
+  padding-left:1.5rem;
+  padding-right: 1.5rem;
   background-color:#4285f4;
   border-radius: 3px;
   font-weight: 500;
-  width: 100%;
+  
   text-align: center;
   margin-top:2rem;
   color: #fff;
   text-decoration: none;
-  display: inline-block;
+
 
 }
-.Loginbtns-cont {
-  max-width: 250px;
-  margin: 0 auto;
-}
+
 .container {
   margin-top: 2rem;
   background-color:#fefefe;
-  max-width: 300px;
-  height: 300px;
-  border: 1px solid #171C22;
+  max-width:500px;
   border-radius: 3px;
+  padding-bottom: 2rem;
 }

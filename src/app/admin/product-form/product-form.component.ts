@@ -15,7 +15,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {  
+export class ProductFormComponent {  
  categories$;
  product = {}; 
  id;
@@ -58,8 +58,7 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
+ 
  
 
 }

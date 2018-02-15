@@ -1,12 +1,23 @@
 
 
 .inapp-cont {
-    max-width:1360px;
+    /* max-width:1160px; */  
     margin: 0 auto;
     overflow: hidden;
-   /* background-color:#E3E7E7;  */
-   background-color:#fefefe;
-   border: 1px solid lightgray;
+    position: relative;
+  
+  
+   padding-top:55px;
+   
+   
+   background-color:#F9F3E1;
+   /* background: url('images/bgpost.png');  */
+   
+   
+   /* padding-top: 150px; */
    
   
+}
+.inapp-cont>* {
+    display: block;
 }

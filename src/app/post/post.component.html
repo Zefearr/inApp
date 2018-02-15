@@ -1,0 +1,31 @@
+
+
+<div class="single-event">
+    <ng-container *ngIf="product">  
+<img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl">
+<div class="single-event-fullcontent">  
+ <h2 class="single-event-title"> {{ product.title }} </h2>
+ <p class="single-event-full-content"> {{ product.category }} </p>
+ <p class="single-event-full-content"> {{ product.location }} </p>
+ <h5 class="single-event-date"> {{ product.date }} </h5>
+ <p class="single-event-full-content"> {{ product.content }} </p>
+</div>
+</ng-container>
+</div>
+
+   <app-check-out></app-check-out> 
+   
+
+<!-- <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>  -->
+
+
+       
+      
+      
+
+      
+
+
+
+
+

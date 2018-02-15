@@ -12,23 +12,23 @@
 
 }
 .container-inapp {
-  max-width:960px;
-  margin:0 auto;
-  padding:0;
+  max-width:977px;
+  margin: 0 auto;
+  position: relative;
 }
 
 
 .appheader {
   width:100%;
-  /* background-color:#171c22; */
-  background: url('navback.jpg');
+  background-color:#494C5B;
+  /* background: url('navback.jpg'); */
  
-  position: fixed;
+  position: absolute;
 
   top:0;
   margin:0;
   padding:0;
-  padding-right:1rem;
+  
   z-index: 9999;
   
 
@@ -37,19 +37,24 @@
 
 .main-navigation {
   list-style: none;
-  text-align: right;
-z-index: 1;
+  z-index: 1;
   margin: 0;
   padding:0;
-
+ 
 }
 
 
 
 .main-navigation li {
-  display: inline;
+
+float: left;
+margin-right: 1px;
+
   
 
+}
+.main-navigation li:last-child {
+  margin: 0;
 }
 .appheader-brand {
   float: left;
@@ -63,6 +68,7 @@ z-index: 1;
 
 .appheader-brand strong {
   font-weight: 600;
+  color:#CC5E6B; 
 
 }
 .dropdown-toggle {
@@ -74,7 +80,7 @@ z-index: 1;
 .main-nav-dropdown {
   /* background-color:#171C22; */
   background: url('navback.png');
-transform: translateX(-5%);
+
   padding:0;
   text-align: left;
   margin:0;
@@ -86,45 +92,49 @@ transform: translateX(-5%);
 
 
 }
-.main-nav-dropdown li a {
-  color:#fff;
-  width:100%;
-  padding-right:1.5rem;
-  padding-left:1.2rem;
-  text-decoration: none;
-  padding-top:1rem;
-  padding-bottom: 1rem;
+
+
+
+
+.adminpanel {
+  position: absolute;
+  background-color:#fff;
+  left: 0px;
+  top:0px;
+  
 }
 
-.main-nav-user-exp {
-  margin:0;
-  padding:0;
-  float: right;
-  text-align: left;
-}
-
-
-
-.main-navigation a {
+.main-navigation  a {
   color:#fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: .8rem;
-  display: inline-block;
-  padding-right:1rem;
-  font-weight: 500;
-  padding-left: 0rem;
+  font-size: .85rem;
+ padding-top: .8rem;
+ padding-bottom: .8rem;
+  text-transform: uppercase;
+  display: block;
+  width:160px;
+  text-align: center;
+  font-weight: 500; 
   text-decoration: none;
-  padding-top:1rem;
-  padding-bottom: 1rem;
-
+ box-shadow: none;
+  border-right: 2px solid rgb(127, 131, 141); 
+ /* text-shadow: 1px 0px rgb(47, 49, 53); */
+  background-color: #6C6F78;
 
 
 }
+
 
 
 
 .header-nav {
-  display: block;
+  float: right;
+  position: relative;
   padding:0;
   margin:0;
+  max-width: 482px;
+  text-align: right;
+  display: block;
+  background-color: rgb(37, 39, 47);
+  
 }

@@ -56,16 +56,25 @@
                     Необходимо ввести дату
                 </div>
             </div>
+            <div class="form-group">
+                <label for="location">Место проведения</label>
+                <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control"> 
+                <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
+                    Необходимо ввести место проведения 
+                </div>
+            </div>
            
             <div class="form-group">
                 <label for="imageUrl">imageUrl</label>
-                <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl"type="text" class="form-control">
+                <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl" type="text" class="form-control">
                 <!-- <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
                   <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
                   <div *ngIf="imageUrl.errors.url">Введите существущую ссылку на изображение</div>
                 </div> -->
               </div>
-             
+              <label for="desc">Короткое описание()</label>
+              <textarea class="desc-input" #desc="ngModel" [(ngModel)]="product.desc" name="desc" id="desc" type="text" > </textarea>
+              <label for="content">Длинное описание</label>
                 <textarea class="content-input" #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
                 <!-- <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
                     Необходимо ввести заголовок
@@ -83,6 +92,7 @@
 
   
   <div class="admin-edit-page-cart">
+      <h3 class="preview-cart">Предпросмотр</h3>
 <!-- <div class="event-cart" *ngIf="product.title">
     <div class="img-container">
             <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> 
@@ -103,11 +113,14 @@
 </div> -->
 <app-product-card [product]="product" [show-actions]="false"></app-product-card>
 
-</div>
 
 </div>
 
-  
+</div>
+
+<!-- <div class="product-content-prev">
+        <div class="event-content"> {{ product.content }} </div>
+</div> -->
 
 
     

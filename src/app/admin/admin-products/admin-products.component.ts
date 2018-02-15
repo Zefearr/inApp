@@ -3,9 +3,9 @@ import { ProductService } from '../../product.service';
 import { RouterModule } from '@angular/router'; 
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription';
-import { Product } from '../../models/product';
+import { Product } from '../../models/product';  
 import { Router } from '@angular/router'; 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';  
 
 
 @Component({

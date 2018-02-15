@@ -3,26 +3,26 @@
 <a routerLink="/admin/products/new" class="btn-admin-edit-event"> Новое событие/продукт </a> 
 <div class="table-container"> 
     <p>
-        <input
+        <input 
         #query
         (keyup)="filter(query.value)"
         type="text" class="form-search-input" placeholder="Поиск.."> 
         
     </p> 
-<table class="table">
+<table class="admintable">
     <thead>
         <tr>
-            <th>Название</th>
-            <th>Стоимость</th> 
-            <th></th>
+            <th class="ttitle">title</th>
+            <th class="ttitle">price</th> 
+            <th class="ttitle">todo</th>
         </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let p of filteredProducts">
+    <tbody> 
+        <tr *ngFor="let p of filteredProducts"> 
             <td> {{ p.title }} </td>
             <td> {{ p.price }} EUR </td>
             <td>
-               <a [routerLink]="['/admin/products/', p.$key]">Изменить</a>   
+               <a [routerLink]="['/admin/products/', p.$key]">change</a>   
             </td>
             <td>
                    

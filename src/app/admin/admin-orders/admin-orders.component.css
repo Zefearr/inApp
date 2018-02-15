@@ -1,0 +1,15 @@
+.cont {
+    max-width: 977px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom:20px;
+    border: 1px solid lightgray;
+    background-color:#fff;
+    min-height: 90vh;
+}
+.admintable {
+    width:100%;
+}
+.admintable thead {
+    border-bottom:1px solid lightgray;
+}

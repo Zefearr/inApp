@@ -1,34 +1,44 @@
 
  <header class="appheader">
   <div class="container-inapp">
+      <!-- <div class="adminpanel" *ngIf="appUser" >
+        <ng-container *ngIf="appUser.isAdmin">
+          <a  routerLink="/admin/orders">редзаказы</a>
+          <a  routerLink="/admin/products">редпродукты</a>
+        </ng-container>
+          <p class="userinfo">{{appUser.name}}</p>
+          <p class="userinfo">{{appUser.email}}</p>
+        </div>   -->
     <a class="appheader-brand" routerLink="/">in<strong>Dev</strong></a>
-<nav class="header-nav">
-  <ul class="main-navigation">
-    <li><a routerLink="/items">items</a></li>
-    <li><a routerLink="/collections">Prods</a></li>
-    <li><a routerLink="/shopping-cart">Мои курсы
-      <span class="badge badge-warning"> 
-        {{ shoppingCartItemCount }} 
-      </span>
-    </a></li>
-    <li><a routerLink="/my/orders">Мой профиль</a></li>
-    <ng-template #anonymousUser>
-       <li> <a  routerLink="/login">Войти</a></li>    
+<nav class="header-nav"> 
+  
+  <ul class="main-navigation"> 
+      <li><a routerLink="/tutorials">Tutorials</a></li>
+   
+    
+   
+     
+      <!-- <li><a routerLink="/signup">Регистрация</a></li>
+      <li> <a  routerLink="/login">Войти</a></li>   -->
+    <ng-template *ngIf="!appUser">
+        <li><a routerLink="/signup">Регистрация</a></li>
+       <li> <a  routerLink="/login">Войти</a></li>     
     </ng-template> 
      
      
       
       <li *ngIf="appUser"  ngbDropdown class="dropdown">
-        <a *ngIf="appUser.isAdmin"  ngbDropdownToggle class="dropdown-toggle"> 
-      Администрирование
+        <a *ngIf="appUser"  ngbDropdownToggle class="dropdown-toggle"> 
+   admin
         </a> 
       <ul ngbDropdownMenu class="main-nav-dropdown">
         <li *ngIf="appUser.isAdmin" ><a routerLink="/admin/orders">Ред. заказы</a></li>
         <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">Ред. продукты </a></li> 
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">Ред. статьи </a></li> 
       </ul>
     </li>
-    <li *ngIf="appUser"><a>{{ appUser.name }}</a></li>
-    <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.id }}</a></li>  
+    
+    <!-- <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.id }}</a></li>   -->
     <li *ngIf="appUser"><a (click)="logout()" class="quit">Выйти</a></li> 
    
    

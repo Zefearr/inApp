@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/product';
 import 'rxjs/add/operator/switchmap';
 import { DatePipe } from '@angular/common';
-import { ShoppingCartService } from '../shopping-cart.service';
+
 import { async } from '@angular/core/testing';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription';
@@ -17,9 +17,9 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'] 
 })
-export class ProductsComponent implements OnInit, OnDestroy { 
+export class ProductsComponent  { 
   productService: any;
   products: Product[] = [];
   filteredProducts: Product[] = [];
@@ -33,8 +33,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     route: ActivatedRoute,
     productService: ProductService,
-    categoryService: CategoryService,
-    private shoppingCartService: ShoppingCartService ) {
+    categoryService: CategoryService) {
   
     productService
      .getAll()
@@ -57,13 +56,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
  
    }
 
-   async ngOnInit() {
-   this.subscription = (await this.shoppingCartService.getCart())
-   .subscribe(cart => this.cart = cart); 
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  
+  
   
   
 

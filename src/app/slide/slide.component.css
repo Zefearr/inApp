@@ -1,0 +1,59 @@
+.contt {
+    border-bottom: 1px solid black;
+   text-align: center;
+    margin: 0 auto;
+ 
+    max-width: 1920px; 
+    
+}
+
+
+.customnext {
+  background-color:#fff;
+  width:30px;
+  height: 30px;
+  display: block;
+ 
+
+  
+  background: url('images/arrow-slider.png');
+}
+.customprev {
+  background-color:#fff;
+  width:30px;
+  height: 30px;
+  background: url('images/arrow-slider.png');
+  transform: scaleX(-1);
+}
+
+
+.swiper-container {
+    width: 1920px;
+    height: 300px;
+    
+  }
+  .sw-c {
+    background-color:#555;
+  }
+  .swiper-slide {
+    
+    
+    text-align: center;
+    font-size: 18px;
+    background: #555;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+ 
