@@ -1,9 +1,17 @@
 
-
-
-.maindropdownmenu a {
-  color:#fff;
+.arrow
+{
+	width: 0;
+	height: 0;
+	margin-left: 15px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 9px solid #F8F8F8;
 }
+.admin-menu-toggle {
+  cursor: pointer;
+}
+
 .main-banner {
   width:100%;
   height:150px;
@@ -20,16 +28,16 @@
 
 .appheader {
   width:100%;
-  background-color:#494C5B;
+  background-color:#313233;
   /* background: url('navback.jpg'); */
- 
   position: absolute;
-
   top:0;
   margin:0;
   padding:0;
-  
   z-index: 9999;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   
 
 
@@ -43,27 +51,35 @@
  
 }
 
-
+.main-navigation i {
+  display:block;
+  color:#fff;
+  font-size: .6rem;
+  float: left;
+  
+ 
+}
 
 .main-navigation li {
-
 float: left;
 margin-right: 1px;
-
-  
-
 }
 .main-navigation li:last-child {
   margin: 0;
 }
 .appheader-brand {
   float: left;
+  transform: translateY(10%);
   margin-left: 1rem;
-  transform:  translateY(20%);
+  text-indent: -999px; 
+  width:100px;
+  height: 39px;
   font-size: 1.4rem;
   color:#fff;
+  opacity: .6;
   font-weight: 400;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background: url('indevwhitepng.png'); 
 }
 
 .appheader-brand strong {
@@ -71,68 +87,50 @@ margin-right: 1px;
   color:#CC5E6B; 
 
 }
-.dropdown-toggle {
-  cursor: pointer;
-}
 .quit {
   cursor: pointer;
-}
-.main-nav-dropdown {
-  /* background-color:#171C22; */
-  background: url('navback.png');
-
-  padding:0;
-  text-align: left;
-  margin:0;
-  border-radius:0;
-  border:0;
-
-
-
-
-
-}
-
-
-
-
-.adminpanel {
-  position: absolute;
-  background-color:#fff;
-  left: 0px;
-  top:0px;
-  
 }
 
 .main-navigation  a {
   color:#fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: .85rem;
- padding-top: .8rem;
- padding-bottom: .8rem;
-  text-transform: uppercase;
+  font-size: 1rem;
+ padding-top: .9rem;
+ padding-bottom: .9rem;
+ 
   display: block;
-  width:160px;
+  width:162px;
   text-align: center;
-  font-weight: 500; 
+  font-weight: 300; 
+  
   text-decoration: none;
  box-shadow: none;
   border-right: 2px solid rgb(127, 131, 141); 
  /* text-shadow: 1px 0px rgb(47, 49, 53); */
-  background-color: #6C6F78;
+ 
+
+ 
+
+
+ 
+
 
 
 }
 
 
-
+.admin-dropdown {
+  position: absolute;
+  list-style: none;
+  
+}
 
 .header-nav {
   float: right;
   position: relative;
   padding:0;
   margin:0;
-  max-width: 482px;
+  max-width: 490px;
   text-align: right;
   display: block;
   background-color: rgb(37, 39, 47);

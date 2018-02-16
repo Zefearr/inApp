@@ -20,29 +20,41 @@
      
       <!-- <li><a routerLink="/signup">Регистрация</a></li>
       <li> <a  routerLink="/login">Войти</a></li>   -->
-    <ng-template *ngIf="!appUser">
+    <ng-container *ngIf="!appUser">
         <li><a routerLink="/signup">Регистрация</a></li>
        <li> <a  routerLink="/login">Войти</a></li>     
-    </ng-template> 
+    </ng-container> 
      
      
-      
-      <li *ngIf="appUser"  ngbDropdown class="dropdown">
-        <a *ngIf="appUser"  ngbDropdownToggle class="dropdown-toggle"> 
+     
+      <!-- <li *ngIf="appUser"  ngbDropdown class="dropdown">
+        <a *ngIf="appUser.isAdmin"  ngbDropdownToggle class="dropdown-toggle"> 
    admin
         </a> 
       <ul ngbDropdownMenu class="main-nav-dropdown">
-        <li *ngIf="appUser.isAdmin" ><a routerLink="/admin/orders">Ред. заказы</a></li>
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">Ред. продукты </a></li> 
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">Ред. статьи </a></li> 
+        <li *ngIf="appUser.isAdmin">   <a routerLink="/admin/orders">  clients</a></li>
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">events </a></li> 
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">news </a></li> 
+      </ul>
+    </li> -->
+    <li *ngIf="appUser">
+        <a *ngIf="appUser.isAdmin" class="admin-menu-toggle"> 
+   admin
+        </a> 
+      <ul class="admin-dropdown">
+        <li *ngIf="appUser.isAdmin">   <a routerLink="/admin/orders">  clients</a></li>
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">events </a></li> 
+        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">news </a></li> 
       </ul>
     </li>
     
+    
     <!-- <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.id }}</a></li>   -->
-    <li *ngIf="appUser"><a (click)="logout()" class="quit">Выйти</a></li> 
+    <li *ngIf="appUser"><a (click)="logout()" class="quit">Quit</a></li> 
    
    
   </ul>
 </nav>
 </div>
+<div class="arrow"></div>
 </header>

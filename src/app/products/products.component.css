@@ -24,7 +24,7 @@
 
 .nav-cont {
     
-    
+    position: relative;
     max-width: 977px;
     margin: 0 auto;
     margin-top:50px;

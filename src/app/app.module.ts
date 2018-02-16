@@ -2,6 +2,7 @@ import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'; 
 import { AngularFireModule } from 'angularfire2';
+
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RouterModule } from '@angular/router';
@@ -11,7 +12,9 @@ import { AppUser } from './models/app-user';
 import { FormsModule } from '@angular/forms'; 
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
-import $ from 'jquery';
+import * as $ from 'jquery';
+
+
 
 
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -30,10 +33,10 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service'; 
 import { UserService } from './user.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component'; 
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { DateComponent } from './date/date.component';
 import { SlicePipe } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
@@ -53,18 +56,23 @@ import { TutorialFormComponent } from './admin/tutorial-form/tutorial-form.compo
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
-  effect: 'slider',
-  slidesPerView: '4', 
-  autoplay: 3000,
-
-  spaceBetween: 20,
+  effect: 'cube',
  
+  
+  autoplay: 8000,
   observer: true,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
+  // pagination: '.custompag', 
+  // paginationClickable: true,
+ 
+ 
+
+   
   
-  pagination: '.swiper-pagination',
-  paginationClickable: true, 
+
+  
+  
   
   
    
@@ -81,7 +89,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({ 
   declarations: [
     AppComponent,
-    AppnavbarComponent,
+    AppnavbarComponent, 
     HomeComponent,
     ProductsComponent,
     CheckOutComponent,
@@ -167,6 +175,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   ],
   providers: [
     AuthService, 
+    AuthService2,
     UserService,
     AuthGuard,
     AdminAuthGuardService,
