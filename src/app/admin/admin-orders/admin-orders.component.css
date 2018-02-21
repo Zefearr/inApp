@@ -3,9 +3,13 @@
     margin: 0 auto;
     position: relative;
     margin-bottom:20px;
+    margin-top:20px;
     border: 1px solid lightgray;
     background-color:#fff;
     min-height: 90vh;
+}
+.ttitle {
+    border:none;
 }
 .admintable {
     width:100%;

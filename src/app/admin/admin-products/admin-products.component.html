@@ -1,6 +1,6 @@
 <div class="admin-page-product"> 
 <h1 class="admin-page-allproducts-title"> <i class="fa fa-cloud"></i> in<strong>Dev</strong> Cloud</h1>
-<a routerLink="/admin/products/new" class="btn-admin-edit-event"> Новое событие/продукт </a> 
+<a routerLink="/admin/products/new" class="btn btn-primary"> Добавить </a> 
 <div class="table-container"> 
     <p>
         <input 
@@ -9,7 +9,7 @@
         type="text" class="form-search-input" placeholder="Поиск.."> 
         
     </p> 
-<table class="admintable">
+<!-- <table class="admintable">
     <thead>
         <tr>
             <th class="ttitle">title</th>
@@ -29,8 +29,43 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> -->
 </div>
+<data-table
+    [items]="items"
+    [itemCount]="itemCount"
+    (reload)="reloadItems($event)"
+>
+   <data-table-column
+  
+   [property]="'title'"
+   [header]="'Title'"
+   [sortable]="true"
+   [resizable]="true"
+   >
+   <ng-template #dataTableCell let-item="item">
+     {{item.title}}
+   </ng-template>
+   </data-table-column>
+   <data-table-column
+   [property]="'price'"
+   [header]="'Price'"
+   [sortable]="true"
+   [resizable]="true"
+   >
+   <ng-template #dataTableCell let-item="item">
+       {{item.price | currency: 'EUR':true }}
+   </ng-template>
+   </data-table-column>
+
+<data-table-column
+  
+   >
+   <ng-template #dataTableCell let-item="item">
+    <a [routerLink]="['/admin/products/', item.$key]">Edit</a>  
+</ng-template>
+</data-table-column>
+</data-table>
 
 </div>
 

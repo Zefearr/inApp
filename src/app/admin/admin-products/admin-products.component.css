@@ -23,13 +23,14 @@
     overflow: hidden;
     margin: 0 auto;
     min-height: 100vh;
+    margin-bottom:50px;
 
 }
 .form-search-input {
     width:100%;
-    
+    margin-top:10px;
     border:1px solid lightgray;
-    padding:.5rem;
+    padding:.3rem;
 }
 .admin-page-allproducts-title {
     font-size:2rem;
@@ -40,13 +41,18 @@
     margin-top:2rem;
     margin-bottom:2rem;
 }
+.title {
+    min-width:500px;
+}
 .btn-admin-edit-event {
     margin-top:25px;
     margin-bottom:25px;
     background-color: #418ca3;
     color:#fff;
     display: inline-block;
-    padding:.7rem;
+    padding:.4rem;
+    padding-right: 1.5rem;
+    padding-left:1.5rem;
     text-align: center;
     font-weight:600;
     border-radius:3px;

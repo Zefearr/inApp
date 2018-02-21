@@ -93,6 +93,8 @@ overflow: hidden;
     overflow:hidden;
    max-width: 977px;
     margin-bottom:1rem;
+    margin-top:20px;
+    border:1px solid gray;
    
     
 }
@@ -111,49 +113,43 @@ overflow: hidden;
     letter-spacing: .05rem;
     text-transform: uppercase;
     background-color:#BFCED5;
-    border-left: 3px solid #6A6778;
+   
 
 }
 .event-cart-content-cont { 
   padding-bottom: 1rem;
-  border-top:1px solid lightgray;
+  border-top:1px solid gray;
   
 }
 .edit-page-edit {
     padding:1rem;
     flex-basis: 50%;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid gray;
   
   
+}
+.cart-preview-inner {
+    margin: 0 auto;
+   position: relative;
+   display: block;
+   width:280px;
 }
 .preview-cart {
     font-size: 1.2rem;
     text-align: center;
+    margin: 0 auto;
     margin-bottom:1rem;
-    border-bottom:1px solid lightgray;
+    border-bottom:1px solid gray;
+    padding-top:1rem;
     padding-bottom:1rem;
 }
 .admin-page-form {
     padding:.5rem;
     
 }
-.Userintro {
-    
-    margin-top:50px;
-    min-height:50px;
-    padding: .5rem;
-    border:1px solid lightgray;
-    max-width:977px;
-    margin: 0 auto;
-    margin-top: 3rem;
-    margin-bottom:2rem;
-}
-.Userintro li {
-    list-style: none;
-}
 
 .admin-edit-page-cart { 
-    flex-basis: 48%;
+    flex-basis: 50%;
    
    
 }

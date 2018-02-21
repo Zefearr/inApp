@@ -1,17 +1,26 @@
 
 <!-- <div [@divState]="state" style="width: 100px; height: 100px"></div> -->
-<div class="event-cart" [@cartState]="state">
+<div class="event-cart" [routerLink]="['/products/', product.$key]">
     <div class="event-cart-img-cont">
-      <p class="event-cart-close-x" (click)="expandContent()" >X</p> 
-      <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> 
+      <div class="event-cart-description">
+          <p class="event-cart-desc-content"> {{ product.desc }} </p> 
+          <p class="event-cart-desc-content"> <i class="fa fa-marker"></i> место проведения: {{ product.location }} </p> 
+          <p class="event-cart-desc-content">  {{ product.date }} </p> 
+      </div> 
+     
+      <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl" > 
+      </div>
     
         <div class="event-cart-content-cont"> 
             <h3 class="event-cart-title"> {{ product.title }} </h3> 
-            <h4 class="event-cart-date-title" *ngIf="product.date"><i class="fa fa-calendar"></i>{{ product.date }}</h4>
+           
+            <a class="btn-register"
+            [routerLink]="['/products/', product.$key]"> <i class="fa fa-angle-double-right"></i> </a>
+            <!-- <h4 class="event-cart-date-title" *ngIf="product.date"><i class="fa fa-calendar"></i>{{ product.date }}</h4> -->
             <!-- <p  *ngIf="product.price" class="event-cart-price"><i class="fa fa-eur"></i>{{ product.price }}</p> 
             <p  *ngIf="product.location" class="event-cart-location"><i class="fa fa-map-marker"></i>{{ product.location }}</p>  -->
            
-            <div *ngIf="product.desc"  class="event-cart-desc"><p> {{ product.desc }} </p>  </div>  
+            <!-- <div *ngIf="product.desc"  class="event-cart-desc"><p> {{ product.desc }} </p>  </div>   -->
             <!-- <p class="event-cart-category" *ngIf="product.category"> <i class="fa fa-tag"></i> {{ product.category }}</p> -->
            
             </div>
@@ -19,25 +28,16 @@
   
           
            
-            <div class="btn-cont"  *ngIf="showActions">
-                <!-- <button
-                
+            <!-- <div class="btn-cont"  *ngIf="showActions">
+                <button
                  (click)="addToCart(product)"
-                  class="btn-register">Зарегистрироваться</button>  -->
-                  
-              
-                <a class="btn-register"
-                [routerLink]="['/products/', product.$key]">Register</a>
-               
-                  <!-- <button
-                  (click)="removeFromCart(product)" class="btn-unregister">Убрать</button>  -->
-               
-                
-                
-          </div>  
+                  class="btn-register">Зарегистрироваться</button> 
+                  <button
+                  (click)="removeFromCart(product)" class="btn-unregister">Убрать</button> 
+          </div>   -->
          
         
-        </div>
+        
 
         
 

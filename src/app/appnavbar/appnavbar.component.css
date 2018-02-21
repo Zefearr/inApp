@@ -12,13 +12,7 @@
   cursor: pointer;
 }
 
-.main-banner {
-  width:100%;
-  height:150px;
-  border:1px solid black;
-  margin-top:5rem;
 
-}
 .container-inapp {
   max-width:977px;
   margin: 0 auto;
@@ -28,16 +22,18 @@
 
 .appheader {
   width:100%;
-  background-color:#313233;
+  height: 50px;
+  background-color:#333638;
   /* background: url('navback.jpg'); */
   position: absolute;
   top:0;
   margin:0;
   padding:0;
-  z-index: 9999;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  z-index: 9999; 
+  /* border-bottom: 1px solid #111;  */
+   /* -webkit-box-shadow: 0px 0px 5px 0px rgba(73, 73, 73, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(73, 73, 73, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(73, 73, 73, 0.75); */
   
 
 
@@ -50,12 +46,24 @@ box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   padding:0;
  
 }
+.nav-icon {
+  display: inline-block;
+  width:17px;
+  height: 17px;
+
+}
+.exit {
+  background: url('exit.png');
+  background-size: cover;
+}
 
 .main-navigation i {
   display:block;
-  color:#fff;
-  font-size: .6rem;
-  float: left;
+  color:#111;
+  font-size: 1rem;
+  text-align: left;
+  display: inline-block;
+ 
   
  
 }
@@ -67,6 +75,9 @@ margin-right: 1px;
 .main-navigation li:last-child {
   margin: 0;
 }
+/* .main-navigation li:first-child {
+  border-left: 1px solid #5a5c5f;
+} */
 .appheader-brand {
   float: left;
   transform: translateY(10%);
@@ -90,22 +101,27 @@ margin-right: 1px;
 .quit {
   cursor: pointer;
 }
-
+.main-navigation a:hover {
+   background-color:rgb(93, 95, 97); 
+   
+}
 .main-navigation  a {
-  color:#fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
- padding-top: .9rem;
- padding-bottom: .9rem;
- 
-  display: block;
-  width:162px;
-  text-align: center;
-  font-weight: 300; 
+  color:rgb(214, 213, 213);
   
+  font-size: .7rem;
+padding-top:18px;
+ text-transform: uppercase;
+  display: block;
+  width:120px;
+  height: 50px;
+  letter-spacing: .05rem;
+  text-align: center;
+  font-weight: 600; 
+  /* background-color:#E1E4E8; */
   text-decoration: none;
  box-shadow: none;
-  border-right: 2px solid rgb(127, 131, 141); 
+  /* border-right: 1px solid rgb(245, 249, 255);
+  border-bottom: 1px solid gray; */
  /* text-shadow: 1px 0px rgb(47, 49, 53); */
  
 
@@ -130,9 +146,11 @@ margin-right: 1px;
   position: relative;
   padding:0;
   margin:0;
+ 
   max-width: 490px;
   text-align: right;
   display: block;
-  background-color: rgb(37, 39, 47);
+  /* background-color: rgb(116, 118, 119); */
+  
   
 }

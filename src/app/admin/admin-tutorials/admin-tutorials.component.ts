@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../../content.service';
 
 @Component({
   selector: 'app-admin-tutorials',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-tutorials.component.css']
 })
 export class AdminTutorialsComponent implements OnInit {
-
-  constructor() { }
-
+content$;
+  constructor(private contentService: ContentService ) {
+    this.content$ = this.contentService.getAllContent();
+   }
+ 
   ngOnInit() {
   }
 

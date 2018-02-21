@@ -4,7 +4,7 @@ import { AdminOrdersComponent } from './admin-orders.component';
 
 describe('AdminOrdersComponent', () => {
   let component: AdminOrdersComponent;
-  let fixture: ComponentFixture<AdminOrdersComponent>;
+  let fixture: ComponentFixture<AdminOrdersComponent>; 
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

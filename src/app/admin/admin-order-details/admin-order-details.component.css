@@ -1,0 +1,32 @@
+.order-detail-container {
+    max-width: 977px;
+    margin:0 auto;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:10px;
+    background-color:#fff;
+}
+.order-detail-info {
+    
+    margin: 0;
+    padding:0;
+    text-align: left;
+}
+.order-detail-info li i {
+   
+    color:#fff;
+    margin-right: 20px;
+}
+.order-detail-info li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  
+    margin-top:3px;
+}
+span {
+    display: inline-block;
+    margin-right: 10px;
+}

@@ -4,6 +4,9 @@
     border:1x solid lightgray;
     background-color:#fff;
     min-height: 50vh;
+    margin-top:20px;
+    margin-bottom:20px; 
+    padding:10px;
 }
 .newtutor {
     background-color:rgb(7, 49, 102);

@@ -1,60 +1,46 @@
 
  <header class="appheader">
   <div class="container-inapp">
-      <!-- <div class="adminpanel" *ngIf="appUser" >
-        <ng-container *ngIf="appUser.isAdmin">
-          <a  routerLink="/admin/orders">редзаказы</a>
-          <a  routerLink="/admin/products">редпродукты</a>
-        </ng-container>
-          <p class="userinfo">{{appUser.name}}</p>
-          <p class="userinfo">{{appUser.email}}</p>
-        </div>   -->
+    
     <a class="appheader-brand" routerLink="/">in<strong>Dev</strong></a>
 <nav class="header-nav"> 
   
   <ul class="main-navigation"> 
-      <li><a routerLink="/tutorials">Tutorials</a></li>
+      <li>  <a routerLink="/tutorials">Tutorials</a></li>
    
     
    
      
       <!-- <li><a routerLink="/signup">Регистрация</a></li>
       <li> <a  routerLink="/login">Войти</a></li>   -->
-    <ng-container *ngIf="!appUser">
-        <li><a routerLink="/signup">Регистрация</a></li>
-       <li> <a  routerLink="/login">Войти</a></li>     
+    <ng-container *ngIf="!appUser"> 
+      
+       <li> <a  routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Войти</a></li>     
     </ng-container> 
      
      
      
-      <!-- <li *ngIf="appUser"  ngbDropdown class="dropdown">
-        <a *ngIf="appUser.isAdmin"  ngbDropdownToggle class="dropdown-toggle"> 
-   admin
-        </a> 
-      <ul ngbDropdownMenu class="main-nav-dropdown">
-        <li *ngIf="appUser.isAdmin">   <a routerLink="/admin/orders">  clients</a></li>
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">events </a></li> 
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">news </a></li> 
-      </ul>
-    </li> -->
+     
+       
     <li *ngIf="appUser">
-        <a *ngIf="appUser.isAdmin" class="admin-menu-toggle"> 
+       
+        <a *ngIf="appUser.isAdmin" routerLink="admin/controls"> 
+          <span> <i class="fa fa-sun"></i> </span>
+          
    admin
         </a> 
       <ul class="admin-dropdown">
-        <li *ngIf="appUser.isAdmin">   <a routerLink="/admin/orders">  clients</a></li>
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/products">events </a></li> 
-        <li *ngIf="appUser.isAdmin"><a routerLink="/admin/tutorials">news </a></li> 
+       
       </ul>
     </li>
     
     
     <!-- <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.id }}</a></li>   -->
-    <li *ngIf="appUser"><a (click)="logout()" class="quit">Quit</a></li> 
+    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>  
    
    
   </ul>
 </nav>
-</div>
-<div class="arrow"></div>
+</div> 
+
 </header>

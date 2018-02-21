@@ -1,7 +1,7 @@
 
 
 .inapp-cont {
-    /* max-width:1160px; */  
+    /* max-width:1160px; */   
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -10,7 +10,7 @@
    padding-top:45px;
    
    
-   background-color:rgb(186, 206, 219);
+   background-color:#F4F4F4;
    /* background: url('images/bgpost.png');  */
    
    
@@ -21,3 +21,19 @@
 .inapp-cont>* {
     display: block;
 }
+
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: none;
+    border:1px solid #aaa;
+    border-radius: 0 0 0 0;
+    opacity:1;
+    cursor: pointer;
+  }
+  .swiper-pagination-bullet-active {
+    background: #007aff;
+    border-color: #007aff;
+  }
+  

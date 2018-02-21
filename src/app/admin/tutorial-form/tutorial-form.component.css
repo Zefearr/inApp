@@ -4,4 +4,18 @@
     border:1x solid lightgray;
     background-color:#fff;
     min-height: 50vh;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:10px;
+    position: relative;
+}
+.form-main-content {
+    min-height: 400px;
+}
+.content-image-prev {
+    max-width: 977px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    
 }

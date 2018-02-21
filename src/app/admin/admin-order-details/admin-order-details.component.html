@@ -1,0 +1,16 @@
+<div class="order-detail-container">
+<div *ngIf="orders"> 
+  <div class="order-heading">
+    <h3 class="order-course-heading"><span>Регистрация на:</span>{{ orders.title }}</h3>
+    <h4 class="order-date-created"><span>Время создания:</span> {{ orders.datePlaced }}</h4> 
+  </div>
+  <ul class="order-detail-info">
+   
+    <li><span><i class="fa fa-user"></i></span>  {{ orders.order.name }} </li>
+    <li><span><i class="fa fa-at"></i></span>{{ orders.order.email }}</li>
+    <li><span><i class="fa fa-mobile"></i></span>{{ orders.order.mobile }}</li>
+    <li><span><i class="fa fa-map-marker"></i></span>{{ orders.order.city }}</li>
+  </ul>
+  
+</div>
+</div>

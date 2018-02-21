@@ -12,6 +12,8 @@ import { async } from '@angular/core/testing';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription'; 
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { OrderService } from '../order.service';
+import { ContentService } from '../content.service';
 
 
 
@@ -24,45 +26,10 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
  
 export class SlideComponent {
   
-
-  
-
-
-  productService: any;
-  products: Product[] = [];
-  filteredProducts: Product[] = [];
-  categories$;
-  category: string;
-  cart: any;
-  subscription: Subscription;
-   
-  constructor(
-    route: ActivatedRoute,
-    productService: ProductService,
-    categoryService: CategoryService) {
-  
-    productService
-     .getAll()
-     .switchMap(products => {
-      this.products = products;
-      return route.queryParamMap;
-
-      }).subscribe(params => {
-        this.category = params.get('category');
-        this.filteredProducts = (this.category) ?
-        this.products.filter(p => p.category == this.category) : 
-        this.products;
-      });
-
-     
-   
-    this.categories$ = categoryService.getCategories(); 
-
-   
- 
+  content$;
+  constructor(contentService: ContentService) { 
+   this.content$ =  contentService.getAllContent();
    }
-    
-
   
 
 }

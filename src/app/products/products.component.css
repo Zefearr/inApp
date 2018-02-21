@@ -2,18 +2,19 @@
 .main-cont {
     max-width: 977px;
     margin: 0 auto;
-    padding-top:20px;
     display: flex;
+   
    
    
 }
 .cards-cont {
    
-    border:1px solid lightgray;
-    background-color:#fff;
-    border-radius: 3px;
-    padding-top:20px;
-    margin-bottom: 50px;
+    width: 977px; 
+    background-color:#F4F4F4;
+   
+    padding-top:10px;
+   overflow: hidden;
+    margin-bottom: 50px; 
    
     
 }
@@ -21,13 +22,22 @@
     margin:0;
     padding:0;
 }
+.inner-nav {
+    max-width:977px;
+    margin:0 auto;
+}
 
 .nav-cont {
     
     position: relative;
-    max-width: 977px;
+   
     margin: 0 auto;
-    margin-top:50px;
+  
+    background-color:#fff;
+    padding-top:10px;
+    padding-bottom:10px;
+    
+    
     
    
 }
@@ -37,31 +47,47 @@
 }
 .nav-cont ul li {
     display: inline;
-    padding:.5rem 1.5rem;
+    padding:.1rem 1.5rem;
     cursor: pointer;
-    background-color:#555;
-    color:#fff;
-    margin-right: 1rem;
-    border-radius: 5px;
-    font-weight: 600;
+    
+    
+   
+   
+    font-weight: 400;
+}
+
+.col-4 {
+    padding-bottom:30px;
 }
 .nav-cont a {
     cursor: pointer;
+    font-size: .9rem;
+    text-transform: uppercase;
 }
-
-.row {
-    margin:0;
+.active2 {
+  border:1px solid gray;
+   
+    color:#222;
+    
   
     
 }
-.col-md-6 {
-    margin-left: 0;
+
+
+
+.row-flex {
+    display: flex;
+    width:977px;
+    overflow: hidden;
+    align-content: space-between;
+    margin: auto;
+
 }
 
-
-
-
-
+.col-no-p {
+    padding: 0;
+    margin: auto;
+}
 
 
 

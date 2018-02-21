@@ -3,5 +3,6 @@ export interface AppUser {
     isAdmin: boolean; 
     email: string;
     userid: string;
+    uid: string;
    
 }

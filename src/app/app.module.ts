@@ -2,7 +2,6 @@ import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'; 
 import { AngularFireModule } from 'angularfire2';
-
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RouterModule } from '@angular/router';
@@ -36,55 +35,56 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component'; 
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
-
+import { CountdownModule } from 'ngx-countdown';
 import { DateComponent } from './date/date.component';
 import { SlicePipe } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostComponent } from './post/post.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
-import { AuthService2 } from './auth/auth.service'; 
-import { SinglepostComponent } from './singlepost/singlepost.component';
+import { SigninComponent } from './auth/signin/signin.component'; 
 import { OrderService } from './order.service';
 import { SlideComponent } from './slide/slide.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { AdminTutorialsComponent } from './admin/admin-tutorials/admin-tutorials.component';
 import { TutorialFormComponent } from './admin/tutorial-form/tutorial-form.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { DataTableModule } from 'angular5-data-table';   
+import { RecaptchaModule } from 'ng-recaptcha'; 
+import { CountdownComponent } from './countdown/countdown.component';
+import { AdminOrderDetailsComponent } from './admin/admin-order-details/admin-order-details.component';
+import { AuthService2 } from './auth/auth.service';
+import { ContentFormComponent } from './admin/content-form/content-form.component';
+import { ContentService } from './content.service'; 
 
 
 
-const SWIPER_CONFIG: SwiperConfigInterface = {
-  direction: 'horizontal',
-  effect: 'cube',
- 
+
+const SWIPER_CONFIG: SwiperConfigInterface = { 
   
-  autoplay: 8000,
+  direction: 'horizontal',
+ 
+  slidesPerView: '2',
+  spaceBetween: 30,
+  autoplay: 5000,
+ 
   observer: true,
+ 
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  // pagination: '.custompag', 
-  // paginationClickable: true,
- 
+  paginationClickable: true, 
+  pagination: '.swiper-pag',
+  // cube: {
+  //   shadow: false,
+  //   slideShadows: false,
+  //   shadowOffset: 20,
+  //   shadowScale: 0.94
+  // }
  
 
-   
-  
-
-  
-  
-  
-  
-   
-    
-   
-
- 
-  
- 
- 
 };
 
+ 
 
 @NgModule({ 
   declarations: [
@@ -105,18 +105,25 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     PostComponent,
     SignupComponent,
     SigninComponent,
-    SinglepostComponent,
     SlideComponent,
     TutorialsComponent,
     AdminTutorialsComponent,
     TutorialFormComponent,
+    AdminpanelComponent,
+    CountdownComponent,
+    AdminOrderDetailsComponent,
+    ContentFormComponent,
+   
    
   ],
   imports: [ 
-    BrowserAnimationsModule,  
+    DataTableModule, 
+    CountdownModule,
+    BrowserAnimationsModule,   
     BrowserModule,
     FormsModule, 
     CustomFormsModule,
+    RecaptchaModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),     
     AngularFireDatabaseModule, 
     AngularFireAuthModule,
@@ -126,14 +133,13 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: '', component: ProductsComponent, data: { depth: 1} },
       { path: 'tutorials', component: TutorialsComponent, data: { depth: 2} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
-      { path: 'products', component: ProductsComponent },
-      { path: 'posts', component: PostComponent },
+      { path: 'products', component: ProductsComponent }, 
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent }, 
-      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+      { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}},
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
-      { path: 'products/:id', component: PostComponent, data: { depth: 2}
+      { path: 'products/:id', component: PostComponent, data: { depth: 2} 
       }, 
       { path: 'admin/tutorials',
        component: AdminTutorialsComponent,
@@ -149,10 +155,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       }, 
-      { path: 'admin/tutorials/:id', 
+      { path: 'admin/tutorials/:id',  
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
-      }, 
+      },
+     
 
       { path: 'admin/products/:id',
       component: ProductFormComponent,
@@ -163,12 +170,20 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
      component: AdminProductsComponent, data: { depth: 2},
       canActivate: [AuthGuard, AdminAuthGuardService] 
       },
+      { path: 'admin/controls',
+     component: AdminpanelComponent, data: { depth: 1},
+      canActivate: [AuthGuard, AdminAuthGuardService] 
+      },
 
       { path: 'admin/orders',
        component: AdminOrdersComponent,
        canActivate: [AuthGuard, AdminAuthGuardService] 
+      },
+      { path: 'admin/orders/:id',
+       component: AdminOrderDetailsComponent,
+       canActivate: [AuthGuard, AdminAuthGuardService] 
       }    
-    ])
+    ]) 
 
 
 
@@ -181,12 +196,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AdminAuthGuardService,
     CategoryService,
     ProductService,
-    OrderService, 
-
-    
-   
-   
+    OrderService,
+    ContentService
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent] 
+
 })
 export class AppModule { }  

@@ -2,25 +2,31 @@
  
 
     <div class="swipercube-cont">
-  <div class="swiper-container" [swiper]="config">   
-      <div class="swiper-wrapper">
+  <div class="swiper-container" [swiper]="config" [(index)]="index"> 
+   
+      <div class="swiper-wrapper">  
       
   
       
            
-              <div class="swiper-slide" *ngFor="let p of products">
-                  <!-- <img [src]="p.imageUrl" class="fimage"  *ngIf="p.imageUrl">  -->
-                  <p> {{ p.title }} </p>
+              <div class="swiper-slide" *ngFor="let p of content$ | async">
+                  <!-- <img [src]="p.content.contentimageUrl" alt=""> -->
+                  <div class="slide-innercontent">
+                  <h5> {{ p.title }} </h5>
+                  <button class="btn btn-primary">Open</button>
+                </div>
+                  
                   </div> 
                  
          
       </div>
-
-   
-      <!-- <div class="swiper-pag"></div> -->
-     
-      <!-- Add Arrows -->
+    
+      
+      
+      <div class="swiper-pag"></div> 
+      
     <div class="btns-cont">
+        
       <div class="swiper-button-next customnext"></div>
       <div class="swiper-button-prev customprev"></div>
     </div>

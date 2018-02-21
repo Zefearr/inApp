@@ -2,13 +2,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600";
-@import 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css';
+@import 'swiper.min.css';
+
 
 body {
-    
+   
     /* background: url('images/bg2.png');  */
     background-color:#56646E;
     background-attachment: fixed;  
     font-family: 'Open Sans', sans-serif;
   
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
 }

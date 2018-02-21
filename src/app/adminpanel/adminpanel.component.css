@@ -1,0 +1,67 @@
+.panelcont {
+    max-width:977px;
+    margin:0 auto;
+    margin-top:25px;
+    margin-bottom:25px;
+    background-color:#fff;
+    border:1px solid lightgray;
+    min-height:80vh;
+    border-radius: 5px;
+    
+}
+.admin-settings-list i {
+    font-size:1rem;
+    color:#111;
+    transform: translateX(-30%);
+}
+.admin-settings-list {
+    list-style: none;
+    margin:0;
+    padding:0;
+    float: left;
+    margin-left: 25px;
+    margin-top:25px;
+   
+    
+    
+}
+.user {
+    font-size: 1.1rem;
+}
+
+.admin-settings-list li a {
+    color:#111;
+    font-size:1.1rem;
+    font-weight: 600;
+    padding: .5rem 1.5rem;
+   
+  
+}
+.admin-settings-list li a:hover {
+    text-decoration: none;
+    color:gray;
+}
+span {
+    margin-right: 10px;
+}
+.admin-settings-list li {
+    color:#111;
+    margin-bottom: .2rem;
+}
+.admin-panel-title {
+    text-align: center;
+    padding-top:1rem;
+    border-bottom:1px solid lightgray;
+    padding-bottom: 1rem;
+}
+.admininfo {
+ 
+ position: absolute;
+ padding-left: 5px;
+ transform: translateY(30%) translateX(10%);
+}
+.admininfo p {
+    margin:0;
+    padding:0;
+    font-size:.8rem;
+}

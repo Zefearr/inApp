@@ -13,7 +13,7 @@ p {
     border-top: 1px solid lightgray;
     padding-top:20px;
     border-bottom: 1px solid lightgray;
-    padding-bottom: 20px;
+    padding: 10px;
     background-color:#fff;
  
   
@@ -28,9 +28,8 @@ p {
 .single-event-full-content {
     margin:0;
     padding:0;
-   
-    font-size: 1rem;
-    font-style: italic;
+    font-size: .9rem;
+    
 }
 .single-event-title {
     font-size: 1.2rem;

@@ -5,10 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/product';
 import 'rxjs/add/operator/switchmap';
 import { DatePipe } from '@angular/common';
-
 import { async } from '@angular/core/testing';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription';
+
 
 
 
@@ -21,12 +21,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ProductsComponent  { 
   productService: any;
-  products: Product[] = [];
   filteredProducts: Product[] = [];
   categories$;
   category: string;
   cart: any;
+  products;
   subscription: Subscription;
+ 
 
 
 
@@ -44,7 +45,7 @@ export class ProductsComponent  {
       }).subscribe(params => {
         this.category = params.get('category');
         this.filteredProducts = (this.category) ?
-        this.products.filter(p => p.category == this.category) : 
+        this.products.filter(p => p.category == this.category) :  
         this.products;
       });
 

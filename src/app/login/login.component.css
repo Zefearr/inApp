@@ -22,8 +22,17 @@ h5 {
 
 .container {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   background-color:#fefefe;
-  max-width:500px;
+  max-width:377px;
   border-radius: 3px;
-  padding-bottom: 2rem;
+  padding:10px;
+  text-align: center;
+}
+.loginscreen-title {
+  text-align: center;
+  font-size: 1rem;
+  margin:0;
+  padding:0;
+  
 }

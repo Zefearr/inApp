@@ -1,4 +1,22 @@
 <div class="cont">
- <a class="newtutor" routerLink="/admin/tutorials/new">New tutor</a> 
+ <button class="btn btn-primary" routerLink="/admin/tutorials/new">New tutor</button> 
+ 
+ <hr>
+ <table class="table">
+     <thead>
+         <tr>
+             <th>Title</th>
+             <th>DateCreated</th>
+             <th></th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor="let p of content$ | async">
+             <td> {{ p.title }} </td> 
+             <!-- <td> {{ p.timeSent }} </td> -->
+             <td> <a [routerLink]="['/admin/tutorials', p.$key]"> edit</a> </td>
+         </tr>
+     </tbody>
+ </table>
 
 </div>

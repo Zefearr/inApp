@@ -1,33 +1,81 @@
-<div class="check-out-cont">
-  <h5 class="register">Регистрируйся</h5>
-<form #f="ngForm"> 
+<div class="check-out-cont" >
+   
+  <button (click)="expandContent()"  class="register">Регистрируйся</button> 
+  <div class="check-out-cont-inner" [@regState]="State"> 
+    
+      
+    <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте</p> </ng-template>
+  <ng-container *ngIf="appUser; else anonymousUser">
+ <form #f="ngForm" >  
+
     <div class="form-group">
-      <label for="name">Имя</label>
-      <input #name="ngModel" [(ngModel)]="order.name"  name="name" id="name" type="text" class="form-control"> 
+
+      <label for="name">*Имя</label>
+
+        <div class="input-group">
+        <input #name="ngModel" [(ngModel)]="order.name"  name="name" id="name" type="text" class="form-control" required>
+        </div>
+            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                      <div *ngIf="name.errors.required">Необходимо ввести имя</div>
+            </div> 
       
     </div>
      
 
     <div class="form-group">
-        <label for="email">E-mail</label>
-        <div class="input-group">
-        
-        <input  #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control"> 
+
+        <label for="email">*E-mail</label>
+
+        <div class="input-group"> 
+        <input #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control" required> 
         </div>
+          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+              Необходимо ввести email
+          </div> 
+
         
           </div>
+          <div class="form-group">
+              <label for="mobile">*Номер телефона</label> 
+              <div class="input-group">
+              
+              <input #mobile="ngModel" [(ngModel)]="order.mobile"  name="mobile" id="mobile" type="number" class="form-control" required>
+              </div>
+              <div class="alert alert-danger" *ngIf="mobile.touched && mobile.invalid">
+                  Необходимо ввести номер телефона
+              </div> 
+              
+                </div>
 
     <div class="form-group">
         <label for="city">Город</label>
         <div class="input-group">
         
-        <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control">
+        <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control" required>
         </div>
         
           </div>
          
-          <button class="send" (click)="placeOrder()">Отправить</button>
-        </form>
-       
+          <button class="btn btn-primary" (click)="placeOrder()" [disabled]="!f.valid">Отправить</button>   
+        </form> 
+      </ng-container>
+
+        <!-- <re-captcha (resolved)="resolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha> -->
+
+
+
+
+
+        
+          
+
+
+
+
+
+
       </div>
-      <p> {{ order.eventid }} </p>
+      
+      
+      </div>
+     
