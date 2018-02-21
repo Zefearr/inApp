@@ -8,7 +8,7 @@ import { Product } from '../../models/product';
 import { AuthService } from '../../auth.service';
 import { DatePipe } from '@angular/common';
 
-let title: Array<any>;
+
 
 @Component({
   selector: 'app-product-form',
@@ -17,11 +17,11 @@ let title: Array<any>;
 })
 export class ProductFormComponent {  
  categories$;
- product = {}; 
+ product = {};  
  id;
- 
- 
 
+
+ 
 
 
   constructor(
