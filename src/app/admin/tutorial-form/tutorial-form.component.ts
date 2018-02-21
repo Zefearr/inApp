@@ -12,7 +12,8 @@ import 'rxjs/add/operator/take';
 export class TutorialFormComponent implements OnInit {
 
   contentcategories$;
-  content = {}; 
+  content = {};
+  
 
   constructor(
         private route: ActivatedRoute,

@@ -25,7 +25,7 @@ import { ContentService } from '../content.service';
 })
  
 export class SlideComponent {
-  
+  config;
   content$;
   constructor(contentService: ContentService) { 
    this.content$ =  contentService.getAllContent();

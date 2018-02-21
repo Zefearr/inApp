@@ -131,9 +131,9 @@ overflow: hidden;
 .cart-preview-inner {
     margin: 0 auto;
    position: relative;
-   display: block;
+   display: block; 
    width:280px;
-}
+} 
 .preview-cart {
     font-size: 1.2rem;
     text-align: center;

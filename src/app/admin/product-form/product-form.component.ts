@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from '../../category.service';
 import { ProductService } from '../../product.service'; 
 import { Router } from '@angular/router';  
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
-
+import { Product } from '../../models/product';   
 import { AuthService } from '../../auth.service';
 import { DatePipe } from '@angular/common';
 
-
+let title: Array<any>;
 
 @Component({
   selector: 'app-product-form',
@@ -19,11 +19,10 @@ export class ProductFormComponent {
  categories$;
  product = {}; 
  id;
- date = new Date();
-
+ 
  
 
- 
+
 
   constructor(
     private router: Router, 
@@ -31,6 +30,7 @@ export class ProductFormComponent {
     private categoryService: CategoryService,
     private auth: AuthService,
     private productService: ProductService) { 
+      
     this.categories$ = categoryService.getCategories(); 
     
     
@@ -48,7 +48,7 @@ export class ProductFormComponent {
   else this.productService.create(product);
   
        
-  this.router.navigate(['/admin/products']);
+  this.router.navigate(['/admin/products']); 
   }
   delete() {
     if(confirm('Точно удалить?')) {
@@ -56,8 +56,8 @@ export class ProductFormComponent {
       this.router.navigate(['/admin/products']);
       
     }
-  }
-
+  } 
+ 
  
  
 

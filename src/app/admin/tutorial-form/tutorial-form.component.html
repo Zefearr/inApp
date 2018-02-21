@@ -1,11 +1,11 @@
 <div class="cont">
   
-    <form #f="ngForm" (ngSubmit)="save(f.value)"> 
+    <form #f="ngForm" (ngSubmit)="save(f.value)">  
 
         <div class="form-group"> 
             <label for="title"> Content-title </label>
-                <input #title="ngModel" [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control" required>  
-           <!-- <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Введите название</div> -->
+                <input #title="ngModel" [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control" required>    
+           <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Введите название</div> 
         </div>
 
         <div class="form-group"> 
@@ -22,10 +22,10 @@
 
         <div class="form-group">
                 <label for="imageUrl">content-imageUrl </label> 
-                    <input #imageUrl="ngModel" ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" required>
+                    <input #imageUrl="ngModel" ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" required> 
                     <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Добавьте URL изображения</div> 
             </div>
-            <!-- <img [src]="content.imageUrl" class="content-image-prev" alt="" *ngIf="content.imageUrl">      -->
+            <img [src]="imageUrl.value" class="content-image-prev" alt="" *ngIf="imageUrl">      
 
 
             <div class="form-group">   

@@ -6,5 +6,9 @@ export interface Product {
     imageUrl: string;
     uid: string;
     itemId:string;
+    desc: string;
+    location: string;
+    date: string;
+    content: string; 
    
 }

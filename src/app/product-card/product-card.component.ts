@@ -14,12 +14,10 @@ import { ProductService } from '../product.service';
 }) 
 
 export class ProductCardComponent {
-state = 'on';
-
-
+state = 'on'; 
 cart$;
-id;
-shoppingCartItemCount:number;
+id; 
+
 @Input('product') product: Product; 
 @Input('show-actions') showActions = true;
 @Input('shopping-cart') shoppingCart;
