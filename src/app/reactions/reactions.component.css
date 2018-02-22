@@ -1,0 +1,25 @@
+.class {
+    color:red;
+}
+.upvote {
+    display: block;
+}
+span  {
+    color:gray;
+    transition: 1s ease;
+    font-size: .8rem;
+    margin-right: 5px;
+}
+.liked {
+    color: rgb(189, 58, 87);
+    transition: 1s ease;
+}
+.emojis {
+    top:0;
+    right: 40px;
+    position: absolute;
+    transform: translateY(-25%);
+}
+.reaction-counts {
+    float: right;
+}

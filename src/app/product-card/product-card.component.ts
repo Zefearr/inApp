@@ -3,9 +3,12 @@ import { Product } from './../models/product';
 
 
 
+
 import { Router } from '@angular/router';  
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
+import { User } from 'firebase';
 
 @Component({
   selector: 'app-product-card',
@@ -17,6 +20,9 @@ export class ProductCardComponent {
 state = 'on'; 
 cart$;
 id; 
+
+
+
 
 @Input('product') product: Product; 
 @Input('show-actions') showActions = true;

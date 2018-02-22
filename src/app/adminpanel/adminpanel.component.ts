@@ -11,22 +11,20 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdminpanelComponent implements OnInit {
 
-  appUser: AppUser; 
+
 
   
 
-  constructor(private auth: AuthService) { 
+  constructor() { 
     
     // auth.appUser$.subscribe(x => console.log(x));   
       
   }
-  async ngOnInit() {
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 
+  ngOnInit() { 
+  
 
   }
 
-  logout() {
-    this.auth.logout();  
-  }
+ 
 
 }

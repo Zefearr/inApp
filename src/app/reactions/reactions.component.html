@@ -1,0 +1,34 @@
+
+  <!-- <span (click)="upvote()"><i class="fa fa-arrow-up upvote"></i> </span> 
+  <a (click)="upvote()">asd</a>  
+  <a (click)="downvote()">asd</a>  
+  <span>{{ voteCount }}</span>
+  <span (click)="downvote()"><i class="fa fa-arrow-up upvote"></i> </span>  
+  <span class="fa fa-arrow-down vote down" (click)="downvote()" [ngClass]="{'active' : userVote < 0 }" > </span>  -->
+
+  <div class="emojis"> 
+
+    <!-- <span *ngFor="let emoji of emojiList; index as i;">
+      <img [src]="emojiPath(emoji)" alt="" width='75px' (click)="react(i)">
+    </span> -->
+   
+
+    <span class="like" (click)="react(0)" [class.liked]="userReaction != null">    
+      <i class="fa fa-heart"></i>
+    </span>
+    <div class="reaction-counts" *ngFor="let emoji of emojiList; index as i;">
+        <span *ngIf="hasReactions(i)">
+            {{ reactionCount[i] }} 
+          </span>
+    </div>
+    
+    <!-- <span *ngIf="userReaction != null">
+
+      <strong> {{ emojiList.userReaction }} </strong> 
+
+    </span> -->
+
+    
+
+  </div>
+ 

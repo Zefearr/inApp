@@ -128,6 +128,10 @@ overflow: hidden;
   
   
 }
+.date {
+    max-width: 50%;
+    float: left;
+}
 .cart-preview-inner {
     margin: 0 auto;
    position: relative;

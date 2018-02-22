@@ -73,6 +73,13 @@ itemCount: number;
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+  delete() {
+    if(confirm('Точно удалить?')) {
+      this.productService.delete(this.id);
+     
+      
+    }
+  } 
  
 
 }

@@ -26,6 +26,9 @@
     margin-bottom:50px;
 
 }
+.tabletitle th {
+    min-width: 500px;
+}
 .form-search-input {
     width:100%;
     margin-top:10px;

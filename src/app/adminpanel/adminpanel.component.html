@@ -1,14 +1,11 @@
 
-  <div *ngIf="appUser" class="panelcont">
-      <div class="admininfo">
-          <p>{{ appUser.name }}</p>
-          <p>{{ appUser.email }}  </p>
-        </div>
+  <div class="panelcont">
+     
     <h3 class="admin-panel-title">  <i class="fa fa-edit"></i> Manage IndevApp </h3>
-    <ul *ngIf="appUser.isAdmin" class="admin-settings-list">
-      <li>  <a routerLink="/admin/orders"> <span><i class="fa fa-user user"></i> </span> Клиенты</a></li> 
-      <li> <a routerLink="/admin/products"> <span><i class="fa fa-calendar-alt"></i></span> События</a></li>
-      <li> <a routerLink="/admin/tutorials"> <span><i class="fa fa-newspaper"></i></span>  Новости</a></li>
+    <ul  class="admin-settings-list">
+      <li>  <a routerLink="/admin/orders">  Клиенты</a></li> 
+      <li> <a routerLink="/admin/products">  События</a></li>
+      <li> <a routerLink="/admin/tutorials">   Новости</a></li>
     </ul>
        
       </div>

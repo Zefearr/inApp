@@ -12,12 +12,17 @@
     width: 977px; 
     background-color:#F4F4F4;
    
-    padding-top:10px;
+    padding-top:35px;
    overflow: hidden;
     margin-bottom: 50px; 
    
     
 }
+
+.col-f {
+    margin-bottom: 2rem; 
+}
+
 .category_list {
     margin:0;
     padding:0;
@@ -26,20 +31,17 @@
     max-width:977px;
     margin:0 auto;
 }
+@media(max-width: 360px) {
+   
+}
 
 .nav-cont {
-    
     position: relative;
-   
     margin: 0 auto;
-  
     background-color:#fff;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top:20px;
+    padding-bottom:20px;
     
-    
-    
-   
 }
 .nav-cont ul {
     list-style: none;
@@ -58,6 +60,7 @@
 
 .col-4 {
     padding-bottom:30px;
+  
 }
 .nav-cont a {
     cursor: pointer;

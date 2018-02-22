@@ -4,19 +4,28 @@
     <ng-container *ngIf="product">  
 <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl">
 <div class="single-event-fullcontent">  
- <h2 class="single-event-title"> {{ product.title }} </h2>
- <p *ngIf="product.price" class="single-event-full-content"> {{ product.category }} </p>
- <h2 class="single-event-title"> {{ product.price }} </h2>
- <p class="single-event-full-content"> {{ product.location }} </p>
- <h5 class="single-event-date"> {{ product.date }} </h5>
+ <h2 class="single-event-title" > {{ product.title }} </h2>
+
+<div class="info-block">
+
+        <div class="info-block-price">
+                <a href="#" class="single-event-price" *ngIf="product.price"> <span class="fa fa-euro-sign"></span> {{ product.price }} </a>
+        </div>
+        <div class="info-block-date">
+                <a href="#" class="single-event-date" *ngIf="product.startdate"> <span class="fa fa-clock"></span> {{ product.startdate }} -- {{ product.enddate }} </a>
+        </div>
+        <div class="info-block-location">
+                <a class="event-location" target="blank" href="{{product.location}}"><span><i class="fa fa-map-marker"></i> </span>Место проведения</a>
+        </div>
+       
+
+</div>
  <p class="single-event-full-content"> {{ product.content }} </p>
 </div>
 </ng-container> 
+ 
 
-<!-- <countdown [config]="config"
-    (start)="onStart()"
-    (finished)="onFinished()"
-    (notify)="onNotify($event)"></countdown> -->
+
 </div>
 
    <app-check-out></app-check-out>  

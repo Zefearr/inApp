@@ -56,6 +56,8 @@ import { AdminOrderDetailsComponent } from './admin/admin-order-details/admin-or
 import { AuthService2 } from './auth/auth.service';
 import { ContentFormComponent } from './admin/content-form/content-form.component';
 import { ContentService } from './content.service'; 
+import { ReactionService } from './reaction.service';
+import { ReactionsComponent } from './reactions/reactions.component';
 
 
 
@@ -63,23 +65,24 @@ import { ContentService } from './content.service';
 const SWIPER_CONFIG: SwiperConfigInterface = { 
   
   direction: 'horizontal',
- 
-  slidesPerView: '2',
-  spaceBetween: 30,
+ effect: 'cube',
+  // slidesPerView: '2',
+  // spaceBetween: 30,
   autoplay: 5000,
- 
+  speed: 3000,
+ lazyLoading: true,
   observer: true,
  
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
   paginationClickable: true, 
   pagination: '.swiper-pag',
-  // cube: {
-  //   shadow: false,
-  //   slideShadows: false,
-  //   shadowOffset: 20,
-  //   shadowScale: 0.94
-  // }
+  cube: {
+    shadow: false,
+    slideShadows: false,
+    shadowOffset: 20,
+    shadowScale: 0.94
+  }
  
 
 };
@@ -113,6 +116,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     CountdownComponent,
     AdminOrderDetailsComponent,
     ContentFormComponent,
+    ReactionsComponent,
    
    
   ],
@@ -139,7 +143,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}},
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
-      { path: 'products/:id', component: PostComponent, data: { depth: 2} 
+      { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       }, 
       { path: 'admin/tutorials',
        component: AdminTutorialsComponent,
@@ -161,7 +165,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       },
      
 
-      { path: 'admin/products/:id',
+      { path: 'admin/events/:id',   
       component: ProductFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService] 
       },
@@ -188,16 +192,17 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
 
   ],
-  providers: [
+  providers: [ 
     AuthService, 
-    AuthService2,
+    AuthService2, 
     UserService,
     AuthGuard,
     AdminAuthGuardService,
     CategoryService,
     ProductService,
     OrderService,
-    ContentService
+    ContentService,
+    ReactionService
   ],
 
   bootstrap: [AppComponent] 

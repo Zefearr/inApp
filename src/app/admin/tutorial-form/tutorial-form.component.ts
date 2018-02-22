@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from '../../category.service';
 import { ContentService } from '../../content.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
+import { Content } from '../../models/content';
 
 @Component({
   selector: 'app-tutorial-form',
   templateUrl: './tutorial-form.component.html', 
   styleUrls: ['./tutorial-form.component.css']
 })
-export class TutorialFormComponent implements OnInit {
-
+export class TutorialFormComponent implements OnInit { 
   contentcategories$;
   content = {};
   
+  id;
 
   constructor(
         private route: ActivatedRoute,
@@ -21,25 +22,23 @@ export class TutorialFormComponent implements OnInit {
         private contentService: ContentService,
         private router: Router) { 
         this.contentcategories$ = categoryService.getContentCategories();
-        let id = this.route.snapshot.paramMap.get('id');
-        if(id) this.contentService.getOne(id).take(1).subscribe(p => this.content = p);   
+        this.id = this.route.snapshot.paramMap.get('id');
+        if(this.id) this.contentService.getOne(this.id).take(1).subscribe(p => this.content = p);   
   }
-
-  save(content) { 
-    // const timestamp = this.getTimeStamp();
-   this.contentService.create(content); 
-   this.router.navigate(['/admin/tutorials']);
+  
+  save(content) {  
+  
+    if(this.id) this.contentService.updateContent(this.id, content);
+    else this.contentService.create(content);   
+    this.router.navigate(['/admin/tutorials']);  
   }
-  // getTimeStamp() {
-  //   const now = new Date();
-  //   const date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' +  now.getUTCDate();
-  //   const time = now.getUTCHours() + ':' + now.getUTCMinutes()  + ':' + now.getUTCSeconds();
-  //   return (date + '' + time);
-   
-  // }
+ 
  
   
-  ngOnInit() {  
-  }
+  
+
+ngOnInit() {
+  
+}
 
 }

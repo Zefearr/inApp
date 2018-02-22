@@ -1,16 +1,19 @@
 <div class="cont">
-  
+  <p> {{ content.timestamp }} </p>  
     <form #f="ngForm" (ngSubmit)="save(f.value)">  
+
+        
 
         <div class="form-group"> 
             <label for="title"> Content-title </label>
-                <input #title="ngModel" [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control" required>    
+                <input  #title="ngModel"  [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control">          
            <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Введите название</div> 
         </div>
+     
 
         <div class="form-group"> 
                 <label for="category"> Content-category</label> 
-                    <select #category="ngModel" ngModel name="category" id="category" type="text" class="form-control" required> 
+                    <select #category="ngModel" [(ngModel)]="content.category" name="category" id="category" type="text" class="form-control" required> 
                         <option value=""></option>
                         <option *ngFor="let c of contentcategories$ | async" [value]="c.$key">
                                 {{ c.name }}
@@ -22,20 +25,20 @@
 
         <div class="form-group">
                 <label for="imageUrl">content-imageUrl </label> 
-                    <input #imageUrl="ngModel" ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" required> 
+                    <input #imageUrl="ngModel" [(ngModel)]="content.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" > 
                     <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Добавьте URL изображения</div> 
             </div>
-            <img [src]="imageUrl.value" class="content-image-prev" alt="" *ngIf="imageUrl">      
+            <img [src]="content.imageUrl" class="content-image-prev" alt="" *ngIf="content.imageUrl">      
 
 
-            <div class="form-group">   
-                    <label for="text"> Content-text</label>
-                        <textarea #text="ngModel" ngModel name="text" id="text" type="text" class="form-control form-main-content" required> </textarea>
+            <div class="form-group">    
+                    <label for="text"> Content-text</label> 
+                        <textarea #text="ngModel" [(ngModel)]="content.text" name="text" id="text" type="text" class="form-control form-main-content" required> </textarea>
                         <div class="alert alert-danger" *ngIf="text.touched && text.invalid">textarea is empty</div>    
                          
                    
-            </div>
-
+            </div> 
+           
             <button class="btn btn-primary">Save</button> 
 
     </form>
