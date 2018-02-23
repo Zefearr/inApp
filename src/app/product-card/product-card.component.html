@@ -4,7 +4,7 @@
     <div class="event-cart-img-cont">
       <div class="event-cart-description">
           <p class="event-cart-desc-content"> {{ product.desc }} </p> 
-          <p class="event-cart-desc-content"> <i class="fa fa-marker"></i> место проведения: {{ product.location }} </p> 
+          <a href="{{product.location}}"> <i class="fa fa-map-marker"></i> Место проведения  </a>  
           <p class="event-cart-desc-content">  {{ product.startdate }} -- {{ product.enddate }} </p>  
       </div> 
      
@@ -12,8 +12,11 @@
       </div>
     
         <div class="event-cart-content-cont"> 
-            <h3 class="event-cart-title"> {{ product.title }} </h3> 
-            <app-reactions [productId]='product?.$key'></app-reactions> 
+            <h3 class="event-cart-title"> {{ product.title }} </h3>
+            <div class="cart-reaction">
+                    <app-reactions [productId]='product?.$key'></app-reactions> 
+            </div> 
+            
             <a class="btn-register"
             [routerLink]="['/events/', product.$key]"> <i class="fa fa-angle-double-right"></i> </a>
 

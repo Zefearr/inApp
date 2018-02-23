@@ -11,7 +11,7 @@ import { AppUser } from './models/app-user';
 import { FormsModule } from '@angular/forms'; 
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
-import * as $ from 'jquery';
+import * as $ from 'jquery'; 
 
 
 
@@ -58,6 +58,7 @@ import { ContentFormComponent } from './admin/content-form/content-form.componen
 import { ContentService } from './content.service'; 
 import { ReactionService } from './reaction.service';
 import { ReactionsComponent } from './reactions/reactions.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 
@@ -65,12 +66,11 @@ import { ReactionsComponent } from './reactions/reactions.component';
 const SWIPER_CONFIG: SwiperConfigInterface = { 
   
   direction: 'horizontal',
- effect: 'cube',
+  effect: 'cube',
   // slidesPerView: '2',
   // spaceBetween: 30,
   autoplay: 5000,
-  speed: 3000,
- lazyLoading: true,
+  lazyLoading: true,
   observer: true,
  
   nextButton: '.swiper-button-next',
@@ -117,17 +117,16 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AdminOrderDetailsComponent,
     ContentFormComponent,
     ReactionsComponent,
+    LoadingSpinnerComponent,
    
    
   ],
   imports: [ 
     DataTableModule, 
-    CountdownModule,
     BrowserAnimationsModule,   
     BrowserModule,
     FormsModule, 
     CustomFormsModule,
-    RecaptchaModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),     
     AngularFireDatabaseModule, 
     AngularFireAuthModule,

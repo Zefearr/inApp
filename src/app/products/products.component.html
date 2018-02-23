@@ -20,8 +20,14 @@
 </div>
   </div> 
 <div class="main-cont">
+  <!-- <app-loading-spinner></app-loading-spinner>  -->
   
+<div class="loading-bar"
+  *ngIf="!products">
 
+  <div class="loading-bar-el" *ngIf="products != 'finished'"></div>
+
+ </div>
    
 
 <div class="cards-cont">

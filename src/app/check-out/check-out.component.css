@@ -8,14 +8,16 @@
 }
 .check-out-cont-inner {
     padding:10px;
-   
-    background-color:beige;
     border:1px solid lightgray;
+   
+    background-color: rgb(255, 244, 230);
+
+  
 }
 .register {
     padding:0;
    margin-bottom: 10px;
-   margin-top:10px;
+   margin-top: 10px;
    padding:.5rem 1rem;
   color:#fff; 
      text-align: center;

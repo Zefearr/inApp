@@ -5,6 +5,7 @@
 <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl">
 <div class="single-event-fullcontent">  
  <h2 class="single-event-title" > {{ product.title }} </h2>
+ 
 
 <div class="info-block">
 
@@ -17,6 +18,11 @@
         <div class="info-block-location">
                 <a class="event-location" target="blank" href="{{product.location}}"><span><i class="fa fa-map-marker"></i> </span>Место проведения</a>
         </div>
+        <div class="info-block-reactions">
+            <div class="info-block-reactions-inner">
+                <app-reactions [productId]='product?.$key'></app-reactions> 
+            </div>
+        </div>
        
 
 </div>
@@ -28,7 +34,9 @@
 
 </div>
 
-   <app-check-out></app-check-out>  
+
+   <app-check-out></app-check-out> 
+
    
 
 

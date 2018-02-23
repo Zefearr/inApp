@@ -16,9 +16,8 @@ import { User } from 'firebase';
   styleUrls: ['./product-card.component.css']
 }) 
 
-export class ProductCardComponent {
+export class ProductCardComponent { 
 state = 'on'; 
-cart$;
 id; 
 
 

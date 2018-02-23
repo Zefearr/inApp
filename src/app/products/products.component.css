@@ -2,14 +2,14 @@
 .main-cont {
     max-width: 977px;
     margin: 0 auto;
-    display: flex;
    
+   position: relative;
    
    
 }
 .cards-cont {
    
-    width: 977px; 
+    max-width: 977px; 
     background-color:#F4F4F4;
    
     padding-top:35px;
@@ -17,6 +17,28 @@
     margin-bottom: 50px; 
    
     
+}
+.loading-bar {
+    width:33%;
+    height: 20px;
+    border:1px solid gray;
+    box-sizing: content-box;
+    margin-top: 25px;
+}
+.loading-bar-el { 
+    width:100%;
+    height: 20px;
+    animation: loading 3s linear infinite; 
+    background-color:#282828;
+
+}
+@keyframes loading {
+    0% {
+        width:0;
+    }
+    100% {
+        width:100%;
+    }
 }
 
 .col-f {

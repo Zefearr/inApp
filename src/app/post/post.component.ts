@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, trigger, state, style, transition, animate  } from '@angular/core';
-import { Product } from './../models/product'; 
+// import { Product } from './../models/product';  
 import { Router } from '@angular/router';  
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service'; 
@@ -25,14 +25,17 @@ export class PostComponent {
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
 
-    let id = this.route.snapshot.paramMap.get('id');  
-    if(id) this.productService.get(id).take(1).subscribe(p => this.product = p); 
+    let id = this.route.snapshot.paramMap.get('id'); 
+
+    if(id) {
+      this.productService.get(id).take(1).subscribe(p => this.product = p);  
+    } 
 
     
    
   }
   
- 
+  
 
 
 }

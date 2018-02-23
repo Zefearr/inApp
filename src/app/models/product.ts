@@ -5,7 +5,7 @@ export interface Product {
     category: string;
     imageUrl: string;
     uid: string; 
-    itemId:string;
+    // itemId:string;
     desc: string;
     location: string;
     date: string;

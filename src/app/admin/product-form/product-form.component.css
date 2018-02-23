@@ -75,8 +75,8 @@
 } 
 @media (min-width: 900px) {
     .edit-page-container {
-        display: flex;
-        justify-content: space-between;
+     
+      
     }     
 }
 .event-content {
@@ -94,7 +94,9 @@ overflow: hidden;
    max-width: 977px;
     margin-bottom:1rem;
     margin-top:20px;
-    border:1px solid gray;
+    border:1px solid lightgray;
+    border-radius: 3px;
+    background-color:#fff;
    
     
 }
@@ -119,12 +121,13 @@ overflow: hidden;
 .event-cart-content-cont { 
   padding-bottom: 1rem;
   border-top:1px solid gray;
+ 
   
 }
 .edit-page-edit {
     padding:1rem;
-    flex-basis: 50%;
-    border-right: 1px solid gray;
+  
+  
   
   
 }

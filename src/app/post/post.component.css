@@ -6,20 +6,21 @@ p {
     display: block;
     padding: .1rem 1.5rem;
     font-size: .8rem;
+    border-right: 1px solid lightgray;
 }
-.event-location:hover {
-   text-decoration: none;
-   color:rgb(112, 44, 5);
-}
-.event-location:hover {
-    text-decoration: none;
-    color:rgb(112, 44, 5);
- }
+
  .event-location:hover {
     text-decoration: none;
     color:rgb(112, 44, 5);
  }
+  .info-block-reactions {
+    padding-left: 1.5rem;
+    cursor: pointer;
   
+  }
+  .info-block-reactions-inner {
+    transform: translateY(-10%);
+  }
 
 
 .single-event {

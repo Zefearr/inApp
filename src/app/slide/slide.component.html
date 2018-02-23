@@ -11,11 +11,30 @@
            
               <div class="swiper-slide" *ngFor="let p of content$ | async">
                   <img [src]="p.imageUrl" alt=""> 
-                  <div class="slide-innercontent">
-                  <h5 class="slide-title"> {{ p.title }} </h5> 
-                  <p  class="slide-desc"> {{ p.text}} </p>
                   
-                  <button class="btn btn-primary">Open</button>
+                  <div class="slide-innercontent"> 
+                   
+                      <div class="slider-content">
+
+                        <div class="content-desc">
+                          <div class="content-title">
+                              <h5 class="slide-title"> {{ p.title }} </h5> 
+                          </div>
+                        
+                           <div class="content-description">
+                           
+                              <p  class="slide-desc"> {{ p.text }} </p>
+                           </div>
+                          
+                        </div>
+                        <div class="content-link"> 
+                          <!-- <span class="line"></span> -->
+                           <button class="btn btn-primary btn-slider">Open</button>
+                          </div>
+                
+                  
+                
+                </div>
                 </div>
                   
                   </div> 
@@ -27,11 +46,11 @@
       
       <div class="swiper-pag"></div> 
       
-    <div class="btns-cont">
+    <!-- <div class="btns-cont">
         
       <div class="swiper-button-next customnext"></div>
       <div class="swiper-button-prev customprev"></div>
-    </div>
+    </div> -->
   </div>
   
 </div>

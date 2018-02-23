@@ -29,7 +29,7 @@
         <div class="input-group"> 
         <input #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control" required> 
         </div>
-          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
               Необходимо ввести email
           </div> 
 
