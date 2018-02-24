@@ -78,7 +78,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   paginationClickable: true, 
   pagination: '.swiper-pag',
   cube: {
-    shadow: false,
+    shadow: true,
     slideShadows: false,
     shadowOffset: 20,
     shadowScale: 0.94
@@ -140,7 +140,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent }, 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}},
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}}, 
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       }, 

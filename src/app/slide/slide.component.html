@@ -1,7 +1,16 @@
 
- 
+  <!-- <div class="loading-bar"
+  *ngIf="!p">
+
+  <div class="loading-bar-el" *ngIf="p != 'finished'"></div>
+
+ </div> -->
 
     <div class="swipercube-cont">
+
+       
+
+      
   <div class="swiper-container" [swiper]="config">  
    
       <div class="swiper-wrapper">  
@@ -10,10 +19,10 @@
       
            
               <div class="swiper-slide" *ngFor="let p of content$ | async">
-                  <img [src]="p.imageUrl" alt=""> 
+                  <!-- <img [src]="p.imageUrl" alt="">  -->
                   
                   <div class="slide-innercontent"> 
-                   
+                     
                       <div class="slider-content">
 
                         <div class="content-desc">
@@ -22,14 +31,16 @@
                           </div>
                         
                            <div class="content-description">
-                           
+                        
                               <p  class="slide-desc"> {{ p.text }} </p>
                            </div>
                           
                         </div>
                         <div class="content-link"> 
                           <!-- <span class="line"></span> -->
-                           <button class="btn btn-primary btn-slider">Open</button>
+                          <div class="thumbnail" ><img [src]="p.imageUrl" *ngIf="p.imageUrl" alt=""></div>
+                          <div class="btn-cont"> <button class="btn btn-primary btn-slider">Читать</button></div>
+                          
                           </div>
                 
                   

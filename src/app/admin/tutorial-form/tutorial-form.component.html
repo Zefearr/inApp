@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-                <label for="imageUrl">content-imageUrl </label> 
+                <label for="imageUrl">изображения на thumbnail(slider) максимальный размер 250x170px </label> 
                     <input #imageUrl="ngModel" [(ngModel)]="content.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" > 
                     <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Добавьте URL изображения</div> 
             </div>

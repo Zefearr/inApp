@@ -6,7 +6,7 @@
       
     <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте</p> </ng-template>
   <ng-container *ngIf="appUser; else anonymousUser">
- <form #f="ngForm" >  
+ <form #f="ngForm">  
 
     <div class="form-group">
 
@@ -27,7 +27,7 @@
         <label for="email">*E-mail</label>
 
         <div class="input-group"> 
-        <input #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control" required> 
+        <input #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control" required email> 
         </div>
           <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
               Необходимо ввести email
@@ -56,7 +56,12 @@
         
           </div>
          
-          <button class="btn btn-primary" (click)="placeOrder()" [disabled]="!f.valid">Отправить</button>   
+          <button class="btn btn-primary"
+            type="button"
+            (click)="placeOrder()"
+            [disabled]="!f.valid"
+            [@buttonState]="f.valid ? 'valid' : 'invalid'"
+          >Отправить</button>   
         </form> 
       </ng-container>
 

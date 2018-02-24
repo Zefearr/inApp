@@ -11,6 +11,8 @@ import { Input } from '@angular/core';
 import { trigger, state, style, animate, transition, query, group } from '@angular/animations'; 
 import { AuthService } from './../auth.service';
 import { AppUser } from './../models/app-user'; 
+import { buttonStateTrigger } from './animations'; 
+
 
 @Component({
   selector: 'app-check-out',
@@ -27,7 +29,9 @@ import { AppUser } from './../models/app-user';
         border: 0
       })),
       transition('show <=> hide', animate('300ms ease')), 
-    ])
+    ]),
+    buttonStateTrigger  
+
   ]
 
 }) 
@@ -74,7 +78,7 @@ export class CheckOutComponent implements OnInit, OnDestroy  {
      
     } 
  
-   this.orderService.storeOrder(order); 
+   this.orderService.storeOrder(order),
     this.router.navigate(['/order-success']); 
      
     

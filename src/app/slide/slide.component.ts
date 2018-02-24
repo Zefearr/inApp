@@ -3,12 +3,11 @@ import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CategoryService } from '../category.service'; 
-import { ActivatedRoute } from '@angular/router';
-import { Product } from '../models/product';
+import { ActivatedRoute } from '@angular/router'; 
 import 'rxjs/add/operator/switchmap'; 
-import { DatePipe } from '@angular/common';
+
 import { SwiperModule } from 'ngx-swiper-wrapper';
-import { async } from '@angular/core/testing';
+
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription'; 
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
@@ -25,10 +24,14 @@ import { ContentService } from '../content.service';
 })
  
 export class SlideComponent {
-  config;
+  
   content$;
-  constructor(contentService: ContentService) { 
+
+  constructor(contentService: ContentService, route: ActivatedRoute,) { 
    this.content$ =  contentService.getAllContent();
+ 
+  
+
    }
   
 
