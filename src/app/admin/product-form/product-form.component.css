@@ -13,7 +13,7 @@
     border: 1px solid lightgray;
 }
 .content-input {
-    min-height: 150px;
+    min-height: 400px;
     width:100%;
     text-align: left;
     border-radius: 5px;

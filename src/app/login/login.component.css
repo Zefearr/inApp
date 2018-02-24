@@ -19,15 +19,25 @@ h5 {
 
 
 }
-
-.container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  background-color:#fefefe;
-  max-width:377px;
+.login-inner {
+ width:100%;
+ height: 100%;
+ 
+ background-color:#fff;
+ text-align: center;
+ 
+ z-index: 999;
+ 
+}
+.container-login {
+  /* background-color:#fefefe; */
+  width:100vw;
+  height: 100vh;
   border-radius: 3px;
-  padding:10px;
-  text-align: center;
+  position: relative;
+  margin:0 auto;
+  z-index: 101;
+  
 }
 .loginscreen-title {
   text-align: center;

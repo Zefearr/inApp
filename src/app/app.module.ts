@@ -72,16 +72,18 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   autoplay: 5000,
   lazyLoading: true,
   observer: true,
- 
+ speed: 1000,
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
   paginationClickable: true, 
+ 
   pagination: '.swiper-pag',
   cube: {
-    shadow: true,
-    slideShadows: false,
-    shadowOffset: 20,
+    shadow: false, 
+    slideShadows: true,
+    shadowOffset: 50,
     shadowScale: 0.94
+    
   }
  
 

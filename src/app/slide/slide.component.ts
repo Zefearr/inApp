@@ -27,7 +27,7 @@ export class SlideComponent {
   
   content$;
 
-  constructor(contentService: ContentService, route: ActivatedRoute,) { 
+  constructor(contentService: ContentService, route: ActivatedRoute) { 
    this.content$ =  contentService.getAllContent();
  
   

@@ -31,6 +31,7 @@
    
     text-align: justify;
     float: left;
+    margin-right: 5px;
     
     
 }
@@ -43,10 +44,11 @@
 
 .admin-settings-list li a {
     color:rgb(255, 255, 255);
-    font-size:2rem;
+    font-size:1rem;
     font-weight: 400;
     display: block;
-    background-color:rgb(66, 66, 66);
+    color:#222;
+   border:1px solid gray;
     padding: .7rem 2rem;
    /* border:1px solid gray; */
  
@@ -56,7 +58,8 @@
 }
 .admin-settings-list li a:hover {
     text-decoration: none;
-    background-color:rgb(230, 75, 36);
+    background-color:rgb(66, 66, 66);
+    color:#fff;
 }
 span {
     margin-right: 10px;
