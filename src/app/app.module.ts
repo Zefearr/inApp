@@ -1,6 +1,6 @@
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core'; 
+import { NgModule, Directive } from '@angular/core'; 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
 import * as $ from 'jquery'; 
-
+import { NgControl } from '@angular/forms';
 
 
 
@@ -89,7 +89,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
 };
 
- 
+
 
 @NgModule({ 
   declarations: [
@@ -144,6 +144,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}}, 
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
+      { path: 'events', component: HomeComponent },
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       },
       
@@ -197,6 +198,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
   ],
   providers: [ 
+    
     AuthService, 
     AuthService2, 
     UserService,

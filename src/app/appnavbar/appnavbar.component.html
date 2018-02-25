@@ -4,10 +4,17 @@
     
     <!-- <a class="appheader-brand" routerLink="/">in<strong>Dev</strong></a> -->
     <a class="appheader-brand" routerLink="/">in<strong>DevApp</strong></a>
-<nav class="header-nav"> 
+    <div class="menu-icon" (click)="onClick()">
+     <div class="menu-icon__top" [class.icon-top-active]="toggle"></div>
+     <div class="menu-icon__mid" [class.icon-active]="toggle" ></div> 
+     <div class="menu-icon__bottom" [class.icon-bottom-active]="toggle"></div>
+    </div>
   
+
+<nav class="header-nav" id="header-nav" [class.header-nav-active]="toggle">  
+ 
   <ul class="main-navigation"> 
-      <li>  <a routerLink="/tutorials">Courses</a></li>
+      <li>  <a routerLink="/events">Courses</a></li>
       <li>  <a routerLink="/tutorials">Tutorials</a></li>
    
     

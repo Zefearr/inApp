@@ -9,19 +9,21 @@ import { Observable } from 'rxjs/Observable';
 
 
 
+
+
  
 
 
 @Component({ 
   selector: 'appnavbar',
   templateUrl: './appnavbar.component.html', 
-  styleUrls: ['./appnavbar.component.css'] 
+  styleUrls: ['./appnavbar.component.css']
 })
 export class AppnavbarComponent implements OnInit { 
   appUser: AppUser; 
+  toggle = false;
   
-
-  
+ 
 
   constructor(private auth: AuthService) { 
     
@@ -36,5 +38,10 @@ export class AppnavbarComponent implements OnInit {
   logout() {
     this.auth.logout();  
   }
+  onClick() {
+    this.toggle = !this.toggle;
+    console.log('asd')
+   
+}
 
 }

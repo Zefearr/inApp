@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Directive } from '@angular/core';
 import { CategoryService } from '../../category.service';
 import { ProductService } from '../../product.service'; 
 import { Router } from '@angular/router';  
@@ -7,14 +7,20 @@ import 'rxjs/add/operator/take';
 import { Product } from '../../models/product';   
 import { AuthService } from '../../auth.service';
 import { DatePipe } from '@angular/common';
+import { NgControl } from '@angular/forms';
+
+
 
 
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.css']
+  styleUrls: ['./product-form.component.css'],
+
 })
+
+
 export class ProductFormComponent {  
  categories$;
  product = {};  
@@ -27,7 +33,7 @@ export class ProductFormComponent {
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
-    private categoryService: CategoryService,
+    private categoryService: CategoryService, 
     private auth: AuthService,
     private productService: ProductService) { 
       

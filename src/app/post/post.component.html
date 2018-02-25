@@ -6,12 +6,7 @@
 
 <div class="single-event-fullcontent"> 
       
-        <div class="loading-bar"
-        *ngIf="!product.bigimageUrl">
-      <app-loading-spinner *ngIf="product.bigimageUrl != 'finished'"></app-loading-spinner>
-        <!-- <div class="loading-bar-el" *ngIf="product.bigimageUrl != 'finished'"></div> -->
-      
-       </div>
+        
         <div class="img-cont">
                         <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
         </div>
