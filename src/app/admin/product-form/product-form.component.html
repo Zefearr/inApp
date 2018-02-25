@@ -1,20 +1,35 @@
 
  
-    <div class="edit-page-container">
+
         
-        <div class="edit-page-edit">
+        <div class="admin-form-container">
+
       <form #f="ngForm" (ngSubmit)="save(f.value)" class="admin-page-form"> 
+
           <div class="form-group">
-            <label for="title">Название События</label>
+            <label for="title">Название события, заголовок</label>
             <input #title="ngModel"  [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>   
             <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
                 Необходимо ввести заголовок
             </div>
           </div>
-           
 
           <div class="form-group">
-              <label for="price">Цена</label>
+            <label for="category">Категория</label>
+            <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+              <option value=""></option>
+              <option *ngFor="let c of categories$ | async" [value]="c.$key">
+              {{ c.name }}
+              </option>
+              </select>
+              <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+                Необходима категория
+              </div>
+        </div>
+           
+
+          <!-- <div class="form-group">
+              <label for="price">Стоимость обучения(указывается в евро). Не может быть меньше ноль</label>
               <div class="input-group">
               <span class="input-group-addon">€</span> 
               <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control" required [min]="0">
@@ -24,61 +39,53 @@
                  <div *ngIf="price.errors.min"> Цена должна быть ноль или выше</div>
                 </div>
            
-            </div>
-            <div class="form-group">
-                <label for="category">Категория</label>
-                <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
-                  <option value=""></option>
-                  <option *ngFor="let c of categories$ | async" [value]="c.$key">
-                  {{ c.name }}
-                  </option>
-                  </select>
-                  <div class="alert alert-danger" *ngIf="category.touched && category.invalid" required>
-                    Необходима категория
-                  </div>
-            </div>
+            </div> -->
+         
 
             <!-- <div class="form-group">
                 <label for="date">Дата</label>
-                <input #date="ngModel" [(ngModel)]="product.date" name="date" id="date" type="text" class="form-control" required> 
+                <input #date="ngModel" [(ngModel)]="product.date" name="date" id="date" type="text" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
                     Необходимо ввести дату
                 </div>
             </div> -->
+
+
             <div class="form-group">
                 <label for="startdate">Дата Начала</label>
-                <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control" required> 
+                <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="startdate.touched && startdate.invalid"> 
                     Необходимо ввести дату
                 </div>
             </div>
             <div class="form-group"> 
                 <label for="enddate">Дата окончания</label>
-                <input #enddate="ngModel" [(ngModel)]="product.enddate" name="enddate" id="enddate" type="date" class="form-control" required> 
+                <input #enddate="ngModel" [(ngModel)]="product.enddate" name="enddate" id="enddate" type="date" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="enddate.touched && enddate.invalid"> 
                     Необходимо ввести дату
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="location">Место проведения</label>
-                <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control" required> 
+                <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
                     Необходимо ввести место проведения 
                 </div>
             </div>
            
             <div class="form-group">
-                <label for="imageUrl">imageUrl</label>
+                <label for="imageUrl">Ссылка на изображение для карты события максимальный размер 260x200 пикселей</label>
                 <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl" type="text" class="form-control">
-                <!-- <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
+                <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
                   <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
                   <div *ngIf="imageUrl.errors.url">Введите существущую ссылку на изображение</div>
-                </div> -->
+                </div>
               </div>
-              <label for="desc">Короткое описание()</label>
-              <textarea class="desc-input" #desc="ngModel" [(ngModel)]="product.desc" name="desc" id="desc" type="text" > </textarea>
+              <label for="desc">Короткое описание()</label> 
+              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" > </textarea>
               <label for="content">Длинное описание</label>
-                <textarea class="content-input" #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
+                <textarea class="form-control event-content-input"  #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
                 <!-- <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
                     Необходимо ввести заголовок
                 </div> -->
@@ -86,26 +93,27 @@
                 
              
               
-              <button class="btn-save-product" [disabled]="!f.valid">Сохранить</button> 
+              <button class="btn-save-product"  [disabled]="!f.valid">Сохранить</button> 
               <button class="btn-delete-product" type="button" (click)="delete()">Удалить</button> 
         </form>
        
-       
+        <h3 class="preview-cart">Предпросмотр</h3>
+        <app-product-card [product]="product" [show-actions]="false"></app-product-card>
     </div>
 
   
-  <div class="admin-edit-page-cart">
+ 
      
-      <h3 class="preview-cart">Предпросмотр</h3>
+     
     
 
-    <div class="cart-preview-inner"> 
-<app-product-card [product]="product" [show-actions]="false"></app-product-card>
-</div>
+    
 
-</div>
 
-</div>
+
+
+
+
 
 <!-- <div class="product-content-prev">
         <div class="event-content"> {{ product.content }} </div>

@@ -145,7 +145,10 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}}, 
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
-      }, 
+      },
+      
+      { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}},  
+
       { path: 'admin/tutorials',
        component: AdminTutorialsComponent,
        canActivate: [AuthGuard, AdminAuthGuardService],
@@ -160,7 +163,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       }, 
-      { path: 'admin/tutorials/:id',  
+      { path: 'admin/tutorials/:id',   
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       },
@@ -172,11 +175,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       },
 
       { path: 'admin/products',
-     component: AdminProductsComponent, data: { depth: 2},
+     component: AdminProductsComponent,
       canActivate: [AuthGuard, AdminAuthGuardService] 
       },
       { path: 'admin/controls',
-     component: AdminpanelComponent, data: { depth: 1},
+     component: AdminpanelComponent,
       canActivate: [AuthGuard, AdminAuthGuardService] 
       },
 
@@ -188,7 +191,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
        component: AdminOrderDetailsComponent,
        canActivate: [AuthGuard, AdminAuthGuardService] 
       }    
-    ]) 
+    ])  
 
 
 

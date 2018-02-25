@@ -54,7 +54,7 @@ export class ProductFormComponent {
     if(confirm('Точно удалить?')) {
       this.productService.delete(this.id);
       this.router.navigate(['/admin/products']);
-      
+       
     }
   } 
  

@@ -24,7 +24,9 @@ h5 {
  height: 100%;
  
  background-color:#fff;
- text-align: center;
+ justify-content: center;
+ align-items: center;
+ display: flex;
  
  z-index: 999;
  
@@ -45,4 +47,8 @@ h5 {
   margin:0;
   padding:0;
   
+}
+.login {
+  width:300px;
+  height: 500px;
 }

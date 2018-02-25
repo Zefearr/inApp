@@ -1,12 +1,12 @@
 .panelcont {
     max-width:977px;
-    margin:0 auto;
-    margin-top:25px;
-    margin-bottom:25px;
+    margin:auto;
+    
     background-color:#fff;
     border:1px solid lightgray;
     min-height:80vh;
     text-align: center;
+    margin-top:100px;
    
     
 }
@@ -30,7 +30,7 @@
 .admin-settings-list li {
    
     text-align: justify;
-    float: left;
+    
     margin-right: 5px;
     
     

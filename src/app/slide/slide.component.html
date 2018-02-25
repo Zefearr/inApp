@@ -23,29 +23,29 @@
                   
                   <div class="slide-innercontent"> 
                      
-                      <div class="slider-content">
+                        <div class="slider-content">
 
-                        <div class="content-desc">
-                          <div class="content-title">
-                              <h5 class="slide-title"> {{ p.title }} </h5> 
-                          </div>
-                        
-                           <div class="content-description">
-                        
-                              <p  class="slide-desc"> {{ p.text }} ... </p>
-                           </div>
+                          <div class="content-desc">
+                            <div class="content-title">
+                                <h5 class="slide-title"> {{ p.title }} </h5> 
+                            </div>
                           
-                        </div>
-                        <div class="content-link"> 
-                          <!-- <span class="line"></span> -->
-                          <div class="thumbnail" ><img [src]="p.imageUrl" *ngIf="p.imageUrl" alt=""></div>
-                          <div class="btn-cont"> <button class="btn btn-primary btn-slider">Читать</button></div>
+                            <div class="content-description">
                           
+                                <p> {{ p.text }} ... </p>
+                            </div>
+                            
+                          </div> 
+
+                          <div class="content-link"> 
+                            <div class="thumbnail" ><img [src]="p.imageUrl" *ngIf="p.imageUrl" alt=""></div>
+                            <div class="btn-cont"> <button  [routerLink]="['/tutorials/', p.$key]"  class="btn btn-primary btn-slider">Читать</button></div>
+                            
                           </div>
-                
                   
-                
-                </div>
+                    
+                  
+                      </div>
                 </div>
                   
                   </div> 
