@@ -1,9 +1,5 @@
-.class {
-    color:red;
-}
-.upvote {
-    display: block;
-}
+
+
 span  {
     color:gray;
     transition: 1s ease;
@@ -12,8 +8,26 @@ span  {
 }
 .liked {
     color: rgb(199, 33, 89);
-    transition: 1s ease;
+    transition: .5s ease;
+   
 }
+#like:hover {
+    color: rgb(199, 33, 89);  
+}
+#reactionCount {
+    transition: .5s ease;
+}
+
+#like:hover > #heart {
+    transform: scale(1.5);
+    transition: .5s ease;
+    color: rgb(199, 33, 89);
+}
+#heart {
+    transition: .5s ease;
+}
+
+
 .emojis {
     /* top:0;
     right: 40px;

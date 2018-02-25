@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;  
     font-family: 'Open Sans', sans-serif;
   
+  
 }
 .no-gutter > [class*='col-'] {
     padding-right:0;

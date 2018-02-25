@@ -24,7 +24,14 @@ p {
 
 .backlink {
     color:#222;
-    font-size: 1.2rem;
+    font-size: .8rem;
+    position: absolute;
+    right: 10px;
+    top:5px;
+}
+.img-cont {
+    width:100%;
+    overflow: hidden;
 }
 .single-event {
     max-width:977px;
@@ -33,19 +40,30 @@ p {
     position: relative;
    
     
-    min-height:100vh;
+    
     border: 1px solid lightgray;
     padding: 10px;
-    padding-top:70px;
-    background-color:#fff;    
+    margin-top:75px;
+    background-color:#fff;
+    border-radius: 3px;    
 }
 
-.event-cart-image {
-    float: left;
-    max-width: 350px;
-    shape-outside: square;
-    margin-right: 1.5rem;
+@media(min-width:977px) {
+
+    .event-cart-image {
+        float: left;
+        max-width: 350px;
+        shape-outside: square;
+        margin-right: 1.5rem;
+    }
 }
+.event-cart-image {
+    display: block;
+    margin: auto;
+    shape-outside: square;
+    margin-right: auto;
+}
+
 .single-event-full-content {
     margin:0;
     padding:0;
@@ -60,9 +78,14 @@ p {
     font-weight: 600;
     padding-bottom: .5rem;
 }
+.event-big-image {
+    max-width: 100%;
+    margin: auto;
+}
 .info-block-price {
     
     border-right: 1px solid lightgray;
+    background-color:lightgreen;
 
 }
 .info-block-date {
@@ -97,4 +120,27 @@ p {
    overflow: hidden;
    margin-bottom: .5rem;
 
+}
+/*loading bar*/
+.loading-bar {
+    width:33%;
+    height: 20px;
+    border:1px solid gray;
+    box-sizing: content-box;
+    margin-top: 25px;
+}
+.loading-bar-el { 
+    width:100%;
+    height: 20px;
+    animation: loading 3s linear infinite; 
+    background-color:#282828;
+
+}
+@keyframes loading {
+    0% {
+        width:0;
+    }
+    100% {
+        width:100%;
+    }
 }

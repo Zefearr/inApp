@@ -80,22 +80,37 @@ margin-right: 1px;
 } */
 .appheader-brand {
  position: absolute;
-  margin-left: 1rem; 
-  text-indent: -9999px;
-  width:100px;
-  height: 39px;
-  font-size: 1.4rem;
-  color:#fff;
-  opacity: .6;
+
+  
+  display: block;
+ transition: .3s ease;
+ transform-origin: bottom;
+ padding:3px;
+  font-size: 1.1rem;
+  color:#2E3333;
+  opacity: 1;
   font-weight: 400;
+  top:0;
+  left:0;
   font-family: 'Montserrat', sans-serif;
-  background: url('indevwhitepng.png'); 
+  transform:translateX(100%) translateY(15%);
+  /* background: url('indevwhitepng.png');  */
+}
+.appheader-brand:hover {
+  text-decoration: none;
+  /* transform: rotate3d(2, -1, -1, -0.2turn); */
+ 
+ 
 }
 
 .appheader-brand strong {
-  font-weight: 600;
-  color:#CC5E6B; 
+  font-weight: 400;
+  color:#FE822A;
+  font-size: 1.3rem; 
 
+}
+.dev {
+  color:red;
 }
 .quit {
   cursor: pointer;

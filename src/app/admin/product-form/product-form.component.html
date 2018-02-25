@@ -51,7 +51,7 @@
             </div> -->
 
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="startdate">Дата Начала</label>
                 <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="startdate.touched && startdate.invalid"> 
@@ -64,24 +64,31 @@
                 <div class="alert alert-danger" *ngIf="enddate.touched && enddate.invalid"> 
                     Необходимо ввести дату
                 </div>
-            </div>
+            </div> -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="location">Место проведения</label>
                 <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
                     Необходимо ввести место проведения 
                 </div>
-            </div>
+            </div> -->
            
             <div class="form-group">
                 <label for="imageUrl">Ссылка на изображение для карты события максимальный размер 260x200 пикселей</label>
+               
                 <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl" type="text" class="form-control">
                 <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
                   <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
                   <div *ngIf="imageUrl.errors.url">Введите существущую ссылку на изображение</div>
                 </div>
               </div>
+              <div class="form-group">
+                    <input type="checkbox" ng-model="all">
+                    <label for="bigimageUrl">Ссылка на большое изображение </label> 
+                    <input ng-disabled="all" #bigimageUrl="ngModel"[(ngModel)]="product.bigimageUrl"  name="bigimageUrl"  id="bigimageUrl" type="text"  >
+                   
+                  </div> 
               <label for="desc">Короткое описание()</label> 
               <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" > </textarea>
               <label for="content">Длинное описание</label>
@@ -93,7 +100,7 @@
                 
              
               
-              <button class="btn-save-product"  [disabled]="!f.valid">Сохранить</button> 
+              <button class="btn-save-product">Сохранить</button> 
               <button class="btn-delete-product" type="button" (click)="delete()">Удалить</button> 
         </form>
        

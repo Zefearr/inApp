@@ -13,11 +13,11 @@
     </span> -->
    
 
-    <span class="like" (click)="react(0)" [class.liked]="userReaction != null">    
-      <i class="fa fa-heart"></i>
+    <span id="like" class="like" (click)="react(0)" [class.liked]="userReaction != null">    
+      <i id="heart"class="fa fa-heart"></i>
     </span>
     <div class="reaction-counts" *ngFor="let emoji of emojiList; index as i;">
-        <span *ngIf="hasReactions(i)">
+        <span id="reactionCount" *ngIf="hasReactions(i)">
             {{ reactionCount[i] }} 
           </span>
     </div>

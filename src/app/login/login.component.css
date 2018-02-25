@@ -4,14 +4,13 @@ h5 {
 }
 .LoginWithGoogle {
   border:none;
-  border:1px solid black;
+  
   padding: .5rem;
-  padding-left:1.5rem;
-  padding-right: 1.5rem;
+ 
   background-color:#4285f4;
   border-radius: 3px;
   font-weight: 500;
-  
+  width:100%;
   text-align: center;
   margin-top:2rem;
   color: #fff;
@@ -23,7 +22,7 @@ h5 {
  width:100%;
  height: 100%;
  
- background-color:#fff;
+ background-color:#2E3333;
  justify-content: center;
  align-items: center;
  display: flex;
@@ -51,4 +50,57 @@ h5 {
 .login {
   width:300px;
   height: 500px;
+  
+  background-color:#fefefe;
+  padding:10px;
+  border-radius: 3px;
+ 
+  position: relative;
+  z-index: 999;
+  padding-top:75px;
+  background: url('../../assets/images/loginbackground.png');
+
+}
+.company_logo {
+  width: 582px;
+  height: 227px;
+  display: block;
+  top:50%;
+  left:50%;
+  position: absolute;
+  background: url('../../assets/images/indev_big_v3_yellow_small.png');
+  transform: translateY(-165%) translateX(-50%)  scale(.3);
+  z-index: 1;
+
+
+ 
+}
+@media(min-width: 400px) {
+  .company_logo {
+    transform: translateY(-172%) translateX(-50%) scale(.5);
+  }
+  .company_logo {
+    transform: translateX(-22%) translateY(-65%) scale(.6);
+  }
+}
+.company_e {
+  width:146px;
+  height: 227px;
+  display: block;
+  background: url('../../assets/images/e.png'); 
+  position: absolute;
+  z-index: 2;
+  transform: scale(1);
+  transform: translateX(-33%) translateY(-55%) scale(.3); 
+  top:0;
+  left:50%;
+}
+.login-inner-cont {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+ 
+  background-color:#222;
 }

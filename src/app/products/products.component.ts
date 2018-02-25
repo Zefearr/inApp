@@ -24,9 +24,8 @@ export class ProductsComponent  {
   filteredProducts: Product[] = [];
   categories$;
   category: string;
-  cart: any;
   products;
-  subscription: Subscription;
+  subscription: Subscription; 
  
 
 

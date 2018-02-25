@@ -2,8 +2,21 @@
 
 <div class="single-event">
     <ng-container *ngIf="product">  
-<img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl">
-<div class="single-event-fullcontent">  
+<!-- <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> -->
+
+<div class="single-event-fullcontent"> 
+      
+        <div class="loading-bar"
+        *ngIf="!product.bigimageUrl">
+      <app-loading-spinner *ngIf="product.bigimageUrl != 'finished'"></app-loading-spinner>
+        <!-- <div class="loading-bar-el" *ngIf="product.bigimageUrl != 'finished'"></div> -->
+      
+       </div>
+        <div class="img-cont">
+                        <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
+        </div>
+               
+<a routerLink="/" class="backlink">  <span class="fa fa-chevron-right"></span></a>
  <h2 class="single-event-title" > {{ product.title }} </h2>
  
 
@@ -16,25 +29,23 @@
                 <a href="#" class="single-event-date" *ngIf="product.startdate"> <span class="fa fa-clock"></span> {{ product.startdate }} -- {{ product.enddate }} </a>
         </div>
         <div class="info-block-location">
-                <a class="event-location" target="blank" href="{{product.location}}"><span><i class="fa fa-map-marker"></i> </span>Место проведения</a>
+                <a class="event-location" *ngIf="product.location" ><span><i class="fa fa-map-marker"></i> </span>{{product.location}}</a>
         </div>
         <div class="info-block-reactions">
             <div class="info-block-reactions-inner">
                 <app-reactions [productId]='product?.$key'></app-reactions> 
             </div>
         </div>
-       <a routerLink="/" class="backlink"> <span><i class="fa fa-chevron-right"></i></span>Назад</a>
+       
 
 </div>
+
  <p class="single-event-full-content"> {{ product.content }} </p>
 </div>
 </ng-container> 
- 
-
-
-<app-check-out></app-check-out> 
 </div>
 
+<app-check-out></app-check-out> 
 
 
    

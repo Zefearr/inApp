@@ -1,12 +1,10 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ReactionService } from '../reaction.service';
 import { sum, values } from 'lodash';
-import { UserService } from '../user.service';
-import { Observable } from 'rxjs/Observable';
-import { User } from 'firebase';
 import * as _ from "lodash";
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+
+
+
 
 
 @Component({
@@ -18,13 +16,16 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class ReactionsComponent implements OnInit, OnDestroy {
 
   @Input() productId: string;
+
   showEmojis = false;
   emojiList: string[];
   reactionCount: any;
   userReaction: any;
   subscription: any;
+  
 
-  constructor(private reactionSvc: ReactionService) {}
+
+  constructor(private reactionSvc: ReactionService) {} 
 
   ngOnInit() {
     this.emojiList = this.reactionSvc.emojiList
@@ -35,13 +36,23 @@ export class ReactionsComponent implements OnInit, OnDestroy {
         });
   }
 
+  // react(val) {
+  //   if(this.userReaction === val) {
+  //     this.reactionSvc.removeReaction(this.productId)
+  //   } else {
+  //     this.reactionSvc.updateReaction(this.productId, val)
+  //   }
+  // } 
   react(val) {
-    if(this.userReaction === val) {
-      this.reactionSvc.removeReaction(this.productId)
-    } else {
-      this.reactionSvc.updateReaction(this.productId, val)
-    }
-  } 
+   
+      if(this.userReaction === val) {
+        this.reactionSvc.removeReaction(this.productId)
+      } else {
+        this.reactionSvc.updateReaction(this.productId, val)
+      }
+   
+    console.log();
+  }
 
   emojiPath(emoji) {
     return `assets/reactions/${emoji}.svg`
