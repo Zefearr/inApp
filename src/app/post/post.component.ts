@@ -20,7 +20,7 @@ import 'rxjs/add/operator/take';
 
 export class PostComponent {   
  
- 
+  toggle = false;
   product;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
@@ -35,7 +35,16 @@ export class PostComponent {
    
   }
   
-  
+  onMouseEnter() {
+    this.toggle = !this.toggle;
+  }
+   
+  mouseEnter(div : string){
+    console.log("mouse enter : " + div);
+ }
 
+ mouseLeave(div : string){
+   console.log('mouse leave :' + div);
+ }
 
 }

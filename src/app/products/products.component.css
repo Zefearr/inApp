@@ -87,7 +87,7 @@
 }
 
 .col-4 {
-    padding-bottom:30px;
+    padding-bottom:30px; 
   
 }
 .nav-cont a {
@@ -96,9 +96,9 @@
     text-transform: uppercase;
 }
 .active2 {
-  border:1px solid gray;
-   
-    color:#222;
+  /* border:1px solid #2E3333; */
+   background-color:#2E3333;
+    color:rgb(235, 235, 235);
     
   
     

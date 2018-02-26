@@ -8,6 +8,10 @@ import { DatePipe } from '@angular/common';
 import { async } from '@angular/core/testing';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Subscription } from 'rxjs/Subscription';
+// import { AppUser } from '../models/app-user';
+import { AppUser } from './../models/app-user'; 
+import { UserService } from '../user.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 
 
@@ -26,13 +30,15 @@ export class ProductsComponent  {
   category: string;
   products;
   subscription: Subscription; 
- 
+
+  user:AppUser;
  
 
 
 
   constructor(
     route: ActivatedRoute,
+    userService: UserService,
     productService: ProductService,
     categoryService: CategoryService) {
   
@@ -53,6 +59,7 @@ export class ProductsComponent  {
      
    
     this.categories$ = categoryService.getCategories(); 
+   
 
    
  

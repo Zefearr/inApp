@@ -208,7 +208,7 @@
 .btn-slider {
  
   
-  
+  cursor: pointer;
   /* left:20%; */
   /* padding-left: 5rem;
   padding-right: 5rem; */
@@ -222,7 +222,7 @@
  
 }
 .btn-slider:hover {
-  background-color:#59CBE8;
+  background-color:#F89C3F;
   color:#333;
   font-weight: 600;
   

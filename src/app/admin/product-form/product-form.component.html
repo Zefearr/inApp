@@ -46,13 +46,13 @@
             </div>
          
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="date">Дата</label>
                 <input #date="ngModel" [(ngModel)]="product.date" name="date" id="date" type="text" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
                     Необходимо ввести дату
                 </div>
-            </div> -->
+            </div>
 
 
             <!-- <div class="form-group">
@@ -70,13 +70,13 @@
                 </div>
             </div> -->
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="location">Место проведения</label>
                 <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control"> 
                 <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
                     Необходимо ввести место проведения 
                 </div>
-            </div> -->
+            </div>
            
             <div class="form-group">
                 <label for="imageUrl">Ссылка на изображение для карты события максимальный размер 260x200 пикселей</label>
@@ -98,7 +98,7 @@
                    
                   </div> 
               <label for="desc">Короткое описание()</label> 
-              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="250" > </textarea>
+              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="600" > </textarea>
               <label for="content">Длинное описание</label>
                 <textarea class="form-control event-content-input"  #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
                 <!-- <div class="alert alert-danger" *ngIf="content.touched && content.invalid">

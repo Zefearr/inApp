@@ -6,36 +6,49 @@
 
 <div class="single-event-fullcontent"> 
       
-        
-        <div class="img-cont">
+        <div class="section-intro">
+
+                <div class="img-cont">
                         <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
-        </div>
-               
-<a routerLink="/" class="backlink">  <span class="fa fa-chevron-right"></span></a>
- <h2 class="single-event-title" > {{ product.title }} </h2>
- 
-
-<div class="info-block">
-
-        <div class="info-block-price">
-                <a href="#" class="single-event-price" *ngIf="product.price"> <span class="fa fa-euro-sign"></span> {{ product.price }} </a>
-        </div>
-        <div class="info-block-date">
-                <a href="#" class="single-event-date" *ngIf="product.startdate"> <span class="fa fa-clock"></span> {{ product.startdate }} -- {{ product.enddate }} </a>
-        </div>
-        <div class="info-block-location">
-                <a class="event-location" *ngIf="product.location" ><span><i class="fa fa-map-marker"></i> </span>{{product.location}}</a>
-        </div>
-        <div class="info-block-reactions">
-            <div class="info-block-reactions-inner">
-                <app-reactions [productId]='product?.$key'></app-reactions> 
-            </div>
+                </div>
+                <div class="info-block">
+                                <div><p> <span > <i class="fa fa-euro-sign euro"></i> </span> {{ product.price }} </p></div>
+                                        <div class="location" (click)="onMouseEnter()">
+                                        <div class="location-map" [class.map-active]="toggle"></div>
+                                      
+                                        <p> <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
+                                        </div>
+                                <div><p>{{ product.date }}</p></div>
+                                <div><p></p></div>
+                                </div>
         </div>
        
+               
 
+ 
+ 
+
+
+
+<div class="single-event-title">
+        <h3> {{ product.title }}</h3> 
+        <div class="reactions">
+                <app-reactions [productId]='product?.$key'></app-reactions>  
+        </div>
 </div>
 
- <p class="single-event-full-content"> {{ product.content }} </p>
+
+
+<div class="content-quots"> 
+
+                <p> {{ product.desc }} </p>
+
+</div>
+<div class="event-paragraph">
+                <p> {{ product.content }} </p>
+</div>
+
+
 </div>
 </ng-container> 
 </div>

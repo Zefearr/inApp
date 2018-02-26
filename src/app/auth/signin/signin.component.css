@@ -1,0 +1,18 @@
+i {
+    padding-right: 10px;
+    margin-right: 10px;
+}
+span {
+    margin-right: 10px;
+    display: inline-block;
+   color:#333;
+   margin-left:-1rem;
+}
+.newuser {
+   padding: 20px 0;
+}
+label {
+    font-weight: 600;
+    
+   
+}
