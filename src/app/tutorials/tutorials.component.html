@@ -1,9 +1,10 @@
 <div class="readcont">
 
  <div class="tutorial" *ngIf="content">
+        <img [src]="content.imageUrl" class="single-page-thumb" alt="{{content.title}}">
     <p> {{ content.title }} </p>
     <p> {{ content.text }} </p> 
-    <img [src]="content.imageUrl" alt="{{ content.title }}">
+  
  </div>
   
   

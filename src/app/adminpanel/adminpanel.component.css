@@ -1,14 +1,24 @@
 .panelcont {
-    max-width:977px;
-    margin:auto;
-    
+    border-radius: none;
     background-color:#fff;
     border:1px solid lightgray;
-    min-height:80vh;
-    text-align: center;
-    margin-top:100px;
-   
-    
+    margin-top:75px;
+    border-left: none;
+    border-right: none;
+}
+@media(min-width: 977px) {
+    .panelcont {
+        max-width:977px;
+        margin:auto;
+        
+        background-color:#fff;
+        border:1px solid lightgray;
+        min-height:80vh;
+        text-align: center;
+        margin-top:100px;
+       border-radius:  5px;
+        
+    }
 }
 .admin-settings-list i {
     font-size:1rem;

@@ -1,8 +1,8 @@
 <div class="order-detail-container">
 <div *ngIf="orders"> 
-  <!-- <div class="order-heading">
-    <p class="order-course-heading"><span>Регистрация на:</span>{{ orders.title }}</p>
-    <p class="order-date-created"><span>Время создания:</span> {{ orders.datePlaced }}</p> 
+  <div class="order-heading">
+    <h3 class="order-course-heading"><span>Регистрация на:</span> <strong>{{ orders.title }}</strong></h3>
+    <h3 class="order-date-created"><span>Время создания:</span> {{ orders.datePlaced }}</h3> 
   </div>
   <ul class="order-detail-info">
    
@@ -10,30 +10,11 @@
     <li><span><i class="fa fa-at"></i></span> Электронная почта:  <strong>{{ orders.order.email }}</strong> </li>
     <li><span><i class="fa fa-mobile"></i></span> Мобильный телефон: <strong>{{ orders.order.mobile }}</strong> </li>
     <li><span><i class="fa fa-map-marker"></i></span>Город: <strong>{{ orders.order.city }}</strong></li>
-  </ul> -->
+  </ul>
   
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th class="ttitle">Название курса</th>
-            <th class="ttitle">Имя</th> 
-            <th class="ttitle">Электронная почта</th>
-            <th class="ttitle">Номер телефона</th>
-            <th class="ttitle">Город</th>
-        </tr>
-    </thead>
-    <tbody> 
-        <tr>  
-            <td> {{ orders.title }}</td>
-            <td>{{ orders.order.name }}</td>
-            <td>{{ orders.order.email }}</td>
-            <td>{{ orders.order.mobile }}</td>
-            <td>{{ orders.order.city }}</td>
-        </tr>
-    </tbody>
-</table>
+
 
 </div>
 </div>

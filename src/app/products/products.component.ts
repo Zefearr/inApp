@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css'] 
+  styleUrls: ['./products.component.css']  
 })
 export class ProductsComponent  { 
   productService: any;
@@ -26,6 +26,7 @@ export class ProductsComponent  {
   category: string;
   products;
   subscription: Subscription; 
+ 
  
 
 

@@ -8,5 +8,13 @@
     min-height: 50vh;
     background-color:#fff;
     margin-top:100px;
+    padding: 10px;
 }
-
+.single-page-thumb {
+    float: left;
+    display: block;
+    margin: auto;
+    shape-outside: square;
+    margin-right: 10px;
+    margin-bottom: 0;
+}

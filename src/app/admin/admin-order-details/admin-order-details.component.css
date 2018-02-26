@@ -1,15 +1,26 @@
+
+
 .order-detail-container {
-    max-width: 977px;
-    margin:0 auto;
-    position: relative;
-    overflow: hidden;
-    min-height: 80vh;
-    margin-top:20px;
-    margin-bottom:20px;
-    padding:10px;
+    border-radius: none;
     background-color:#fff;
-    border: 1px solid lightgray;
-    margin-top:100px;
+    border:1px solid lightgray;
+    margin-top:75px;
+    border-left: none;
+    border-right: none;
+}
+@media(min-width: 977px) {
+    .order-detail-container {
+        max-width:977px;
+        margin:auto;
+        
+        background-color:#fff;
+        border:1px solid lightgray;
+     
+       
+        margin-top:75px;
+       border-radius:  5px;
+        
+    }
 }
 .order-detail-info {
     
@@ -34,4 +45,9 @@ span {
 }
 .title {
     font-size: 1rem;
+}
+.order-course-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color:#333;
 }

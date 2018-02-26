@@ -40,7 +40,7 @@ export class AppnavbarComponent implements OnInit {
   }
   onClick() {
     this.toggle = !this.toggle;
-    console.log('asd')
+   
    
 }
 

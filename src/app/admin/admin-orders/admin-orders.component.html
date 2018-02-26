@@ -4,21 +4,21 @@
     <thead>
         <tr>
             <th class="ttitle">Название курса</th>
-            <th class="ttitle">E-mail</th> 
+       
        
             <th class="ttitle">Время создания</th>
         </tr>
     </thead>
     <tbody> 
-        <tr *ngFor="let p of orders$ | async"> 
+        <tr *ngFor="let p of orders$ | async">  
             <td> {{ p.title }} </td>
-            <td> {{ p.order.email }}</td>
+           
             
             <td> 
                 {{ p.datePlaced }}   
             </td>
             <td>
-               <a [routerLink]="['/admin/orders/', p.$key]">детали</a>      
+               <a [routerLink]="['/admin/orders/', p.$key]">детали</a>       
             </td>
         </tr>
     </tbody>

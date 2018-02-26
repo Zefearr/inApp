@@ -4,12 +4,14 @@
         
         <div class="admin-form-container">
 
+            <h5>Новый курс, семинар. Все поля обязательны для заполнения.</h5>
+
       <form #f="ngForm" (ngSubmit)="save(f.value)" class="admin-page-form"> 
 
           <div class="form-group">
             <label for="title">Название события, заголовок</label>
-            <button type="button" (click)="disable = true">Disable</button>
-            <button (click)="disable = false">Enable</button>
+            
+  
             <input #title="ngModel"  [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control"  required>   
             <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
                 Необходимо ввести заголовок
@@ -30,7 +32,7 @@
         </div>
            
 
-          <!-- <div class="form-group">
+          <div class="form-group">
               <label for="price">Стоимость обучения(указывается в евро). Не может быть меньше ноль</label>
               <div class="input-group">
               <span class="input-group-addon">€</span> 
@@ -41,7 +43,7 @@
                  <div *ngIf="price.errors.min"> Цена должна быть ноль или выше</div>
                 </div>
            
-            </div> -->
+            </div>
          
 
             <!-- <div class="form-group">
@@ -86,13 +88,17 @@
                 </div>
               </div>
               <div class="form-group">
-                    <input type="checkbox" ng-model="all">
+                  
                     <label for="bigimageUrl">Ссылка на большое изображение </label> 
-                    <input ng-disabled="all" #bigimageUrl="ngModel"[(ngModel)]="product.bigimageUrl"  name="bigimageUrl"  id="bigimageUrl" type="text"  >
+                    <input #bigimageUrl="ngModel"[(ngModel)]="product.bigimageUrl"  name="bigimageUrl"  id="bigimageUrl" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="bigimageUrl.touched && bigimageUrl.invalid"> 
+                            <div *ngIf="bigimageUrl.errors.required">ImageUrl is required</div>
+                            <div *ngIf="bigimageUrl.errors.url">Введите существущую ссылку на изображение</div> 
+                          </div>
                    
                   </div> 
               <label for="desc">Короткое описание()</label> 
-              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" > </textarea>
+              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="250" > </textarea>
               <label for="content">Длинное описание</label>
                 <textarea class="form-control event-content-input"  #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
                 <!-- <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
@@ -102,8 +108,8 @@
                 
              
               
-              <button class="btn-save-product">Сохранить</button> 
-              <button class="btn-delete-product" type="button" (click)="delete()">Удалить</button> 
+              <button class="btn btn-primary m">Сохранить</button> 
+              <button class="btn btn-secondary btn-danger m" type="button" (click)="delete()">Удалить</button> 
         </form>
        
         <h3 class="preview-cart">Предпросмотр</h3>

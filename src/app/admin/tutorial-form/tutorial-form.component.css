@@ -9,6 +9,9 @@
     padding:10px;
     position: relative;
     overflow: hidden;
+    margin-top:75px;
+    border:1px solid lightgray;
+    border-radius: 5px;
 }
 .form-main-content {
     min-height: 400px;
@@ -19,4 +22,8 @@
     display: block;
     margin-bottom: 10px;
     
+}
+label {
+    font-size: 1rem;
+    font-weight: 600;
 }
