@@ -222,8 +222,10 @@
  
 }
 .btn-slider:hover {
-  background-color:rgb(26, 19, 19);
-  color:#fff;
+  background-color:#59CBE8;
+  color:#333;
+  font-weight: 600;
+  
 }
 
 .content-description {
@@ -232,6 +234,10 @@
  display: none;
   padding-right: 10px;
 
+}
+.content-description span {
+  font-size: 1rem;
+ 
 }
 @media(min-width: 576px) {
   .content-description {

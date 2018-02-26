@@ -30,9 +30,9 @@
                                 <h5 class="slide-title"> {{ p.title }} </h5> 
                             </div>
                           
-                            <div class="content-description">
+                            <div class="content-description" *ngIf="p.desc">
                           
-                                <p> {{ p.text }} ... </p>
+                                 <p> <span> ❝ </span> {{ p.desc}} ... <span> ❞ </span> </p> 
                             </div>
                             
                           </div> 
