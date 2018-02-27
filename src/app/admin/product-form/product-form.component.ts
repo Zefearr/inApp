@@ -8,8 +8,7 @@ import { Product } from '../../models/product';
 import { AuthService } from '../../auth.service';
 import { DatePipe } from '@angular/common';
 import { NgControl } from '@angular/forms';
-
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -25,12 +24,13 @@ export class ProductFormComponent {
  categories$;
  product = {};  
  id;
-
-
- 
-
+ switch = false;
+ toggle = true;
+ showcard = true;
+  disabled: boolean;
 
   constructor(
+    private fb: FormBuilder,
     private router: Router, 
     private route: ActivatedRoute,
     private categoryService: CategoryService, 
@@ -45,11 +45,26 @@ export class ProductFormComponent {
     if(this.id) this.productService.get(this.id).take(1).subscribe(p => this.product = p);   
 
     
-      
-
    
+  
   }
+  toggleSwitch() {
+    this.switch = !this.switch
+  }
+
+  
+  
+  onClick() {
+    this.toggle = !this.toggle;
+    this.switch = !this.switch;
+  }
+
+  showPrev() {
+    this.showcard = !this.showcard;
+  }
+ 
   save(product) { 
+    
   if(this.id) this.productService.update(this.id, product); 
   else this.productService.create(product);
   

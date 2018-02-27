@@ -8,11 +8,11 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppUser } from './models/app-user';
-import { FormsModule } from '@angular/forms'; 
+
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
 import * as $ from 'jquery'; 
-import { NgControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 
 
@@ -127,7 +127,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     DataTableModule, 
     BrowserAnimationsModule,   
     BrowserModule,
-    FormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),     
     AngularFireDatabaseModule, 
@@ -142,7 +143,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent }, 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 1}}, 
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 3}}, 
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       { path: 'events', component: HomeComponent },
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 

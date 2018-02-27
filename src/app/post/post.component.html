@@ -5,31 +5,25 @@
 <!-- <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> -->
 
 <div class="single-event-fullcontent"> 
-      
-        <div class="section-intro">
 
-                <div class="img-cont">
-                        <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
-                </div>
-                <div class="info-block">
-                                <div><p> <span > <i class="fa fa-euro-sign euro"></i> </span> {{ product.price }} </p></div>
-                                        <div class="location" (click)="onMouseEnter()">
-                                        <div class="location-map" [class.map-active]="toggle"></div>
-                                      
-                                        <p> <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
-                                        </div>
-                                <div><p>{{ product.date }}</p></div>
-                                <div><p></p></div>
+                <div class="section-intro">
+
+                                <div class="img-cont">
+                                        <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
                                 </div>
-        </div>
-       
-               
+                        
+                        </div>
 
+        <!-- <div class="info-block">
+                <div><p> <span > <i class="fa fa-euro-sign euro"></i> </span> {{ product.price }} </p></div>
+                        <div class="location" (click)="onMouseEnter()">
+                        <div class="location-map" [class.map-active]="toggle"></div>
+                        <p> <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
+                        </div>
+                <div><p>{{ product.date }}</p></div>
+                <div><p></p></div>
+                </div> -->
  
- 
-
-
-
 <div class="single-event-title">
         <h3> {{ product.title }}</h3> 
         <div class="reactions">
@@ -39,11 +33,15 @@
 
 
 
+
 <div class="content-quots"> 
 
                 <p> {{ product.desc }} </p>
 
 </div>
+
+
+
 <div class="event-paragraph">
                 <p> {{ product.content }} </p>
 </div>

@@ -33,6 +33,7 @@ box-shadow: 0px 0px 5px -3px rgba(82,82,82,1);
     position: relative;
     padding:0;
     margin:0;
+    min-height:14px;
   
 }
 
@@ -43,6 +44,25 @@ box-shadow: 0px 0px 5px -3px rgba(82,82,82,1);
    
   
   
+}
+.cart-location {
+    padding:5px;
+  
+    border-radius: 3px;
+    position: absolute;
+    bottom:10px;
+    left: 10px; 
+   
+    margin:0;
+}
+.cart-price {
+    
+    padding:5px;
+ 
+    border-radius: 3px;
+    position: absolute;
+    bottom:10px;
+    right: 10px;
 }
 .event-cart-date-title {
     font-size: .85rem;

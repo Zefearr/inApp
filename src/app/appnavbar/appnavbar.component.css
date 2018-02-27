@@ -225,7 +225,7 @@ box-shadow: none;
     /* background-color: rgb(116, 118, 119); */
   }
   .header-nav ul li {
-    float: left;
+    float: right;
    }
    .header-nav a {
     width:100%;

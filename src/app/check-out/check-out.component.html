@@ -6,8 +6,12 @@
       
     <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте</p> </ng-template>
   <ng-container *ngIf="appUser; else anonymousUser">
- <form #f="ngForm">  
+ <form #f="ngForm"> 
 
+  <div class="registerinfo">
+  <p>Вы регистрируетесь на курс: <strong>{{ product.title }}</strong>  </p>
+  <p>В случае возникновения вопросов позвоните нам по номеру: <strong>(+372) 56 123 122</strong>  </p>
+</div>
     <div class="form-group">
 
       <label for="name">*Имя</label>
@@ -39,7 +43,7 @@
               <label for="mobile">*Номер телефона</label> 
               <div class="input-group">
               
-              <input #mobile="ngModel" [(ngModel)]="order.mobile"  name="mobile" id="mobile" type="number" class="form-control" required>
+              <input #mobile="ngModel" [(ngModel)]="order.mobile"  name="mobile" id="mobile" type="number" class="form-control" minlength="4"   required>
               </div>
               <div class="alert alert-danger" *ngIf="mobile.touched && mobile.invalid">
                   Необходимо ввести номер телефона

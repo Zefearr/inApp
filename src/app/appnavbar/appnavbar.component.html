@@ -14,22 +14,20 @@
 <nav class="header-nav" id="header-nav" [class.header-nav-active]="toggle">  
  
   <ul class="main-navigation"> 
-      <li>  <a routerLink="/events">Courses</a></li>
-      <li>  <a routerLink="/tutorials">Tutorials</a></li>
+     
    
     
    
      
-      <!-- <li><a routerLink="/signup">Регистрация</a></li>
-      <li> <a  routerLink="/login">Войти</a></li>   -->
+    
     <ng-container *ngIf="!appUser"> 
       
        <li> <a  routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Войти</a></li>     
     </ng-container> 
      
+    
      
-     
-     
+    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>  
        
     <li *ngIf="appUser">
        
@@ -38,14 +36,13 @@
           
    admin
         </a> 
-      <ul class="admin-dropdown">
-       
-      </ul>
+      
     </li>
     
+    <li>  <a routerLink="/events">Courses</a></li>
+    <li>  <a routerLink="/tutorials">Tutorials</a></li>
     
-    <!-- <li *ngIf="appUser; else anonymousUser"><a>{{ appUser.id }}</a></li>   -->
-    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>  
+   
    
    
   </ul>

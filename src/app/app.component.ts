@@ -15,7 +15,7 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
   animations: [
     trigger('routeAnimation', [
       transition('1 => 2', [
-        style({ height: "!"}),
+        style({ height: "*"}),
         query(':enter', style({transform: 'translateY(100%)'})),
         query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
         group([
@@ -25,7 +25,7 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
       ]),
 
       transition('2 => 1', [
-        style({ height: "!"}),
+        style({ height: "*"}),
         query(':enter', style({transform: 'translateY(-100%)'})),
         query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
         group([
@@ -35,13 +35,14 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
       ]),
       transition('2 => 3', [
         style({ height: "!"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter', style({transform: 'translateY(100%)'})),
         query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
         group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
           query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
         ])
       ])
+      
 
     ])
   ]

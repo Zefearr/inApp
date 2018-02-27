@@ -3,24 +3,28 @@
 
         
         <div class="admin-form-container">
-
-            <h5>Новый курс, семинар. Все поля обязательны для заполнения.</h5>
-
+                <span  (click)="showPrev()"> <i class="fa fa-angle-down"></i>  </span> 
+            <div class="prev-cart" [class.visible]="showcard" >
+                    <app-product-card [product]="product" [show-actions]="false"></app-product-card>
+                  
+            </div>
+             
+            <h5>Новое событие </h5>
+      
       <form #f="ngForm" (ngSubmit)="save(f.value)" class="admin-page-form"> 
-
+       
           <div class="form-group">
-            <label for="title">Название события, заголовок</label>
-            
-  
-            <input #title="ngModel"  [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control"  required>   
+
+            <label for="title">Заголовок. </label>
+            <input #title="ngModel"  [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>   
             <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
                 Необходимо ввести заголовок
             </div>
           </div>
 
-          <div class="form-group">
+        <div class="form-group">
             <label for="category">Категория</label>
-            <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+            <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control"  required>
               <option value=""></option>
               <option *ngFor="let c of categories$ | async" [value]="c.$key">
               {{ c.name }}
@@ -44,66 +48,73 @@
                 </div>
            
             </div>
-         
 
             <div class="form-group">
-                <label for="date">Дата</label>
-                <input #date="ngModel" [(ngModel)]="product.date" name="date" id="date" type="text" class="form-control"> 
-                <div class="alert alert-danger" *ngIf="date.touched && date.invalid">
-                    Необходимо ввести дату
-                </div>
+                    <label for="desc">Короткое описание()</label> 
+                    <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="300" > </textarea>
             </div>
 
+            <div class="form-group">
+                    <label for="imageUrl">Ссылка на изображение для карты события максимальный размер 260x200 пикселей</label>
+                   
+                    <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl" type="text" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
+                      <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
+                      <div *ngIf="imageUrl.errors.url">Введите существущую ссылку на изображение</div>
+                    </div>
+                  </div>
 
-            <!-- <div class="form-group">
+
+                  <div class="advanced">
+                        <div class="input-switch" (click)="onClick()"><span class="switch-inactive" [class.switch-active]="switch" ></span></div> <p>Вкл/Выкл Дополнительное описание</p>
+                    </div> 
+
+         
+            <div class="form-group">
+                    <label for="location">Адрес по которому будет проходить событие </label> 
+                   
+                                 <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control" [disabled]="toggle"> 
+                    <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
+                        Необходимо ввести место проведения 
+                    </div>
+                </div>
+           
+            <div class="form-group">
+
                 <label for="startdate">Дата Начала</label>
-                <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control"> 
+                <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control" [disabled]="toggle"> 
                 <div class="alert alert-danger" *ngIf="startdate.touched && startdate.invalid"> 
                     Необходимо ввести дату
                 </div>
-            </div>
-            <div class="form-group"> 
+
                 <label for="enddate">Дата окончания</label>
-                <input #enddate="ngModel" [(ngModel)]="product.enddate" name="enddate" id="enddate" type="date" class="form-control"> 
+                <input #enddate="ngModel" [(ngModel)]="product.enddate" name="enddate" id="enddate" type="date" class="form-control" [disabled]="toggle"> 
                 <div class="alert alert-danger" *ngIf="enddate.touched && enddate.invalid"> 
                     Необходимо ввести дату
                 </div>
-            </div> -->
 
-            <div class="form-group">
-                <label for="location">Место проведения</label>
-                <input #location="ngModel" [(ngModel)]="product.location" name="location" id="location" type="text" class="form-control"> 
-                <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
-                    Необходимо ввести место проведения 
-                </div>
             </div>
+            
+ 
+            
            
-            <div class="form-group">
-                <label for="imageUrl">Ссылка на изображение для карты события максимальный размер 260x200 пикселей</label>
-               
-                <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl"  name="imageUrl"  id="imageUrl" type="text" class="form-control">
-                <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid"> 
-                  <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
-                  <div *ngIf="imageUrl.errors.url">Введите существущую ссылку на изображение</div>
-                </div>
-              </div>
               <div class="form-group">
                   
+
                     <label for="bigimageUrl">Ссылка на большое изображение </label> 
-                    <input #bigimageUrl="ngModel"[(ngModel)]="product.bigimageUrl"  name="bigimageUrl"  id="bigimageUrl" type="text" class="form-control">
+                    <input #bigimageUrl="ngModel"[(ngModel)]="product.bigimageUrl"  name="bigimageUrl"  id="bigimageUrl" type="text" class="form-control" [disabled]="toggle">
                     <div class="alert alert-danger" *ngIf="bigimageUrl.touched && bigimageUrl.invalid"> 
                             <div *ngIf="bigimageUrl.errors.required">ImageUrl is required</div>
                             <div *ngIf="bigimageUrl.errors.url">Введите существущую ссылку на изображение</div> 
                           </div>
                    
                   </div> 
-              <label for="desc">Короткое описание()</label> 
-              <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="600" > </textarea>
+            
               <label for="content">Длинное описание</label>
-                <textarea class="form-control event-content-input"  #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" > </textarea>
-                <!-- <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
+                <textarea class="form-control event-content-input"  #content="ngModel" [(ngModel)]="product.content" name="content" id="content" type="text" [disabled]="toggle" > </textarea>
+                <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
                     Необходимо ввести заголовок
-                </div> -->
+                </div>
                
                 
              
@@ -112,8 +123,8 @@
               <button class="btn btn-secondary btn-danger m" type="button" (click)="delete()">Удалить</button> 
         </form>
        
-        <h3 class="preview-cart">Предпросмотр</h3>
-        <app-product-card [product]="product" [show-actions]="false"></app-product-card>
+      
+     
     </div>
 
   
