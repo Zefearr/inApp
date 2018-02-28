@@ -12,7 +12,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { AppUser } from './../models/app-user'; 
 import { UserService } from '../user.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
-
+import { query } from '@angular/core/src/animation/dsl';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import * as _ from 'lodash';
 
 
 
@@ -23,27 +25,30 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']  
 })
-export class ProductsComponent  { 
-  productService: any;
+export class ProductsComponent  {  
+  
   filteredProducts: Product[] = [];
   categories$;
   category: string;
   products;
+  lastKey = '';
   subscription: Subscription; 
+  user:AppUser; 
 
-  user:AppUser;
- 
+  // products = new BehaviorSubject([]); 
+  batch = 10;
+  finished = false; 
 
 
 
   constructor(
     route: ActivatedRoute,
     userService: UserService,
-    productService: ProductService,
+    private productService: ProductService,
     categoryService: CategoryService) {
   
     productService
-     .getAll()
+     .getAll() 
      .switchMap(products => {
       this.products = products;
       return route.queryParamMap;
@@ -51,23 +56,50 @@ export class ProductsComponent  {
       }).subscribe(params => {
         this.category = params.get('category');
         this.filteredProducts = (this.category) ?
-        this.products.filter(p => p.category == this.category) :  
+        this.products.filter(p => p.category == this.category) :   
         this.products;
        
       });
 
      
    
-    this.categories$ = categoryService.getCategories(); 
-   
+    this.categories$ = categoryService.getCategories();
 
    
+
+      
  
    }
 
   
   
+  // ngOnInit() {
+  //   this.getSome()
+  // }
   
+  // onClicked() {
+  //   this.getSome()
+  // }
+
+//  private getSome(key?) { 
+//     if(this.finished) return
+//     this.productService.getSome(this.batch+1, this.lastKey) 
+//     .do(products => {
+//       this.lastKey = _.last(products)['$key']
+//       const newproducts = _.slice(products, 0, this.batch)
+//       const currentproducts = this.products.getValue()
+
+//       if(this.lastKey == _.last(newproducts['$key'])) {
+//         this.finished = true
+//       } 
+      
+      
+
+//       this.products.next( _.concat(currentproducts, newproducts) )
+//     }).take(1).subscribe() 
+
+    
+//   }
   
 
 }

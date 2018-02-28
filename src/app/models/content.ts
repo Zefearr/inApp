@@ -4,4 +4,5 @@ export class Content {
     text: string;
     timeSent: Date = new Date(); 
     contenttext: string; 
-} 
+    
+}  

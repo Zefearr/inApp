@@ -4,7 +4,7 @@
   <div class="check-out-cont-inner" [@regState]="State"> 
     
       
-    <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте</p> </ng-template>
+    <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте <a routerLink="/login">войти</a></p>  </ng-template>
   <ng-container *ngIf="appUser; else anonymousUser">
  <form #f="ngForm"> 
 

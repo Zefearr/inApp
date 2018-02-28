@@ -12,25 +12,22 @@ export class ContentService {
  
 
       create(content) { 
-       
-        // var sessionsRef = firebase.database().ref("sessions");
-        return this.db.list('/content').push(content
-          // startedAt: firebase.database.ServerValue.TIMESTAMP
-        
-        );
+        // const timestamp = this.getTimeStamp();
+        var sessionsRef = firebase.database().ref("sessions");
+        return this.db.list('/content').push(content);
          
 
     }
  
 
     
-    getTimeStamp() {
-      const now = new Date();
-      const date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' +  now.getUTCDate();
-      const time = now.getUTCHours() + ':' + now.getUTCMinutes()  + ':' + now.getUTCSeconds();
-      return (date + ':' + time);
+    // getTimeStamp() {
+    //   const now = new Date();
+    //   const date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' +  now.getUTCDate();
+    //   const time = now.getUTCHours() + ':' + now.getUTCMinutes()  + ':' + now.getUTCSeconds();
+    //   return (date + ':' + time);
      
-    }
+    // }
     updateContent(contentId, content) {
       return this.db.object('/content/' + contentId).update(content); 
     }

@@ -35,13 +35,12 @@ export class AppnavbarComponent implements OnInit {
 
   }
 
-  logout() {
+  logout() { 
     this.auth.logout();  
   }
   onClick() {
     this.toggle = !this.toggle;
    
-   
-}
+  }
 
 }

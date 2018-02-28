@@ -9,7 +9,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('default', style({
         transform: 'translateY(-100%)'
 
-      })),
+      })), 
       state('expanded', style({
         transform: 'translateY(100%)'
 
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
   onClick() {
     this.toggle = !this.toggle;
-    console.log('123');
+   
 }
   navState = 'default';
   numberEntered;

@@ -48,9 +48,21 @@
                 </div>
            
             </div>
+              
+            <div class="form-group">
+
+                    <label for="startdate">Дата Начала</label>
+                    <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control">  
+                    <div class="alert alert-danger" *ngIf="startdate.touched && startdate.invalid"> 
+                        Необходимо ввести дату
+                    </div>
+    
+                    
+    
+                </div>
 
             <div class="form-group">
-                    <label for="desc">Короткое описание()</label> 
+                    <label for="desc">Короткое описание</label> 
                     <textarea #desc="ngModel" class="form-control" [(ngModel)]="product.desc" name="desc" id="desc" type="text" maxlength="300" > </textarea>
             </div>
 
@@ -78,22 +90,7 @@
                         Необходимо ввести место проведения 
                     </div>
                 </div>
-           
-            <div class="form-group">
-
-                <label for="startdate">Дата Начала</label>
-                <input #startdate="ngModel" [(ngModel)]="product.startdate" name="startdate" id="startdate" type="date" class="form-control" [disabled]="toggle"> 
-                <div class="alert alert-danger" *ngIf="startdate.touched && startdate.invalid"> 
-                    Необходимо ввести дату
-                </div>
-
-                <label for="enddate">Дата окончания</label>
-                <input #enddate="ngModel" [(ngModel)]="product.enddate" name="enddate" id="enddate" type="date" class="form-control" [disabled]="toggle"> 
-                <div class="alert alert-danger" *ngIf="enddate.touched && enddate.invalid"> 
-                    Необходимо ввести дату
-                </div>
-
-            </div>
+         
             
  
             

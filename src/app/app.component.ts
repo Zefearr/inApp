@@ -41,7 +41,16 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
           query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
           query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
         ])
-      ])
+      ]),
+      transition('3 => 1', [
+        style({ height: "!"}),
+        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
       
 
     ])

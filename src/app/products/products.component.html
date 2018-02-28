@@ -22,23 +22,27 @@
 </div>
   </div> 
 <div class="main-cont">
-  <!-- <app-loading-spinner></app-loading-spinner>  -->
-  
-<div class="loading-bar"
-  *ngIf="!products">
 
+  
+<!-- <div class="loading-bar"
+  *ngIf="!products">
+  
   <div class="loading-bar-el" *ngIf="products != 'finished'"></div>
 
+ </div> -->
+ <div *ngIf="!products">
+    <app-loading-spinner *ngIf="products != 'finished'"></app-loading-spinner> 
  </div>
    
 
 <div class="cards-cont">
 
   <div class="row justify-content-start">
-  <ng-container  *ngFor="let p of filteredProducts; let i = index">  
-
+  <!-- <ng-container  *ngFor="let p of filteredProducts; let i = index">   -->
+      <ng-container  *ngFor="let p of filteredProducts.reverse()">  
          
            <div class="col-12 col-sm-6 col-lg-4 col-f" >  
+            
           <app-product-card [product]="p"></app-product-card>  
         </div> 
      

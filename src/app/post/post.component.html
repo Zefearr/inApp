@@ -6,29 +6,29 @@
 
 <div class="single-event-fullcontent"> 
 
-                <div class="section-intro">
+               
 
                                 <div class="img-cont">
                                         <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
                                 </div>
                         
-                        </div>
+                      
 
-        <!-- <div class="info-block">
-                <div><p> <span > <i class="fa fa-euro-sign euro"></i> </span> {{ product.price }} </p></div>
+        <div class="info-block">
+                <div><p class="price"> Цена: {{ product.price | currency:'EUR' }} </p></div>  
                         <div class="location" (click)="onMouseEnter()">
                         <div class="location-map" [class.map-active]="toggle"></div>
-                        <p> <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
+                        <p *ngIf="product.location" class="loc-desc" > <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
                         </div>
-                <div><p>{{ product.date }}</p></div>
-                <div><p></p></div>
-                </div> -->
+                <div *ngIf="product.startdate"><p> <i class="fa fa-calendar-alt"></i> {{ product.startdate | date:'fullDate' }}</p></div>
+                <div class="reactions">
+                                <app-reactions [productId]='product?.$key'></app-reactions>  
+                        </div>
+                </div>
  
 <div class="single-event-title">
         <h3> {{ product.title }}</h3> 
-        <div class="reactions">
-                <app-reactions [productId]='product?.$key'></app-reactions>  
-        </div>
+       
 </div>
 
 
@@ -45,6 +45,8 @@
 <div class="event-paragraph">
                 <p> {{ product.content }} </p>
 </div>
+
+
 
 
 </div>

@@ -1,9 +1,5 @@
 import { Component, OnInit, Input, trigger, state, style, transition, animate  } from '@angular/core';
 import { Product } from './../models/product'; 
-
-
-
-
 import { Router } from '@angular/router';  
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
@@ -18,7 +14,7 @@ import { User } from 'firebase';
 
 export class ProductCardComponent { 
 state = 'on'; 
-id; 
+id;  
 
 
 

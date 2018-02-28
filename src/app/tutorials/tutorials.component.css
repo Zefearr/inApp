@@ -18,3 +18,10 @@
     margin-right: 10px;
     margin-bottom: 0;
 }
+h2 {
+    font-weight: 600;
+    color:#333;
+}
+p {
+    font-size: 1.1rem;
+}

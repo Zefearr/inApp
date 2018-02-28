@@ -2,7 +2,7 @@
 .img-cont {
     width:100%;
     overflow: hidden;
-   
+   margin-bottom: 10px;
     flex:2;
     
 }
@@ -19,6 +19,9 @@
 }
 .event-big-image {
     display: none;
+}
+.price {
+    font-weight: 600;
 }
 @media(min-width: 768px) {
     .event-big-image {
@@ -97,11 +100,11 @@
     display: flex;
     width:100%;
     border: 1px solid lightgray;
-    flex:1;
-    font-family: 'Mukta Malar', sans-serif;
+   
+    border-radius: 3px;
     overflow:visible;
-    flex-direction: column;
-    background-color:#E3DDDF;
+   
+    /* background-color:#E3DDDF; */
 }
 .content-quots {
     margin-top: 0px;
@@ -123,43 +126,47 @@
     top:10px;
 }
 .reactions {
-    position: absolute;
-    right:10px;
-    top:15px;
+   
 }
 
 
 .info-block div:first-child  {
-    border-top: none;
+    border-left: none;
 }
 
 .info-block div:last-child {
-    border-bottom: none;
+    border-right: none;
     
     
 }
 .info-block>div {
-    flex:1;
-    display: flex;
-    margin: auto;
-  width:100%;
-  padding-left: 10px;
-    border-bottom: 1px solid rgb(241, 236, 238);
-    border-top: 1px solid rgb(194, 189, 189);
+    
+    
+    
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top:7px;
+  padding-bottom: 7px;
+    border-right: 1px solid rgb(241, 236, 238);
+    /* border-left: 1px solid rgb(194, 189, 189); */
    
 }
+.loc-desc {
+    color:#DD4C40;
+    font-weight: 600;
+}
 .info-block>div:hover {
-    background-color:rgb(165, 165, 165);
+    background-color:rgb(220, 241, 245);
     cursor: pointer;
 }
 .info-block p {
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding:0;
     margin: auto;
     margin-left: 0;
     
-    font-weight: 400;
-    color:#444;
+   
+    
 }
 .event-paragraph {
     font-size: 1.1rem;

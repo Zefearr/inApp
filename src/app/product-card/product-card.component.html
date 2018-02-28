@@ -4,8 +4,8 @@
     <div class="event-cart-img-cont">
       <div class="event-cart-description">
           <p class="event-cart-desc-content"> {{ product.desc }} </p> 
-          <p class="cart-location" *ngIf="product.location"><i class="fa fa-map-marker"></i> {{ product.location }}  </p>
-          <span class="cart-price" *ngIf="product.price"> <i class="fa fa-euro-sign"></i> {{ product.price | currency:'EUR' }} </span> 
+          <p class="cart-date" *ngIf="product.startdate"> {{ product.startdate | date:'MMMM d' }}  </p>
+          <span class="cart-price" *ngIf="product.price"> {{ product.price | currency:'EUR' }} </span>  
        
       </div> 
      
