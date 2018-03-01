@@ -19,7 +19,7 @@
       
            
               <div class="swiper-slide" *ngFor="let p of content$ | async">
-                  <!-- <img [src]="p.imageUrl" alt="">  -->
+                  <img class="slider-img-low-op" [src]="p.imageUrl" alt="">  
                   
                   <div class="slide-innercontent"> 
                      
@@ -38,7 +38,7 @@
                           </div> 
 
                           <div class="content-link"> 
-                            <div class="thumbnail" ><img [src]="p.imageUrl" *ngIf="p.imageUrl" alt=""></div>
+                            <div class="thumbnail" ><img [src]="p.logoUrl" *ngIf="p.logoUrl" alt=""></div>
                             <div class="btn-cont"> <button  [routerLink]="['/tutorials/', p.$key]"  class="btn btn-primary btn-slider">Читать</button></div>
                             
                           </div>

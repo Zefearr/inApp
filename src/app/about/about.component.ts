@@ -18,6 +18,8 @@ export class AboutComponent implements OnInit {
   lat: number = 59.369527; 
   lng: number = 28.198229;
 
+
+
   constructor(_elem: ElementRef, _mapsWrapper: GoogleMapsAPIWrapper) { } 
 
   ngOnInit() {
@@ -160,5 +162,10 @@ export class AboutComponent implements OnInit {
       ]
     }
   ];
+
+  choosenLocation(event) {
+  this.lat = event.coords.lat;
+  this.lng = event.coords.lng;
+  }
 
 }

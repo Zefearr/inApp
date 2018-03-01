@@ -1,8 +1,25 @@
 
  <div class="cont" fxLayout="column">
+     <div class="main-center-info">
+         <h2>Our Education Center in Narva</h2>
+     </div>
   <div class="map" fxFlex="1 1 100%" #map> 
 
-      <agm-map [style.height.px]="map.offsetHeight" [latitude]="lat" [zoom]="18" [longitude]="lng" [styles]="customStyle"></agm-map>
+    <agm-map
+        [style.height.px]="map.offsetHeight"
+        [latitude]="lat" 
+        [zoom]="14" 
+        [longitude]="lng" 
+        [styles]="customStyle" 
+        (mapClick)="choosenLocation($event)">
+
+        <agm-marker
+        [latitude]="lat"
+        [longitude]="lng" 
+        >
+    </agm-marker>
+
+    </agm-map> 
 
 </div>
 </div>

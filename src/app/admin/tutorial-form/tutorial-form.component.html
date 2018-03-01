@@ -22,13 +22,20 @@
                         </select>
                <div class="alert alert-danger" *ngIf="category.touched && category.invalid"> Укажите категорию</div>
         </div>
+        
 
         <div class="form-group">
-                <label for="imageUrl">изображения на thumbnail(slider) максимальный размер 250x170px </label> 
-                    <input #imageUrl="ngModel" [(ngModel)]="content.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" > 
-                    <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Добавьте URL изображения</div> 
+                <label for="logoUrl">изображения на thumbnail(slider) максимальный размер 250x170px </label> 
+                    <input #logoUrl="ngModel" [(ngModel)]="content.logoUrl" name="logoUrl" id="logoUrl" type="text" class="form-control" > 
+                    <div class="alert alert-danger" *ngIf="logoUrl.touched && logoUrl.invalid">Добавьте URL изображения</div> 
             </div>
-            <img [src]="content.imageUrl" class="content-image-prev" alt="" *ngIf="content.imageUrl">      
+            <img [src]="content.logoUrl" class="content-image-prev" alt="" *ngIf="content.logoUrl">     
+            
+            <div class="form-group">
+                    <label for="imageUrl">Большое изображение на слайдер </label> 
+                        <input #imageUrl="ngModel" [(ngModel)]="content.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" > 
+                        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">Добавьте URL изображения</div> 
+                </div>
 
             <div class="form-group">    
                     <label for="desc"> Короткое описание (максимально 250 букв)</label> 

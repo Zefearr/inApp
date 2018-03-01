@@ -7,24 +7,41 @@
 <div class="single-event-fullcontent"> 
 
                
+<div class="event-preview">
 
-                                <div class="img-cont">
-                                        <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
-                                </div>
+
+        <div class="img-cont">
+                <div class="img-inner">
+                                <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
+                </div>
+      
+        </div>
                         
                       
+        <div class="main-info">
+                <div class="event-price">
+                         <div class="price-inner"> <div class="inner-column"> <span> Цена</span></div> <div class="inner-column2"> <p class="price">   {{ product.price | currency:'EUR' }} </p> </div></div>
+                        </div> 
 
-        <div class="info-block">
-                <div><p class="price"> Цена: {{ product.price | currency:'EUR' }} </p></div>  
-                        <div class="location" (click)="onMouseEnter()">
-                        <div class="location-map" [class.map-active]="toggle"></div>
-                        <p *ngIf="product.location" class="loc-desc" > <span class="marker"> <i class="fa fa-map-marker-alt"></i> </span> {{product.location}} </p>
+                <div *ngIf="product.startdate" class="event-price">
+                         <div class="price-inner"> <div class="inner-column"> <span> Дата</span> </div> <div class="inner-column2"><p class="startdate"> {{ product.startdate | date:"fullDate" }} </p></div>   
+                         </div>
+                         </div>
+
+                <div *ngIf="product.location" class="event-price"> 
+                <div class="price-inner"> <div class="inner-column"> <span>Адрес</span> </div> <div class="inner-column2"><p class="loc-desc"> {{ product.location }}</p> </div></div>
+                 </div>
+
+                <div *ngIf="product.status" class="event-price">
+                         <div class="price-inner"> <div class="inner-column"> <span>Статус</span> </div> <div class="inner-column2"> <p class="event-status"> {{ product.status }}</p> </div></div>
                         </div>
-                <div *ngIf="product.startdate"><p> <i class="fa fa-calendar-alt"></i> {{ product.startdate | date:'fullDate' }}</p></div>
-                <div class="reactions">
-                                <app-reactions [productId]='product?.$key'></app-reactions>  
-                        </div>
-                </div>
+
+                <div *ngIf="product.lang" class="event-price"> <div class="price-inner"><div class="inner-column"> <span>Язык</span> </div> <div class="inner-column2"><p class="event-status"> {{ product.lang }}</p></div> </div></div>
+          
+        </div>
+</div>
+
+
  
 <div class="single-event-title">
         <h3> {{ product.title }}</h3> 
@@ -48,9 +65,12 @@
 
 
 
-
+<div class="reactions"> 
+                <app-reactions [productId]='product?.$key'></app-reactions>  
+        </div>
 </div>
 </ng-container> 
+
 </div>
 
 <app-check-out></app-check-out> 
