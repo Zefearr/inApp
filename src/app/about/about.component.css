@@ -1,0 +1,13 @@
+.cont {
+    max-width: 977px;
+    margin: 0 auto; 
+    
+    box-sizing: border-box;
+    display: block;
+    margin-top:100px;
+}   
+.map {
+    height: 300px;
+}
+
+agm-map /deep/ .agm-map-container-inner { border:1px solid lightgray; border-radius: 5px; }

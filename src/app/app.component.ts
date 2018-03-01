@@ -6,12 +6,12 @@ import * as firebase from 'firebase';
 import $ from 'jquery';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { trigger, transition, group, query, style, animate } from '@angular/animations';
-
+import { AgmCoreModule } from '@agm/core';  
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', 
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css'], 
   animations: [
     trigger('routeAnimation', [
       transition('1 => 2', [
@@ -56,8 +56,7 @@ import { trigger, transition, group, query, style, animate } from '@angular/anim
     ])
   ]
 })
-export class AppComponent  {
-  
+export class AppComponent  { 
 
 
 constructor(private userService: UserService, private auth: AuthService, router: Router) {  

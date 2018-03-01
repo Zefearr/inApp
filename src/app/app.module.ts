@@ -15,7 +15,7 @@ import * as $ from 'jquery';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 
-
+ 
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AppComponent } from './app.component'; 
@@ -35,8 +35,6 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component'; 
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
-import { CountdownModule } from 'ngx-countdown';
-import { DateComponent } from './date/date.component';
 import { SlicePipe } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -51,14 +49,15 @@ import { TutorialFormComponent } from './admin/tutorial-form/tutorial-form.compo
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { DataTableModule } from 'angular5-data-table';   
 import { RecaptchaModule } from 'ng-recaptcha'; 
-import { CountdownComponent } from './countdown/countdown.component';
 import { AdminOrderDetailsComponent } from './admin/admin-order-details/admin-order-details.component';
 import { AuthService2 } from './auth/auth.service';
 import { ContentFormComponent } from './admin/content-form/content-form.component';
 import { ContentService } from './content.service'; 
 import { ReactionService } from './reaction.service';
 import { ReactionsComponent } from './reactions/reactions.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component'; 
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -104,7 +103,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    DateComponent,
+    
     ProductCardComponent,
     FooterComponent,
     PostComponent,
@@ -115,15 +114,18 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AdminTutorialsComponent,
     TutorialFormComponent,
     AdminpanelComponent,
-    CountdownComponent,
     AdminOrderDetailsComponent,
     ContentFormComponent,
     ReactionsComponent,
     LoadingSpinnerComponent,
+    AboutComponent,
    
    
   ],
   imports: [ 
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAmR8wKqfsVoM4TxwaDYexoPLx6lEN2A6s', 
+    }),
     DataTableModule, 
     BrowserAnimationsModule,   
     BrowserModule,
@@ -137,7 +139,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     NgbModule.forRoot(),
     RouterModule.forRoot([ 
       { path: '', component: ProductsComponent, data: { depth: 1} },
-      { path: 'tutorials', component: TutorialsComponent, data: { depth: 2} }, 
+      { path: 'about', component: AboutComponent, data: { depth: 2} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
       { path: 'products', component: ProductsComponent }, 
       { path: 'signup', component: SignupComponent },
@@ -199,7 +201,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
   ],
   providers: [ 
-    
+    GoogleMapsAPIWrapper,
     AuthService, 
     AuthService2, 
     UserService,
