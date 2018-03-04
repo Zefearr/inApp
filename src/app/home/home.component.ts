@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { QuestionsService } from '../questions.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,11 +40,20 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class HomeComponent implements OnInit {
 
-  toggle = false; 
+  shown = false; 
+  // questions: Object[];
+  hide: boolean;
+  questions$;
+  hideme = {};
 
-  constructor() { }
+  constructor(private questionService: QuestionsService) { 
+    this.questions$ = this.questionService.getAll();  
+    this.hideme = {};  
+  
+  }
   onClick() {
-    this.toggle = !this.toggle;
+    this.shown = !this.shown;
+    console.log(123)
    
 }
   navState = 'default';

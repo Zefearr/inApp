@@ -4,6 +4,7 @@ import { ContentService } from '../../content.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
 import { Content } from '../../models/content';
+import * as $ from 'jquery'; 
 
 @Component({
   selector: 'app-tutorial-form',

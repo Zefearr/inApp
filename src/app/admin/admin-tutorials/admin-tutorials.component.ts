@@ -8,8 +8,10 @@ import { ContentService } from '../../content.service';
 })
 export class AdminTutorialsComponent implements OnInit {
 content$;
+
   constructor(private contentService: ContentService ) {
     this.content$ = this.contentService.getAllContent();
+  
    }
  
   ngOnInit() {

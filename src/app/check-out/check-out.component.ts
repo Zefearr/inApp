@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'; 
+import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core'; 
 import { Subscription } from 'rxjs/Subscription';
 import { OrderService } from '../order.service';
 import { ProductService } from '../product.service';
@@ -19,28 +19,18 @@ import { buttonStateTrigger } from './animations';
   templateUrl: './check-out.component.html', 
   styleUrls: ['./check-out.component.css'],
   animations: [
-    trigger('regState', [
-      state('show', style({
-        height: '*'
-      })),
-      state('hide', style({
-        height: 0,
-        padding: 0,
-        border: 0
-      })),
-      transition('show <=> hide', animate('300ms ease')), 
-    ]),
     buttonStateTrigger  
 
   ]
 
 }) 
-export class CheckOutComponent implements OnInit, OnDestroy  {  
+export class CheckOutComponent implements OnInit  {  
   appUser: AppUser; 
   show = false;
   order = {}; 
   state = 'on'; 
   userId: string;
+
   userSubscription: Subscription;
   email: string;
   id = this.route.snapshot.paramMap.get('id');
@@ -50,19 +40,23 @@ export class CheckOutComponent implements OnInit, OnDestroy  {
 
   subscription: Subscription;
   constructor(private orderService: OrderService,
-    private router: Router, 
+    private router: Router,
     private auth: AuthService,
     private route: ActivatedRoute,
     private productService: ProductService) {
     let id = this.route.snapshot.paramMap.get('id');  
     if(id) this.productService.get(id).take(1).subscribe(p => this.product = p); 
+
+  
    }
 
    expandContent() { 
     
   this.show = !this.show;
+    return false;
     
   }
+
  
    get State() { 
      return this.show ? 'show' : 'hide'
@@ -84,9 +78,7 @@ export class CheckOutComponent implements OnInit, OnDestroy  {
     
       
   }
-  ngOnDestroy() {  
-   
-  }
+  
   
   async ngOnInit() {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 

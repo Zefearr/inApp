@@ -1,0 +1,29 @@
+<div class="questionscont">
+
+<h6>Новый вопрос ответ</h6>
+
+  <form #f="ngForm" (ngSubmit)="save(f.value)">
+
+      <div class="form-group">
+          <label  for="title">Название вопроса</label>
+          <input  #title="ngModel"  [(ngModel)]="question.title" class="form-control" type="text" id="title" name="title">  
+  
+      </div>
+    
+
+    <div class="form-group">
+        <label  for="question">Вопрос</label>
+        <input #question="ngModel"  [(ngModel)]="question.question" class="form-control" type="text" id="question" name="question">
+
+    </div>
+ 
+    <div class="form-group">
+        <label  for="answer">Ответ</label>
+        <input #answer="ngModel"  [(ngModel)]="question.answer" class="form-control" type="text" id="answer" name="answer">
+
+    </div>
+  
+
+    <button class="btn btn-primary">Save</button>
+  </form>
+</div>

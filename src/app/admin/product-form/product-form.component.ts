@@ -28,6 +28,8 @@ export class ProductFormComponent {
  toggle = true;
  showcard = true;
   disabled: boolean;
+  title: string;
+  price: string;
 
   constructor(
     private fb: FormBuilder,

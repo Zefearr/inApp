@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CategoryService } from '../category.service'; 
 import { ActivatedRoute } from '@angular/router'; 
-import 'rxjs/add/operator/switchmap'; 
+import 'rxjs/add/operator/switchmap';  
 
 import { SwiperModule } from 'ngx-swiper-wrapper';
 

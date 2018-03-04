@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-@import "~font-awesome/css/font-awesome.css";
+
 @import "https://fonts.googleapis.com/css?family=Mukta+Malar|Open+Sans:300,400,600";
 @import 'swiper.min.css';
 
@@ -34,6 +34,14 @@ app-root:empty > loading {
     font-size: 3rem;
     opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: absolute; 
     display: none;
+}
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('http://www.mysite.com/css/fonts/League_Gothic.eot?') format('eot'),
+         url('http://www.mysite.com/css/fonts/League_Gothic.woff') format('woff'),
+         url('http://www.mysite.com/css/fonts/League_Gothic.ttf') format('truetype'),
+         url('http://www.mysite.com/css/fonts/League_Gothic.svg')
+
 }

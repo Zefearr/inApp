@@ -1,6 +1,6 @@
 
 
-<div class="single-event">
+<div class="single-event" [class.single-event-not-scrollable]="isShown">
     <ng-container *ngIf="product">  
 <!-- <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> -->
 
@@ -37,6 +37,8 @@
                         </div>
 
                 <div *ngIf="product.lang" class="event-price"> <div class="price-inner"><div class="inner-column"> <span>Язык</span> </div> <div class="inner-column2"><p class="event-status"> {{ product.lang }}</p></div> </div></div>
+
+                <div class="btn-cont"><button class="btn btn-primary register" (click)="onClick()">Регистрация</button></div>
           
         </div>
 </div>
@@ -51,16 +53,16 @@
 
 
 
-<div class="content-quots"> 
+<!-- <div class="content-quots"> 
 
                 <p> {{ product.desc }} </p>
 
-</div>
+</div> -->
 
 
 
 <div class="event-paragraph">
-                <p> {{ product.content }} </p>
+        <div *ngIf="product.content" [innerHTML]="product.content"></div>
 </div>
 
 
@@ -71,9 +73,19 @@
 </div>
 </ng-container> 
 
+
+
+<div class="register-cont" [class.register-active]="isShown">
+        <div>
+                        <span class="close-x" (click)="onClick()"><i class="fa fa-times"></i></span> 
+                        <app-check-out></app-check-out>   
+        </div>
+     
 </div>
 
-<app-check-out></app-check-out> 
+</div>
+
+
 
 
    

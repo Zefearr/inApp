@@ -2,9 +2,12 @@
 
 <appnavbar></appnavbar>  
 
-<main role="main" class="inapp-cont" [@routeAnimation]="getDepth(myOutlet)">     
+<main role="main" class="inapp-cont" [@routeAnimation]="getDepth(myOutlet)">    
+ 
 
 <router-outlet #myOutlet="outlet"></router-outlet>   
 
+
+<app-footer></app-footer> 
 </main>
-<!-- <app-footer></app-footer> -->
+

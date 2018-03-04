@@ -1,37 +1,77 @@
 .check-out-cont {
     max-width:977px;
-    margin: 0 auto;
+    margin: 0 auto; 
+    height: 100%;
     overflow: hidden;
     position: relative;
-    margin-bottom: 50px;
+    display: block;
+  
+    /* margin-bottom: 50px; */
    
+}
+.help {
+    font-size: .8rem;
+    text-align: left;
 }
 .check-out-cont-inner {
     padding:10px;
-    border:1px solid lightgray;
    
-    background-color: rgb(255, 244, 230);
+   
+  
    
 
   
 }
 .registerinfo {
     text-align: center;
-    border-bottom: 1px solid lightgray;
     margin-bottom:10px;
 }
+
+h3 {
+    font-size: .8rem;
+    text-align: left;
+}
+
+h4 {
+    font-size: .7rem;
+    text-align: left;
+    padding-bottom:5px;
+}
+
+@media(min-width: 768px) {
+    h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: left;
+        color:rgb(61, 61, 61);
+    
+    }
+    h3 strong {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: left;
+        color:rgb(39, 39, 39);
+    }
+}
+
+
 .register {
     padding:0;
    margin-bottom: 10px;
-   margin-top: 10px;
+   margin-top: 50px;
    padding:.5rem 1rem;
   color:#fff; 
-     text-align: center;
+    text-align: center;
      display: block;
-        width:100%;
-        background-color:rgb(30, 101, 194);
+    width:100%;
+    background-color:rgb(30, 101, 194);
      border:1px solid lightgray;
      border-top: none;
+     font-weight: 600;
+     cursor: pointer;
 }
 .send {
     padding:0;

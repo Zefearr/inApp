@@ -14,7 +14,6 @@ import { DatePipe } from '@angular/common';
 import * as $ from 'jquery'; 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 
-
  
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
@@ -58,6 +57,14 @@ import { ReactionsComponent } from './reactions/reactions.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component'; 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { AboutComponent } from './about/about.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+import { TinyMceModule } from 'angular-tinymce';
+import { tinymceDefaultSettings } from 'angular-tinymce';
+import { EventlistComponent } from './eventlist/eventlist.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { QuestionsFormComponent } from './questions-form/questions-form.component';
+import { QuestionsService } from './questions.service';
 
 
 
@@ -119,17 +126,22 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     ReactionsComponent,
     LoadingSpinnerComponent,
     AboutComponent,
+    EventlistComponent,
+    QuestionsComponent,
+    QuestionsFormComponent,
    
    
   ],
   imports: [ 
-    AgmCoreModule.forRoot({
+    AgmCoreModule.forRoot({ 
       apiKey: 'AIzaSyAmR8wKqfsVoM4TxwaDYexoPLx6lEN2A6s', 
-    }),
+    }), 
+    TinyMceModule.forRoot(tinymceDefaultSettings()), 
     DataTableModule, 
     BrowserAnimationsModule,   
     BrowserModule,
     FormsModule,
+    AngularFontAwesomeModule,
     ReactiveFormsModule,
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),     
@@ -139,15 +151,16 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     NgbModule.forRoot(),
     RouterModule.forRoot([ 
       { path: '', component: ProductsComponent, data: { depth: 1} },
-      { path: 'about', component: AboutComponent, data: { depth: 2} }, 
+      { path: 'about', component: AboutComponent, data: { depth: 5} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
       { path: 'products', component: ProductsComponent }, 
       { path: 'signup', component: SignupComponent },
+      { path: 'events', component: EventlistComponent },
       { path: 'signin', component: SigninComponent }, 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 3}}, 
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
-      { path: 'events', component: HomeComponent },
+      { path: 'faq', component: HomeComponent, data: {depth: 4}},
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       },
       
@@ -155,8 +168,19 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
       { path: 'admin/tutorials',
        component: AdminTutorialsComponent,
-       canActivate: [AuthGuard, AdminAuthGuardService],
-        data: { depth: 2} },
+       canActivate: [AuthGuard, AdminAuthGuardService]},
+
+       { path: 'admin/faq',
+       component: QuestionsComponent, 
+       canActivate: [AuthGuard, AdminAuthGuardService]},
+
+
+       { path: 'admin/faq/new',
+       component: QuestionsFormComponent,  
+       canActivate: [AuthGuard, AdminAuthGuardService]},
+       { path: 'admin/faq/:id',
+       component: QuestionsFormComponent, 
+       canActivate: [AuthGuard, AdminAuthGuardService]},
 
  
       { path: 'admin/products/new',   
@@ -206,6 +230,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AuthService2, 
     UserService,
     AuthGuard,
+    QuestionsService,
     AdminAuthGuardService,
     CategoryService,
     ProductService,
@@ -217,4 +242,5 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   bootstrap: [AppComponent] 
 
 })
-export class AppModule { }  
+export class AppModule { }   
+ 

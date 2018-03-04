@@ -1,7 +1,7 @@
 <div class="check-out-cont" >
    
-  <button (click)="expandContent()"  class="register">Регистрируйся</button> 
-  <div class="check-out-cont-inner" [@regState]="State"> 
+  
+  <div class="check-out-cont-inner"> 
     
       
     <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте <a routerLink="/login">войти</a></p>  </ng-template>
@@ -9,8 +9,8 @@
  <form #f="ngForm"> 
 
   <div class="registerinfo">
-  <p>Вы регистрируетесь на курс: <strong>{{ product.title }}</strong>  </p>
-  <p>В случае возникновения вопросов позвоните нам по номеру: <strong>(+372) 56 123 122</strong>  </p>
+  <h3>Регистрация на курс: <strong>{{ product.title }}</strong>  </h3>
+  <p class="help">В случае возникновения вопросов позвоните нам по номеру: <strong>(+372) 56 123 122</strong>  </p>
 </div>
     <div class="form-group">
 
@@ -54,8 +54,11 @@
     <div class="form-group">
         <label for="city">Город</label>
         <div class="input-group">
-        
-        <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control" required>
+        <select  #city="ngModel" [(ngModel)]="order.city" name="city" id="city" class="form-control">
+         <option value="Talinn">Talinn</option> 
+         <option value="Narva">Narva</option>
+        </select>
+        <!-- <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control" required> -->
         </div>
         
           </div>
@@ -85,6 +88,7 @@
 
       </div>
       
+     
       
       </div>
      

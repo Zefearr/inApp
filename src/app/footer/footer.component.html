@@ -1,9 +1,37 @@
-<div class="footer">
-  <div class="footer-inner">
-    <ul>
-      <li>Tootukassa</li>
-      <li>Opeklass</li>
-      <li></li>
-    </ul>
+<div class="footer" [class.active]="toggle">
+  <span class="footer-toggler"  (click)="onClick()"> <i class="fa fa-angle-up footer-mark" [class.reversed]="toggle" ></i> </span> 
+
+  <div class="footerwrapper">
+
+    <div class="column">
+
+        <div class="footer-nav">
+            <ul>
+              <li><a class="" href="#"> Tootukassa </a> </li>
+              <li><a class="" href="#"> Oppeklass </a></li>
+              <li></li>
+            </ul>
+          </div>
+        
+          <div class="footer-nav">
+              <ul>
+                <li><a class="" routerLink="/faq"> FAQ</a> </li>
+                <li><a class="" routerLink="/about"> Kontakt </a></li>
+                <li></li>
+              </ul>
+            </div>
+
+    </div>
+
+    <div class="column">
+      <p>Copyright © 2017 Indev OU. All rights reserved. </p>
+    </div>
+
+    <span class="footer-logo"></span> 
+
+    
+    
   </div>
+   
+
 </div>

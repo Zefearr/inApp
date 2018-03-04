@@ -40,6 +40,7 @@ box-shadow: 0px 0px 5px -3px rgba(82,82,82,1);
 
 .event-cart-img-cont { 
    width:284px;
+  
    height: 230px; 
    position: relative;
    overflow: hidden;
@@ -130,7 +131,7 @@ i {
     left:0px;
     padding:10px;
 }
-.event-cart-image {  
+.event-cart-image {   
     width:284px;
    /* height: 230px; */
    height: auto;

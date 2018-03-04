@@ -8,7 +8,7 @@ export interface Product {
     // itemId:string;
     desc: string;
     location: string;
-    date: string;
+    startdate: string;
     content: string;  
    
 }

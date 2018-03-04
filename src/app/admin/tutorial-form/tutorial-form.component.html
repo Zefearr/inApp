@@ -1,6 +1,5 @@
 <div class="cont">
-  <p> {{ content.timestamp }} </p>  
-    <form #f="ngForm" (ngSubmit)="save(f.value)">  
+    <form #f="ngForm" (ngSubmit)="save(f.value)">   
 
         
 
@@ -9,26 +8,6 @@
                 <input  #title="ngModel"  [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control">          
            <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Введите название</div> 
         </div>
-     
-
-        <div class="form-group"> 
-                <label for="category"> Content-category</label> 
-                    <select #category="ngModel" [(ngModel)]="content.category" name="category" id="category" type="text" class="form-control" required> 
-                        <option value=""></option>
-                        <option *ngFor="let c of contentcategories$ | async" [value]="c.$key">
-                                {{ c.name }}
-                        </option> 
-                       
-                        </select>
-               <div class="alert alert-danger" *ngIf="category.touched && category.invalid"> Укажите категорию</div>
-        </div>
-        
-
-        <div class="form-group">
-                <label for="logoUrl">изображения на thumbnail(slider) максимальный размер 250x170px </label> 
-                    <input #logoUrl="ngModel" [(ngModel)]="content.logoUrl" name="logoUrl" id="logoUrl" type="text" class="form-control" > 
-                    <div class="alert alert-danger" *ngIf="logoUrl.touched && logoUrl.invalid">Добавьте URL изображения</div> 
-            </div>
             <img [src]="content.logoUrl" class="content-image-prev" alt="" *ngIf="content.logoUrl">     
             
             <div class="form-group">
@@ -44,18 +23,30 @@
                          
                    
             </div> 
-
             <div class="form-group">    
+                    <label for="link">Ссылка на событие (id)</label> 
+                        <textarea #link="ngModel" [(ngModel)]="content.link" name="link" id="link" type="text" class="form-control" maxlength="250" required> </textarea>
+                        <div class="alert alert-danger" *ngIf="link.touched && link.invalid">textarea is empty</div>    
+                         
+                   
+            </div>
+
+            <!-- <div class="form-group">    
                     <label for="text"> Content-text</label> 
                         <textarea #text="ngModel" [(ngModel)]="content.text" name="text" id="text" type="text" class="form-control form-main-content" required> </textarea>
                         <div class="alert alert-danger" *ngIf="text.touched && text.invalid">textarea is empty</div>    
                          
                    
-            </div> 
+            </div>   -->
+            
+         
            
-            <button class="btn btn-primary">Save</button> 
+            <button class="btn btn-primary">Save</button>  
+
+           
 
     </form>
+ 
+
     
-  
    </div>

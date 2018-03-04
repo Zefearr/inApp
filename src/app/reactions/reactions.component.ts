@@ -16,6 +16,7 @@ import * as _ from "lodash";
 export class ReactionsComponent implements OnInit, OnDestroy {
 
   @Input() productId: string;
+  @Input() contentId: string;
 
   showEmojis = false;
   emojiList: string[];
@@ -47,8 +48,10 @@ export class ReactionsComponent implements OnInit, OnDestroy {
    
       if(this.userReaction === val) {
         this.reactionSvc.removeReaction(this.productId)
+
       } else {
-        this.reactionSvc.updateReaction(this.productId, val)
+        this.reactionSvc.updateReaction(this.productId, val) 
+
       }
    
     console.log();

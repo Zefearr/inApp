@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import * as firebase from 'firebase';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { trigger, transition, group, query, style, animate } from '@angular/animations';
 import { AgmCoreModule } from '@agm/core';  
@@ -24,6 +24,42 @@ import { AgmCoreModule } from '@agm/core';
         ])
       ]),
 
+      transition('1 <=> 4', [
+        style({ height: "*"}),
+        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
+      transition('2 <=> 4', [
+        style({ height: "*"}),
+        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
+      transition('1 <=> 5', [
+        style({ height: "*"}),
+        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
+      transition('2 <=> 5', [
+        style({ height: "*"}),
+        query(':enter', style({transform: 'translateY(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
       transition('2 => 1', [
         style({ height: "*"}),
         query(':enter', style({transform: 'translateY(-100%)'})),
@@ -31,6 +67,15 @@ import { AgmCoreModule } from '@agm/core';
         group([
           query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
           query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+        ])
+      ]),
+      transition('4 <=> 5', [
+        style({ height: "*"}),
+        query(':enter', style({transform: 'translateX(-100%)'})),
+        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+        group([
+          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateX(100%)'}))]), 
+          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateX(0)'}))])
         ])
       ]),
       transition('2 => 3', [
@@ -57,8 +102,6 @@ import { AgmCoreModule } from '@agm/core';
   ]
 })
 export class AppComponent  { 
-
-
 constructor(private userService: UserService, private auth: AuthService, router: Router) {  
   auth.user$.subscribe(user => { 
     if(user) { 
@@ -68,6 +111,7 @@ constructor(private userService: UserService, private auth: AuthService, router:
     }
   });
 }
+
 getDepth(outlet) {
   return outlet.activatedRouteData['depth'];
 }

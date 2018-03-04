@@ -18,7 +18,7 @@
   
       
            
-              <div class="swiper-slide" *ngFor="let p of content$ | async">
+              <div class="swiper-slide" *ngFor="let p of content$ | async"> 
                   <img class="slider-img-low-op" [src]="p.imageUrl" alt="">  
                   
                   <div class="slide-innercontent"> 
@@ -28,6 +28,7 @@
                           <div class="content-desc">
                             <div class="content-title">
                                 <h5 class="slide-title"> {{ p.title }} </h5> 
+                             
                             </div>
                           
                             <div class="content-description" *ngIf="p.desc">
@@ -39,7 +40,7 @@
 
                           <div class="content-link"> 
                             <div class="thumbnail" ><img [src]="p.logoUrl" *ngIf="p.logoUrl" alt=""></div>
-                            <div class="btn-cont"> <button  [routerLink]="['/tutorials/', p.$key]"  class="btn btn-primary btn-slider">Читать</button></div>
+                            <div class="btn-cont"> <button  routerLink="/events/{{p.link}}"  class="btn btn-primary btn-slider">Читать</button></div>
                             
                           </div>
                   

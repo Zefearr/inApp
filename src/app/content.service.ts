@@ -13,7 +13,7 @@ export class ContentService {
 
       create(content) { 
         // const timestamp = this.getTimeStamp();
-        var sessionsRef = firebase.database().ref("sessions");
+        // var sessionsRef = firebase.database().ref("sessions");
         return this.db.list('/content').push(content);
          
 

@@ -2,6 +2,7 @@
 <!-- <div [@divState]="state" style="width: 100px; height: 100px"></div> -->
 <div class="event-cart">
     <div class="event-cart-img-cont">
+            <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl" > 
       <div class="event-cart-description">
           <p class="event-cart-desc-content"> {{ product.desc }} </p> 
           <p class="cart-date" *ngIf="product.startdate"> {{ product.startdate | date:'MMMM d' }}  </p>
@@ -9,7 +10,7 @@
        
       </div> 
      
-      <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl" > 
+     
       </div>
     
         <div class="event-cart-content-cont"> 
