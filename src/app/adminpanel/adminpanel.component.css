@@ -55,48 +55,19 @@
 }
 
 
-.admin-settings-list li a {
-    color:rgb(255, 255, 255);
-    font-size:1rem;
-    font-weight: 400;
-    display: block;
-    color:#222;
-   border:1px solid gray;
-  border-radius: 3px;
-   width:300px;
-    padding: .5rem 2rem;
-   /* border:1px solid gray; */
- 
-    
-   
-  
-}
-.admin-settings-list li a:hover {
-    text-decoration: none;
-    background-color:rgb(66, 66, 66);
-    color:#fff;
-}
+
+
 span {
     margin-right: 10px;
 }
-.admin-settings-list li {
-    color:#111;
-    margin-bottom: .2rem;
-}
+
 .admin-panel-title {
     text-align: center;
     padding-top:1rem;
     border-bottom:1px solid lightgray;
     padding-bottom: 1rem;
 }
-.admininfo {
- 
- position: absolute;
- padding-left: 5px;
- transform: translateY(30%) translateX(10%);
-}
-.admininfo p {
-    margin:0;
-    padding:0;
-    font-size:.8rem;
+
+a {
+    color:#333;
 }

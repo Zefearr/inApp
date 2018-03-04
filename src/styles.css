@@ -37,11 +37,3 @@ app-root:empty > loading {
     position: absolute; 
     display: none;
 }
-@font-face {
-    font-family: 'LeagueGothicRegular';
-    src: url('http://www.mysite.com/css/fonts/League_Gothic.eot?') format('eot'),
-         url('http://www.mysite.com/css/fonts/League_Gothic.woff') format('woff'),
-         url('http://www.mysite.com/css/fonts/League_Gothic.ttf') format('truetype'),
-         url('http://www.mysite.com/css/fonts/League_Gothic.svg')
-
-}
