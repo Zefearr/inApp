@@ -14,7 +14,7 @@ import { UserService } from './user.service';
 
  
 @Injectable()
-export class AuthService {
+export class AuthService { 
   
   user$: Observable<firebase.User>;
 

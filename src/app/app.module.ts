@@ -7,14 +7,15 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppUser } from './models/app-user';
+import { AppUser } from './models/app-user'; 
 
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
 import * as $ from 'jquery'; 
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
- 
+
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AppComponent } from './app.component'; 
@@ -47,7 +48,6 @@ import { AdminTutorialsComponent } from './admin/admin-tutorials/admin-tutorials
 import { TutorialFormComponent } from './admin/tutorial-form/tutorial-form.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { DataTableModule } from 'angular5-data-table';   
-import { RecaptchaModule } from 'ng-recaptcha'; 
 import { AdminOrderDetailsComponent } from './admin/admin-order-details/admin-order-details.component';
 import { AuthService2 } from './auth/auth.service';
 import { ContentFormComponent } from './admin/content-form/content-form.component';
@@ -58,6 +58,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { AboutComponent } from './about/about.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 import { TinyMceModule } from 'angular-tinymce';
 import { tinymceDefaultSettings } from 'angular-tinymce';
@@ -65,6 +67,7 @@ import { EventlistComponent } from './eventlist/eventlist.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionsFormComponent } from './questions-form/questions-form.component';
 import { QuestionsService } from './questions.service';
+``  
 
 
 
@@ -136,6 +139,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AgmCoreModule.forRoot({ 
       apiKey: 'AIzaSyAmR8wKqfsVoM4TxwaDYexoPLx6lEN2A6s', 
     }), 
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
     TinyMceModule.forRoot(tinymceDefaultSettings()), 
     DataTableModule, 
     BrowserAnimationsModule,   
@@ -144,11 +149,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AngularFontAwesomeModule,
     ReactiveFormsModule,
     CustomFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),     
+    AngularFireModule.initializeApp(environment.firebase),      
     AngularFireDatabaseModule, 
     AngularFireAuthModule,
     SwiperModule.forRoot(SWIPER_CONFIG),
-    NgbModule.forRoot(),
+    NgbModule.forRoot(), 
     RouterModule.forRoot([ 
       { path: '', component: ProductsComponent, data: { depth: 1} },
       { path: 'about', component: AboutComponent, data: { depth: 5} }, 
@@ -172,7 +177,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
 
        { path: 'admin/faq',
        component: QuestionsComponent, 
-       canActivate: [AuthGuard, AdminAuthGuardService]},
+       canActivate: [AuthGuard, AdminAuthGuardService]}, 
 
 
        { path: 'admin/faq/new',

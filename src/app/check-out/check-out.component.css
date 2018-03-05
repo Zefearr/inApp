@@ -26,6 +26,11 @@
     text-align: center;
     margin-bottom:10px;
 }
+.btn-send {
+    border-radius: 3px;
+    background-color:rgb(219, 56, 56);
+    margin-top:10px;
+}
 
 h3 {
     font-size: .8rem;

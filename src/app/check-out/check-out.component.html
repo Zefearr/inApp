@@ -6,7 +6,7 @@
       
     <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте <a routerLink="/login">войти</a></p>  </ng-template>
   <ng-container *ngIf="appUser; else anonymousUser">
- <form #f="ngForm"> 
+ <form #f="ngForm" #declarativeForm="ngForm">  
 
   <div class="registerinfo">
   <h3>Регистрация на курс: <strong>{{ product.title }}</strong>  </h3>
@@ -54,23 +54,31 @@
     <div class="form-group">
         <label for="city">Город</label>
         <div class="input-group">
-        <select  #city="ngModel" [(ngModel)]="order.city" name="city" id="city" class="form-control">
+        <select  #city="ngModel" [(ngModel)]="order.city" name="city" id="city" class="form-control" required>
          <option value="Talinn">Talinn</option> 
-         <option value="Narva">Narva</option>
+         <option value="Narva">Narva</option> 
         </select>
         <!-- <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control" required> -->
-        </div>
+        </div> 
         
           </div>
-         
-          <button class="btn btn-primary"
+          <re-captcha
+          [(ngModel)]="declarativeFormCaptchaValue"
+          name="captcha"
+          required
+          siteKey="6LcFAUcUAAAAAHUGHFgTBSH5xzwhY8PwCxCtp7wI"
+          #captchaControl="ngModel"></re-captcha> 
+
+          <button class="btn btn-primary btn-send" 
             type="button"
             (click)="placeOrder()"
             [disabled]="!f.valid"
+            [disabled]="!declarativeForm.valid"
             [@buttonState]="f.valid ? 'valid' : 'invalid'"
           >Отправить</button>   
         </form> 
       </ng-container>
+     
 
         <!-- <re-captcha (resolved)="resolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha> -->
 

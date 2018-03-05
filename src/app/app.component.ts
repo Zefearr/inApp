@@ -102,6 +102,9 @@ import { AgmCoreModule } from '@agm/core';
   ]
 })
 export class AppComponent  { 
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+}
 constructor(private userService: UserService, private auth: AuthService, router: Router) {  
   auth.user$.subscribe(user => { 
     if(user) { 

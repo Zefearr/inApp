@@ -30,6 +30,7 @@ export class CheckOutComponent implements OnInit  {
   order = {}; 
   state = 'on'; 
   userId: string;
+  captcha?: string;
 
   userSubscription: Subscription;
   email: string;
