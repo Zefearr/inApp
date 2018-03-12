@@ -27,7 +27,7 @@ export class AppnavbarComponent implements OnInit {
 
   constructor(private auth: AuthService) { 
     
-    // auth.appUser$.subscribe(x => console.log(x));   
+    auth.appUser$.subscribe(x => console.log(x));   
       
   }
   async ngOnInit() {

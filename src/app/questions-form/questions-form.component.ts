@@ -10,14 +10,17 @@ import 'rxjs/add/operator/take';
 })
 export class QuestionsFormComponent implements OnInit {
   question = {};
+  id;
 
   constructor(private router: Router, private questionService: QuestionsService, private route: ActivatedRoute) { 
-    let id = this.route.snapshot.paramMap.get('id');
-    if(id) this.questionService.get(id).take(1).subscribe(p => this.question = p);   
+    this.id = this.route.snapshot.paramMap.get('id');
+    if(this.id) this.questionService.get(this.id).take(1).subscribe(p => this.question = p);   
   }
 
   save(question) { 
-   this.questionService.create(question); 
+    if(this.id) {
+      this.questionService.update(this.id, question);
+    } else this.questionService.create(question);  
    this.router.navigate(['/admin/faq']);  
   }
  

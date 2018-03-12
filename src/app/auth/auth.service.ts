@@ -8,7 +8,7 @@ export class AuthService2 {
                 error => console.log(error)  
             )
     }
-    signinUser(email: string, password: string, name: string) { 
+    signinUser(email: string, password: string) { 
       firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
           responce => console.log(responce)

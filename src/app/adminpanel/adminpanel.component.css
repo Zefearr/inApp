@@ -1,7 +1,6 @@
 .panelcont {
     border-radius: none;
-    background-color:#fff;
-    border:1px solid lightgray;
+ 
     margin-top:75px;
     border-left: none;
     border-right: none;
@@ -17,8 +16,8 @@
         max-width:977px;
         margin:auto;
         
-        background-color:#fff;
-        border:1px solid lightgray;
+        /* background-color:#fff;
+        border:1px solid lightgray; */
      
         text-align: center;
         margin-top:75px;
@@ -42,6 +41,12 @@
     
     
 }
+mat-icon {
+    position: absolute;
+    right: 30px;
+    top:15px;
+    color:rgb(122, 129, 134);
+}
 .admin-settings-list li {
    
    
@@ -64,10 +69,28 @@ span {
 .admin-panel-title {
     text-align: center;
     padding-top:1rem;
-    border-bottom:1px solid lightgray;
+    
     padding-bottom: 1rem;
 }
 
 a {
     color:#333;
+}
+button {
+    width:100%;
+    text-align: left;
+    color:rgb(34, 34, 34);
+    font-size: 1.1rem;
+    font-weight: 400;
+    position: relative;
+    height: 60px;
+    
+   
+    
+}
+mat-button {
+    height: 100px;
+}
+mat-list-item {
+    height: 100px;
 }

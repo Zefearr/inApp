@@ -13,10 +13,8 @@
     
 }
 .cont {
-   display: flex;
-   width:100%;
- 
-    
-  
-    min-height:80vh;
+   max-width:977px;
+   margin: 0 auto;
+   padding-top:75px;
+   display: block;
 }

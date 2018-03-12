@@ -14,7 +14,7 @@
 <nav class="header-nav" id="header-nav" [class.header-nav-active]="toggle">  
  
   <ul class="main-navigation"> 
-     
+   
    
     
    
@@ -22,7 +22,7 @@
     
     <ng-container *ngIf="!appUser"> 
       
-       <li> <a  routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Войти</a></li>     
+       <li> <a  routerLinkActive="route-active" routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Войти</a></li>     
     </ng-container> 
      
     
@@ -35,12 +35,13 @@
           <span> <i class="fa fa-sun"></i> </span>
           
    admin
-        </a> 
+        </a>  
       
     </li>
     
-    <li>  <a routerLink="/faq">ЧаВо</a></li>
-    <li>  <a routerLink="/about">Контакт</a></li>
+    <li>  <a routerLinkActive="route-active"  routerLink="/faq">ЧаВо</a></li>
+    <li>  <a routerLinkActive="route-active" routerLink="/blog">Блог</a></li>
+    <li>  <a routerLinkActive="route-active" routerLink="/about">Контакт</a></li>
   
     
    

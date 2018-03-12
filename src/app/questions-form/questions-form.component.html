@@ -1,6 +1,6 @@
 <div class="questionscont">
 
-<h6>Новый вопрос ответ</h6>
+
 
   <form #f="ngForm" (ngSubmit)="save(f.value)">
 
@@ -12,10 +12,10 @@
     
 
     <div class="form-group">
-        <label  for="question">Вопрос</label>
-        <input #question="ngModel"  [(ngModel)]="question.question" class="form-control" type="text" id="question" name="question">
+        <label  for="ask">Вопрос</label>
+        <input #ask="ngModel"  [(ngModel)]="question.ask" class="form-control" type="text" id="ask" name="ask">
 
-    </div>
+    </div> 
  
     <div class="form-group">
         <label  for="answer">Ответ</label>
@@ -26,4 +26,5 @@
 
     <button class="btn btn-primary">Save</button>
   </form>
+  
 </div>

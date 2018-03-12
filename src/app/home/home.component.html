@@ -1,14 +1,27 @@
 
 <div class="container-inapp">
-  <h3>Часто задаваемыe вопросы</h3>
-  <div class="faq-cont">
-      <div *ngIf="!questions$">
-          <app-loading-spinner *ngIf="questions$ != 'finished'"></app-loading-spinner>  
-       </div>
-     
-    <div class="faq" *ngFor="let p of questions$ | async">
+    <h3 class="faq-title"> <span class="fa fa-question ask"></span>  Часто задаваемыe вопросы </h3> 
+    <mat-accordion *ngFor="let p of questions$ | async">
+        <mat-expansion-panel style="box-shadow: none">
+          <mat-expansion-panel-header>
+           
+            <mat-panel-description>
+              {{p.ask}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+       
+      
+          {{p.answer}}
+        </mat-expansion-panel>
+        
+      </mat-accordion>
+  
+
+<!--  
+     <div class="faq" *ngFor="let p of questions$ | async">
       <div class="question">
-      <p>{{p.question}}<button class="btn btn-link btn-toggler" (click)="hideme[p.$key] = !hideme[p.$key]" >Показать</button>   </p>
+      <p>{{p.ask}}<button class="btn btn-link btn-toggler" (click)="hideme[p.$key] = !hideme[p.$key]" >Показать</button>   </p>
     </div>
 
       <div class="answer" [hidden]="!hideme[p.$key]">
@@ -16,14 +29,14 @@
       </div>
 
      
-    </div>
+    </div> -->
   
    
     
    
   </div>
 
-</div>
+
 
 
 

@@ -7,6 +7,9 @@
  </div> -->
 
     <div class="swipercube-cont">
+        <div class="img-cont"> 
+      <!-- <img src="/../../assets/images/bg.jpg" class="mainbg" alt=""> -->
+      </div>
 
        
 
@@ -19,30 +22,34 @@
       
            
               <div class="swiper-slide" *ngFor="let p of content$ | async"> 
+
+               
                   <img class="slider-img-low-op" [src]="p.imageUrl" alt="">  
+             
+
                   
                   <div class="slide-innercontent"> 
                      
                         <div class="slider-content">
 
-                          <div class="content-desc">
-                            <div class="content-title">
+                       
+
+                      
                                 <h5 class="slide-title"> {{ p.title }} </h5> 
                              
-                            </div>
+                      
                           
-                            <div class="content-description" *ngIf="p.desc"> 
+                            <div class="desc"  *ngIf="p.desc"> 
                           
                                  <p> <span> ❝ </span> {{ p.desc}} ... <span> ❞ </span> </p> 
-                            </div>
-                            
-                          </div> 
+                                 <a  routerLink="/events/{{p.link}}"  class="btn btn-primary btn-slider">Читать</a>
 
-                          <div class="content-link"> 
-                            <div class="thumbnail" ><img [src]="p.logoUrl" *ngIf="p.logoUrl" alt=""></div>
-                            <div class="btn-cont"> <button  routerLink="/events/{{p.link}}"  class="btn btn-primary btn-slider">Читать</button></div>
+                            </div>
+                           
                             
-                          </div>
+                     
+
+                         
                   
                     
                   

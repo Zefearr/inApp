@@ -4,10 +4,12 @@ import { animate, trigger, style, state, group, transition } from '@angular/anim
 
 export const buttonStateTrigger = trigger('buttonState', [
     state('valid', style({
-        backgroundColor: 'green'
+        backgroundColor: '#42AB9E'
+        
     })),
     state('invalid', style({
-        backgroundColor: 'red'
+        backgroundColor: 'rgb(165, 165, 165)'  
+        
     })),
     transition('invalid => valid', [
         group([
@@ -15,7 +17,7 @@ export const buttonStateTrigger = trigger('buttonState', [
                 transform: 'scale(1.1)'
             })),
             animate(200, style({
-                backgroundColor: 'green'
+                backgroundColor: '#42AB9E'
             }))
         ]),
         animate(200, style({
@@ -24,3 +26,4 @@ export const buttonStateTrigger = trigger('buttonState', [
     ]) 
    
 ]);
+

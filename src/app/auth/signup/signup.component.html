@@ -1,5 +1,5 @@
 <div class="cont">
-<div class="signup-container">
+<!-- <div class="signup-container">
   <h5>Регистрация</h5>
 <form (ngSubmit)="onSignup(f)" #f="ngForm"> 
     <div class="form-group">
@@ -19,5 +19,42 @@
 
 </form>
 
-</div>
+</div> -->
+<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <form  (ngSubmit)="onSignup(f)" #f="ngForm">
+  <mat-step [stepControl]="firstFormGroup">
+    
+      <ng-template matStepLabel>Укажите адрес эл. почты</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="E-Mail" type="email" id="email" name="email" ngModel  required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+  
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+   
+      <ng-template matStepLabel>Придумайте пароль</ng-template>
+      <mat-form-field>
+        <input type="password" id="password" name="password" matInput placeholder="Пароль"  required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+   
+  </mat-step>
+</form>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 </div>

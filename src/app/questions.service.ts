@@ -19,4 +19,7 @@ export class QuestionsService {
 get(questionId) {
   return this.db.object('/questions/' + questionId);
 } 
+update(questionId, question) { 
+  return this.db.object('/questions/' + questionId).update(question);
+}
 }

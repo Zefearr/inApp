@@ -59,15 +59,23 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { AboutComponent } from './about/about.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { MatIconModule } from '@angular/material/icon';
 
 
-import { TinyMceModule } from 'angular-tinymce';
+import { TinyMceModule } from 'angular-tinymce'; 
 import { tinymceDefaultSettings } from 'angular-tinymce';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { QuestionsFormComponent } from './questions-form/questions-form.component';
-import { QuestionsService } from './questions.service';
-``  
+import { QuestionsFormComponent } from './questions-form/questions-form.component'; 
+import { QuestionsService } from './questions.service';   
+import { BlogComponent } from './blog/blog/blog.component';
+import { BlogFormComponent } from './admin/blog-form/blog-form.component';
+import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component'; 
+import { BlogCategoryService } from './blog-category.service';
+import { BlogService } from './blog.service';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+import 'hammerjs'; 
 
 
 
@@ -97,8 +105,84 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
  
 
 };
+ 
+import {
+  MatExpansionPanel, 
+  MatMenuPanel,
+  MatExpansionPanelHeader,
+  MatAccordion,
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatAccordionDisplayMode,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatGridListModule, 
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatTabsModule,
+  MatToolbarModule, 
+  MatTooltipModule, 
+  MatDatepickerModule,
+  MatDividerModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule
+  
+} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 
-
+export const MaterialModules = [ 
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+ 
+  
+ 
+];
 
 @NgModule({ 
   declarations: [
@@ -113,7 +197,6 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    
     ProductCardComponent,
     FooterComponent,
     PostComponent,
@@ -123,7 +206,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     TutorialsComponent,
     AdminTutorialsComponent,
     TutorialFormComponent,
-    AdminpanelComponent,
+    AdminpanelComponent, 
     AdminOrderDetailsComponent,
     ContentFormComponent,
     ReactionsComponent,
@@ -132,6 +215,9 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     EventlistComponent,
     QuestionsComponent,
     QuestionsFormComponent,
+    BlogComponent,
+    BlogFormComponent,
+    AdminBlogComponent,
    
    
   ],
@@ -144,6 +230,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     TinyMceModule.forRoot(tinymceDefaultSettings()), 
     DataTableModule, 
     BrowserAnimationsModule,   
+    CdkTableModule, 
     BrowserModule,
     FormsModule,
     AngularFontAwesomeModule,
@@ -152,6 +239,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     AngularFireModule.initializeApp(environment.firebase),      
     AngularFireDatabaseModule, 
     AngularFireAuthModule,
+    MaterialModules,
     SwiperModule.forRoot(SWIPER_CONFIG),
     NgbModule.forRoot(), 
     RouterModule.forRoot([ 
@@ -159,15 +247,26 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       { path: 'about', component: AboutComponent, data: { depth: 5} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
       { path: 'products', component: ProductsComponent }, 
+      { path: 'blog', component: BlogComponent }, 
       { path: 'signup', component: SignupComponent },
       { path: 'events', component: EventlistComponent },
       { path: 'signin', component: SigninComponent }, 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
-      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 3}}, 
+      { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 3}},  
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       { path: 'faq', component: HomeComponent, data: {depth: 4}},
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       },
+      { path: 'admin/blog',
+       component: AdminBlogComponent, 
+       canActivate: [AuthGuard, AdminAuthGuardService]},
+       { path: 'admin/blog/new',
+       component: BlogFormComponent, 
+       canActivate: [AuthGuard, AdminAuthGuardService]}, 
+
+       { path: 'admin/blog/:id',
+       component: BlogFormComponent, 
+       canActivate: [AuthGuard, AdminAuthGuardService]},
       
       { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}},  
 
@@ -186,6 +285,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
        { path: 'admin/faq/:id',
        component: QuestionsFormComponent, 
        canActivate: [AuthGuard, AdminAuthGuardService]},
+      
+
 
  
       { path: 'admin/products/new',   
@@ -213,7 +314,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       },
       { path: 'admin/controls',
      component: AdminpanelComponent,
-      canActivate: [AuthGuard, AdminAuthGuardService] 
+      canActivate: [AuthGuard, AdminAuthGuardService]  
       },
 
       { path: 'admin/orders',
@@ -227,9 +328,10 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     ])  
 
 
-
+ 
   ],
   providers: [ 
+    BlogCategoryService,
     GoogleMapsAPIWrapper,
     AuthService, 
     AuthService2, 
@@ -241,11 +343,12 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     ProductService,
     OrderService,
     ContentService,
-    ReactionService
+    ReactionService, 
+    BlogService
   ],
 
   bootstrap: [AppComponent] 
 
-})
+}) 
 export class AppModule { }   
  

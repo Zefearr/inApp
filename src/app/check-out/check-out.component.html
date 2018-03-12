@@ -5,19 +5,24 @@
     
       
     <ng-template #anonymousUser> <p>Для регистрации авторизируйтесь на сайте <a routerLink="/login">войти</a></p>  </ng-template>
+   
   <ng-container *ngIf="appUser; else anonymousUser">
  <form #f="ngForm" #declarativeForm="ngForm">  
 
   <div class="registerinfo">
   <h3>Регистрация на курс: <strong>{{ product.title }}</strong>  </h3>
   <p class="help">В случае возникновения вопросов позвоните нам по номеру: <strong>(+372) 56 123 122</strong>  </p>
+  <mat-divider></mat-divider>
 </div>
     <div class="form-group">
 
-      <label for="name">*Имя</label>
+     
 
         <div class="input-group">
-        <input #name="ngModel" [(ngModel)]="order.name"  name="name" id="name" type="text" class="form-control" required>
+          <mat-form-field>
+              <input #name="ngModel" matInput placeholder="Имя" [(ngModel)]="order.name"  name="name" id="name" type="text" required>
+
+          </mat-form-field>
         </div>
             <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
                       <div *ngIf="name.errors.required">Необходимо ввести имя</div>
@@ -27,11 +32,10 @@
      
 
     <div class="form-group">
-
-        <label for="email">*E-mail</label>
-
         <div class="input-group"> 
-        <input #email="ngModel" [(ngModel)]="order.email" name="email" id="email" type="text" class="form-control" required email> 
+            <mat-form-field>
+        <input #email="ngModel" matInput placeholder="Email"  [(ngModel)]="order.email" name="email" id="email" type="text"  required email> 
+        </mat-form-field>
         </div>
           <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
               Необходимо ввести email
@@ -40,10 +44,11 @@
         
           </div>
           <div class="form-group">
-              <label for="mobile">*Номер телефона</label> 
+           
               <div class="input-group">
-              
-              <input #mobile="ngModel" [(ngModel)]="order.mobile"  name="mobile" id="mobile" type="number" class="form-control" minlength="4"   required>
+                <mat-form-field>
+              <input #mobile="ngModel" matInput placeholder="Mobile" [(ngModel)]="order.mobile"  name="mobile" id="mobile" type="tel"  minlength="4"   required>
+            </mat-form-field>
               </div>
               <div class="alert alert-danger" *ngIf="mobile.touched && mobile.invalid">
                   Необходимо ввести номер телефона
@@ -52,12 +57,22 @@
                 </div>
 
     <div class="form-group">
-        <label for="city">Город</label>
+       
         <div class="input-group">
-        <select  #city="ngModel" [(ngModel)]="order.city" name="city" id="city" class="form-control" required>
-         <option value="Talinn">Talinn</option> 
-         <option value="Narva">Narva</option> 
-        </select>
+          <!-- <mat-form-field>
+        <mat-select  #city="ngModel" [(ngModel)]="order.city" name="city" id="city" class="form-control" required>
+         <mat-option value="Talinn">Talinn</mat-option> 
+         <mat-option value="Narva">Narva</mat-option> 
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field>
+          <mat-select placeholder="Город" #city="ngModel" [(ngModel)]="order.city" name="city" id="city">
+            <mat-option value="option">Tallinn</mat-option>
+            <mat-option value="option">Narva</mat-option>
+            <mat-option value="option">Maardu</mat-option>
+          </mat-select>
+          <mat-hint align="end">Выберите город </mat-hint> 
+        </mat-form-field>
         <!-- <input #city="ngModel" [(ngModel)]="order.city"  name="city" id="city" type="text" class="form-control" required> -->
         </div> 
         
@@ -69,10 +84,12 @@
           siteKey="6LcFAUcUAAAAAHUGHFgTBSH5xzwhY8PwCxCtp7wI"
           #captchaControl="ngModel"></re-captcha> 
 
-          <button class="btn btn-primary btn-send" 
+          <button mat-raised-button
+          color="primary"
             type="button"
+           
             (click)="placeOrder()"
-            [disabled]="!f.valid"
+           
             [disabled]="!declarativeForm.valid"
             [@buttonState]="f.valid ? 'valid' : 'invalid'"
           >Отправить</button>   
@@ -97,6 +114,7 @@
       </div>
       
      
+    
       
       </div>
      

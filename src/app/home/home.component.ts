@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { QuestionsService } from '../questions.service';
+import {MatDividerModule} from '@angular/material/divider';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
