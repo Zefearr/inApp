@@ -1,18 +1,22 @@
 
 <div class="container-inapp">
     <h3 class="faq-title"> <span class="fa fa-question ask"></span>  Часто задаваемыe вопросы </h3> 
-    <mat-accordion *ngFor="let p of questions$ | async">
+  
+        <app-loading-spinner *ngIf="showSpinner" ></app-loading-spinner> 
+  
+    <mat-accordion *ngFor="let question of questions | async">
         <mat-expansion-panel style="box-shadow: none">
           <mat-expansion-panel-header>
            
             <mat-panel-description>
-              {{p.ask}}
+             
+              {{question.ask}}
             </mat-panel-description>
           </mat-expansion-panel-header>
       
        
       
-          {{p.answer}}
+          {{question.answer}}
         </mat-expansion-panel>
         
       </mat-accordion>
@@ -31,8 +35,6 @@
      
     </div> -->
   
-   
-    
    
   </div>
 

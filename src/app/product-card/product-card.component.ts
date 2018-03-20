@@ -34,7 +34,8 @@ id;
     private router: Router,
     private route: ActivatedRoute) { 
    
-      this.products$ = this.productService.getAll();  
+      this.products$ = this.productService.getAll();
+    
 
    } 
 

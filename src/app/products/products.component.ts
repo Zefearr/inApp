@@ -12,9 +12,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { AppUser } from './../models/app-user'; 
 import { UserService } from '../user.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
-import { query } from '@angular/core/src/animation/dsl';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import * as _ from 'lodash';
+
+import { Subject } from 'rxjs/Subject'; 
+
 
 
 
@@ -25,20 +25,24 @@ import * as _ from 'lodash';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']  
 })
-export class ProductsComponent  {  
+export class ProductsComponent   {  
+ 
+
   
-  filteredProducts: Product[] = [];
+ 
+  filteredProducts: Product[] = []; 
   categories$;
-  category: string;
+  status$;
+  category: string; 
+  status: string; 
   products;
   lastKey = '';
   subscription: Subscription; 
   user:AppUser; 
 
-  // products = new BehaviorSubject([]); 
-  batch = 10;
-  finished = false; 
-
+  
+startAt = new Subject()
+endAt = new Subject()
 
 
   constructor(
@@ -47,59 +51,44 @@ export class ProductsComponent  {
     private productService: ProductService,
     categoryService: CategoryService) {
   
-    productService
+    productService 
      .getAll() 
      .switchMap(products => {
       this.products = products;
       return route.queryParamMap;
-
       }).subscribe(params => {
         this.category = params.get('category');
         this.filteredProducts = (this.category) ?
         this.products.filter(p => p.category == this.category) :   
-        this.products;
-       
+        this.products; 
+        // this.status = params.get('status');
+        // this.filteredProducts = (this.status) ?
+        // this.products.filter(p => p.status == this.status) :   
+        // this.products; 
       });
-
-     
-   
     this.categories$ = categoryService.getCategories();
-
+    this.status$ = categoryService.getStatus(); 
+   }
    
 
-      
- 
-   }
+// ngOnInit() {
+//   this.productService.getProducts(this.startAt, this.endAt)
+//   .subscribe(products => this.products = products)
+// }
+lastKeypress: number = 0;
 
+
+
+search($event) {
+  if ($event.timeStamp - this.lastKeypress > 200) {
+    let q = $event.target.value
+    this.startAt.next(q)
+    this.endAt.next(q+"\uf8ff")
+  }
+  this.lastKeypress = $event.timeStamp
+}
   
-  
-  // ngOnInit() {
-  //   this.getSome()
-  // }
-  
-  // onClicked() {
-  //   this.getSome()
-  // }
-
-//  private getSome(key?) { 
-//     if(this.finished) return
-//     this.productService.getSome(this.batch+1, this.lastKey) 
-//     .do(products => {
-//       this.lastKey = _.last(products)['$key']
-//       const newproducts = _.slice(products, 0, this.batch)
-//       const currentproducts = this.products.getValue()
-
-//       if(this.lastKey == _.last(newproducts['$key'])) {
-//         this.finished = true
-//       } 
-      
-      
-
-//       this.products.next( _.concat(currentproducts, newproducts) )
-//     }).take(1).subscribe() 
-
-    
-//   }
+   
   
 
 }

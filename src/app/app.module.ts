@@ -68,12 +68,9 @@ import { EventlistComponent } from './eventlist/eventlist.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionsFormComponent } from './questions-form/questions-form.component'; 
 import { QuestionsService } from './questions.service';   
-import { BlogComponent } from './blog/blog/blog.component';
-import { BlogFormComponent } from './admin/blog-form/blog-form.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component'; 
 import { BlogCategoryService } from './blog-category.service';
-import { BlogService } from './blog.service';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion'; 
 
 import 'hammerjs'; 
 
@@ -83,9 +80,10 @@ import 'hammerjs';
 const SWIPER_CONFIG: SwiperConfigInterface = { 
   
   direction: 'horizontal',
-  effect: 'cube',
+  spaceBetween: 50,
+  // effect: 'cube',
   // slidesPerView: '2',
-  // spaceBetween: 30,
+
   autoplay: 5000,
   lazyLoading: true,
   observer: true,
@@ -124,7 +122,7 @@ import {
   MatListModule,
   MatMenuModule,
   MatProgressBarModule,
-  MatProgressSpinnerModule,
+  MatProgressSpinnerModule, 
   MatRadioModule,
   MatRippleModule,
   MatSelectModule,
@@ -145,6 +143,10 @@ import {
   
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
+import { CommentFormComponent } from './comment-form/comment-form.component';
+import { CommentService } from './comment.service';
+
+
 
 export const MaterialModules = [ 
   MatAutocompleteModule,
@@ -215,13 +217,11 @@ export const MaterialModules = [
     EventlistComponent,
     QuestionsComponent,
     QuestionsFormComponent,
-    BlogComponent,
-    BlogFormComponent,
-    AdminBlogComponent,
-   
+    CommentFormComponent, 
+  
    
   ],
-  imports: [ 
+  imports: [  
     AgmCoreModule.forRoot({ 
       apiKey: 'AIzaSyAmR8wKqfsVoM4TxwaDYexoPLx6lEN2A6s', 
     }), 
@@ -247,7 +247,6 @@ export const MaterialModules = [
       { path: 'about', component: AboutComponent, data: { depth: 5} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
       { path: 'products', component: ProductsComponent }, 
-      { path: 'blog', component: BlogComponent }, 
       { path: 'signup', component: SignupComponent },
       { path: 'events', component: EventlistComponent },
       { path: 'signin', component: SigninComponent }, 
@@ -257,20 +256,10 @@ export const MaterialModules = [
       { path: 'faq', component: HomeComponent, data: {depth: 4}},
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       },
-      { path: 'admin/blog',
-       component: AdminBlogComponent, 
-       canActivate: [AuthGuard, AdminAuthGuardService]},
-       { path: 'admin/blog/new',
-       component: BlogFormComponent, 
-       canActivate: [AuthGuard, AdminAuthGuardService]}, 
 
-       { path: 'admin/blog/:id',
-       component: BlogFormComponent, 
-       canActivate: [AuthGuard, AdminAuthGuardService]},
-      
       { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}},  
 
-      { path: 'admin/tutorials',
+      { path: 'admin/slider',
        component: AdminTutorialsComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]},
 
@@ -293,11 +282,11 @@ export const MaterialModules = [
        component: ProductFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       }, 
-      { path: 'admin/tutorials/new', 
+      { path: 'admin/slider/new', 
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       }, 
-      { path: 'admin/tutorials/:id',   
+      { path: 'admin/slider/:id',   
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       },
@@ -336,7 +325,7 @@ export const MaterialModules = [
     AuthService, 
     AuthService2, 
     UserService,
-    AuthGuard,
+    AuthGuard, 
     QuestionsService,
     AdminAuthGuardService,
     CategoryService,
@@ -344,7 +333,9 @@ export const MaterialModules = [
     OrderService,
     ContentService,
     ReactionService, 
-    BlogService
+    CommentService
+
+
   ],
 
   bootstrap: [AppComponent] 

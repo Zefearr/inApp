@@ -15,5 +15,9 @@ export const environment = {
     projectId: "inapp-ae6b8",
     storageBucket: "gs://inapp-ae6b8.appspot.com/",
     messagingSenderId: "900308829476"
+  },
+  dialogflow: {
+    bot: 'bbfd8c9f8f304ff3bc77d03e46550650'
+
   }
 };

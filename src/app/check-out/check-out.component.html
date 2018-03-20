@@ -17,7 +17,6 @@
     <div class="form-group">
 
      
-
         <div class="input-group">
           <mat-form-field>
               <input #name="ngModel" matInput placeholder="Имя" [(ngModel)]="order.name"  name="name" id="name" type="text" required>
@@ -29,7 +28,49 @@
             </div> 
       
     </div>
+
+    <div class="form-group">
+
      
+        <div class="input-group">
+          <mat-form-field>
+              <input #surname="ngModel" matInput placeholder="Фамилия" [(ngModel)]="order.surname"  name="surname" id="surname" type="text" required>
+
+          </mat-form-field>
+        </div>
+            <div class="alert alert-danger" *ngIf="surname.touched && surname.invalid">
+                      <div *ngIf="surname.errors.required">Необходимо указать фамилию</div>
+            </div> 
+      
+    </div>
+
+    <div class="form-group">
+
+     
+        <div class="input-group">
+            <mat-form-field>
+              <input matInput  #birthday="ngModel" name="birthday" [(ngModel)]="order.birthday"  required  type="date"  placeholder="Выберите год рождения">
+            </mat-form-field>
+      
+        
+
+  
+          
+          <div class="alert alert-danger" *ngIf="birthday.touched && birthday.invalid">
+              <div *ngIf="birthday.errors.required">Необходимо указать дату рождения</div>
+    </div> 
+        </div>
+            
+      
+    </div>
+
+
+   
+     
+
+
+
+
 
     <div class="form-group">
         <div class="input-group"> 
@@ -67,9 +108,9 @@
       </mat-form-field> -->
       <mat-form-field>
           <mat-select placeholder="Город" #city="ngModel" [(ngModel)]="order.city" name="city" id="city">
-            <mat-option value="option">Tallinn</mat-option>
-            <mat-option value="option">Narva</mat-option>
-            <mat-option value="option">Maardu</mat-option>
+            <mat-option value="Tallinn">Tallinn</mat-option>
+            <mat-option value="Narva">Narva</mat-option>
+            <mat-option value="Maardu">Maardu</mat-option>
           </mat-select>
           <mat-hint align="end">Выберите город </mat-hint> 
         </mat-form-field>

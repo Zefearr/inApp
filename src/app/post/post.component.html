@@ -1,11 +1,12 @@
 
 
 <div class="single-event" [class.single-event-not-scrollable]="isShown">
+                <span class="event-id" *ngIf="product">  {{product.$key}} </span>
     <ng-container *ngIf="product">  
 <!-- <img [src]="product.imageUrl" class="event-cart-image" *ngIf="product.imageUrl"> -->
 
 <div class="single-event-fullcontent"> 
-
+      
                
 <div class="event-preview">
 
@@ -69,7 +70,7 @@
 
 <div class="reactions"> 
                 <app-reactions [productId]='product?.$key'></app-reactions>  
-        </div>
+</div>
 </div>
 </ng-container> 
 
@@ -82,6 +83,33 @@
         </div>
      
 </div>
+<mat-divider></mat-divider>
+
+
+
+
+                <div class="comment-block" *ngFor="let comment of comments$ | async">
+                               <ng-template #nocomment>asd</ng-template>
+                           
+                                        <mat-list >
+                                        <mat-list-item> <span class="user"> <i class="fa fa-user"></i> {{comment?.name}} </span> <span class="comment-timestamp"> <i class="fa fa-clock"></i> {{comment?.datePlaced | date:'MMMM d, h:mm:ss'}}</span> </mat-list-item>       
+                                        </mat-list>
+                                        <p class="comment-content"> {{ comment.productComment?.content }}</p>  
+                     
+                                
+                              
+                </div>
+                
+                <mat-divider class="divide"></mat-divider>
+
+     
+
+
+
+
+
+
+<app-comment-form  [productId]='product?.$key'> </app-comment-form>  
 
 </div>
 

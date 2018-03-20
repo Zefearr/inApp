@@ -1,0 +1,15 @@
+
+
+
+
+<!-- <div *ngFor="let comment of comments">  
+{{ comment.name }}
+{{ c.date?.datePlaced | date: 'MMM d, y, h:mm:ss': '+0900'}}
+{{ c.comment?.content }}
+</div> --> 
+<form #f="ngForm">
+<textarea #content="ngModel" [(ngModel)]="postcomment.content"  type="text" placeholder="Comment?" class="form-control" name="content" required> </textarea>
+<button  mat-button color="primary"  (click)="CommentIt()" [disabled]="!f.valid" >Отправить</button> 
+<button  mat-button  (click)="delete()" [disabled]="!f.valid" >Удалить</button> 
+
+</form>

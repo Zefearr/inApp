@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { QuestionsService } from '../questions.service';
-import {MatDividerModule} from '@angular/material/divider';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { Subscription } from 'rxjs/Subscription';
 
+export interface Question {
+  title?: number;
+  question?: string;
+  answer?: string;
+}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -40,19 +46,33 @@ import {MatDividerModule} from '@angular/material/divider';
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   shown = false; 
   // questions: Object[];
   hide: boolean;
-  questions$;
+  // questions;
   hideme = {};
+  questions: FirebaseListObservable<Question[]>
+  showSpinner: boolean = true;
+  subscription: Subscription;
+  
 
   constructor(private questionService: QuestionsService) { 
-    this.questions$ = this.questionService.getAll();  
-    this.hideme = {};  
+    // this.questions$ = this.questionService.getAll();  
+    // this.hideme = {};  
   
   }
+
+  ngOnInit() {
+    this.questions = this.questionService.getAll();
+    this.subscription = this.questions.subscribe(() => this.showSpinner = false)  
+  }
+  ngOnDestroy() {
+   this.subscription.unsubscribe();
+  }
+
+
   onClick() {
     this.shown = !this.shown;
     console.log(123)
@@ -69,7 +89,6 @@ export class HomeComponent implements OnInit {
   //   console.log(123)
   // }
 
-  ngOnInit() {
-  }
+ 
 
 }

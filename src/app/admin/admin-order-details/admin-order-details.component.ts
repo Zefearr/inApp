@@ -14,6 +14,7 @@ export class AdminOrderDetailsComponent implements OnInit {
   constructor(private orderService: OrderService, private route: ActivatedRoute) { 
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id) this.orderService.get(this.id).take(1).subscribe(p => this.orders = p); 
+    console.log(this.orders);
    
    }
 

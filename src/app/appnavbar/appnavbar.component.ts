@@ -1,6 +1,6 @@
 
 import { AuthService } from './../auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppUser } from './../models/app-user'; 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable'; 
@@ -19,19 +19,20 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './appnavbar.component.html', 
   styleUrls: ['./appnavbar.component.css']
 })
-export class AppnavbarComponent implements OnInit { 
+export class AppnavbarComponent implements OnInit, OnDestroy { 
   appUser: AppUser; 
   toggle = false;
+  subscription: any;
   
  
 
   constructor(private auth: AuthService) { 
     
-    auth.appUser$.subscribe(x => console.log(x));   
+   
       
   }
-  async ngOnInit() {
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 
+  async ngOnInit() { 
+   this.subscription = this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 
 
   }
 
@@ -41,6 +42,9 @@ export class AppnavbarComponent implements OnInit {
   onClick() {
     this.toggle = !this.toggle;
    
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

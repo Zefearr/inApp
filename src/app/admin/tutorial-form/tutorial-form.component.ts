@@ -31,7 +31,7 @@ export class TutorialFormComponent implements OnInit {
   
     if(this.id) this.contentService.updateContent(this.id, content);
     else this.contentService.create(content);   
-    this.router.navigate(['/admin/tutorials']);  
+    this.router.navigate(['/admin/slider']);  
   }
  
  

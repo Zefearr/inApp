@@ -10,6 +10,7 @@
      <div class="menu-icon__bottom" [class.icon-bottom-active]="toggle"></div>
     </div>
   
+    <!-- <span *ngIf="appUser" class="user-email"> {{appUser.name}} </span> -->
 
 <nav class="header-nav" id="header-nav" [class.header-nav-active]="toggle">  
  
@@ -27,8 +28,7 @@
      
     
      
-    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>  
-       
+    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>   
     <li *ngIf="appUser">
        
         <a *ngIf="appUser.isAdmin" routerLink="admin/controls"> 
@@ -40,7 +40,7 @@
     </li>
     
     <li>  <a routerLinkActive="route-active"  routerLink="/faq">ЧаВо</a></li>
-    <li>  <a routerLinkActive="route-active" routerLink="/blog">Блог</a></li>
+    <!-- <li>  <a routerLinkActive="route-active" routerLink="/blog">Блог</a></li> -->
     <li>  <a routerLinkActive="route-active" routerLink="/about">Контакт</a></li>
   
     

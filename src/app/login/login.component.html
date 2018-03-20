@@ -1,6 +1,9 @@
 
 <div class="container-login">
+    <button class="backlink" routerLink="/" mat-button><mat-icon>arrow_back</mat-icon>Назад на главную</button>
+
   <div class="login-inner">
+
     <div class="login-images-cont">
      
       <!-- <span class="company_logo"></span>  -->
@@ -10,8 +13,12 @@
  
     
 
-  <button (click)="login()" class="LoginWithGoogle"> <span class="google"></span> Login with Google</button> 
-  <app-signin></app-signin> 
+  <button mat-button color="primary" (click)="login()" class="LoginWithGoogle"> <span class="google"></span> Login with Google</button> 
+  <button mat-button color="primary" (click)="signInWithFacebook() " class="loginWithFacebook"> <span class="facebook"></span> Login with Facebook</button> 
+  <button mat-button color="primary" disabled class="LoginWithGoogle"> <span class="twitter"></span> Login with Twitter</button> 
+
+  <!-- <mat-divider></mat-divider>
+  <app-signin></app-signin>  -->
 </div>
 
 </div>

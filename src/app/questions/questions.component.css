@@ -7,3 +7,7 @@
    max-width: 977px;
    padding:10px;
 }
+button {
+    font-weight: 600;
+    margin-bottom:1rem;
+}

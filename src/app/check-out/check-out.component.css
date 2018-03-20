@@ -15,19 +15,28 @@
 }
 .check-out-cont-inner {
     padding:10px;
+ 
    
    
   
    
 
   
+}
+.input-group-name > *{
+    width: 47%; 
+    float: left;
+    margin-right: 6%;
+}
+.input-group-name > *:last-child {
+    margin-right: 0;
 }
 
 .send {
-    color:rgb(204, 202, 202);
+    color:rgb(165, 165, 165);
 }
 button {
-    margin-top:10px;
+    margin-top:30px;
 }
 .input-group > * {
     width:100%;

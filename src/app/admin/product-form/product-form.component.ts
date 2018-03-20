@@ -24,6 +24,7 @@ export class ProductFormComponent {
  categories$;
  product = {};  
  id;
+ status$;
  switch = false;
  toggle = true;
  showcard = true;
@@ -40,7 +41,8 @@ export class ProductFormComponent {
     private productService: ProductService) { 
       
     this.categories$ = categoryService.getCategories(); 
-    
+    this.status$ = categoryService.getStatus(); 
+
     
     
     this.id = this.route.snapshot.paramMap.get('id');

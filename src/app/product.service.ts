@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { last } from '@angular/router/src/utils/collection';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 
 @Injectable()
 export class ProductService { 
 
   constructor(private db: AngularFireDatabase) { }
+
+  getProducts(start, end): FirebaseListObservable<any> {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'title',
+        limitToFirst: 10,
+        startAt: start,
+        endAt: end
+      }
+    });
+  }
  
   create(product) {
  
@@ -13,20 +24,15 @@ export class ProductService {
    
   }
 
-  getSome(batch, lastKey?) {
-    let query = {
-      orderByKey: true,
-      limitToFirst: batch
-    }
-    if(lastKey) query['startAt'] = lastKey 
-    return this.db.list('/products', {
-      query
-    });
-  }
-  
+ 
+
   getAll() {
   
-    return this.db.list('/products'); 
+    return this.db.list('/products', {  
+      query: {
+        orderByChild: 'startdate'
+      }
+    }); 
   }
   
   get(productId) {

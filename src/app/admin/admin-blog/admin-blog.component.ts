@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../blog.service';
+
 
 import { FirebaseListObservable } from 'angularfire2/database';
 
@@ -12,7 +12,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class AdminBlogComponent implements OnInit {
  
 
-  constructor(private blogService: BlogService) { 
+  constructor() { 
 
   }
 

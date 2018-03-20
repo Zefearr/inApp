@@ -45,8 +45,12 @@ mat-icon {
     position: absolute;
     right: 30px;
     top:15px;
+    display: block;
+ 
     color:rgb(122, 129, 134);
+   
 }
+
 .admin-settings-list li {
    
    

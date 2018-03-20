@@ -15,6 +15,14 @@ export class CategoryService {
       }
     });
   }
+  getStatus() { 
+    return this.db.list('/status', { 
+      query: {
+        orderByChild: 'name' 
+      }
+    });
+  }
+  
   getContentCategories() {
     return this.db.list('/content-category', {
       query: {

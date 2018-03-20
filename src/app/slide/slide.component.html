@@ -7,9 +7,9 @@
  </div> -->
 
     <div class="swipercube-cont">
-        <div class="img-cont"> 
-      <!-- <img src="/../../assets/images/bg.jpg" class="mainbg" alt=""> -->
-      </div>
+        <!-- <div class="img-cont"> 
+  
+      </div> -->
 
        
 
@@ -35,16 +35,17 @@
                        
 
                       
-                                <h5 class="slide-title"> {{ p.title }} </h5> 
+                                <!-- <h5 class="slide-title"> {{ p.title }} </h5>  -->
                              
                       
                           
-                            <div class="desc"  *ngIf="p.desc"> 
+                            <!-- <div class="desc"  *ngIf="p.desc"> 
                           
                                  <p> <span> ❝ </span> {{ p.desc}} ... <span> ❞ </span> </p> 
-                                 <a  routerLink="/events/{{p.link}}"  class="btn btn-primary btn-slider">Читать</a>
+                                 
+                              
 
-                            </div>
+                            </div> -->
                            
                             
                      
@@ -52,7 +53,7 @@
                          
                   
                     
-                  
+                            <button mat-raised-button color="primary" class="mat-elevation-z1 slider-button"  routerLink="/events/{{p.link}}"> Читать</button>
                       </div>
                 </div>
                   

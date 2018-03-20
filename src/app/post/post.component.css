@@ -33,11 +33,19 @@
     font-weight: 600; 
     margin:0;
 }
+.divide {
+    margin-top:50px;
+}
+.comment-timestamp {
+position: absolute;
+right: 50px;
+}
 
 .register-cont {
    background-color:transparent;
     position: fixed;
     background-color:#fff;
+    z-index: 9;
     /* top:50%;
     left:50%; */
     /* max-width:1280px; */
@@ -49,7 +57,7 @@
     width:100%;
     height: 100%;
     transform-origin: top;
-    transform: translateY(-100%);
+    transform: translateX(-100%);
     margin: auto;
     visibility: hidden;
     transition: all .3s ease;      
@@ -71,8 +79,8 @@ cursor: pointer;
 .register-active {
    
  
-   transition: all .3s ease;
-   transform: translateY(0%);
+   transition: all .3s ease; 
+   transform: translateX(0%);
  
    visibility: visible;
 }
@@ -102,6 +110,34 @@ cursor: pointer;
 .location p {
     cursor: pointer;
 }
+.comment__content {
+    font-size: .8rem;
+    padding:0;
+    margin:0;
+
+}
+.comment-block {
+    
+    margin-bottom:5px;
+
+
+}
+.mat-list-item>*{
+    padding:0;
+}
+.user {
+    font-weight: 600;
+    color:rgb(20, 19, 19);
+}
+
+.comment-block span {
+    color:#555;
+}
+.comment-content {
+    font-size: .8rem;
+    padding-left:10px;
+    padding-right: 10px;
+}
 
 .location-map {
     visibility: hidden;
@@ -124,6 +160,7 @@ cursor: pointer;
         padding-top:75px;
         padding-bottom: 20px;
         min-height: 100vh;
+        padding-bottom:50px;
     }
     .location-map {
         position: absolute;
@@ -148,7 +185,7 @@ cursor: pointer;
         display: block;
     }
     .register-cont {
-        position: absolute;
+        position: fixed;
         top:0;
         padding-left: 20px;
         padding-right: 20px;
@@ -332,4 +369,38 @@ p {
 h3 {
     border-bottom: 1px solid rgb(243, 242, 242);
     padding-bottom:20px;
+}
+ul {
+    width:100%;
+    display: block;
+    margin:0;
+    padding:0;
+    border:1px solid lightgray;
+    margin-bottom:10px;
+
+}
+li {
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color:#fff;
+    list-style: none;
+    font-size: .7rem;
+}
+.event-id {
+    position: absolute;
+    font-size: .5rem;
+    font-weight: 600;
+    opacity: .5;
+    right:35px;
+    top:75px;
+}
+mat-divider {
+    margin-bottom:20px;
+}
+mat-list-item p {
+    font-size:.76rem;
+    padding:0;
+    margin:0;
+    
 }

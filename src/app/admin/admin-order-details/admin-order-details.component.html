@@ -1,20 +1,32 @@
 <div class="order-detail-container">
-<div *ngIf="orders"> 
-  <div class="order-heading">
-    <h3 class="order-course-heading"><span>Регистрация на:</span> <strong>{{ orders.title }}</strong></h3>
-    <h3 class="order-date-created"><span>Время создания:</span> {{ orders.datePlaced }}</h3> 
-  </div>
-  <ul class="order-detail-info">
+ 
+ 
+
+  <mat-list *ngIf="orders">
+    <mat-list-item> <span>Регистрация на</span><h4>{{ orders.title }}</h4></mat-list-item>
+    <mat-list-item><mat-icon>access_time</mat-icon><span>Время создания</span> {{ orders.datePlaced }} </mat-list-item>
+   </mat-list>
+
+   <mat-list *ngIf="orders">
+    
+    <mat-list-item> <span>имя:</span>  <strong> {{orders.order.name}} {{orders.order.surname}} </strong></mat-list-item> 
+    <mat-list-item> <span>фамилия:</span> <strong>{{orders.order.birthday}}</strong>  </mat-list-item>
+    <mat-list-item> <span>эл-почта:</span>  <strong>{{orders.order.email}}</strong>  </mat-list-item>
+    <mat-list-item> <span>город:</span>  <strong>{{orders.order.mobile}}</strong>  </mat-list-item>
+    <mat-list-item> <span>город:</span>  <strong>{{orders.order.city}}</strong>  </mat-list-item>
+   </mat-list>
+
+   
+  <!-- <ul class="order-detail-info">
    
     <li>Имя: <strong>{{ orders.order.name }}</strong>  </li> 
     <li>Электронная почта:  <strong>{{ orders.order.email }}</strong> </li>
     <li>Мобильный телефон: <strong>{{ orders.order.mobile }}</strong> </li>
     <li>Город: <strong>{{ orders.order.city }}</strong></li>
   </ul>
-  
+   -->
 
 
 
 
-</div>
 </div>

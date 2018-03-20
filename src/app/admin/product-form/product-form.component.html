@@ -71,9 +71,17 @@
                     <label for="status"> Статус набора </label>
                     <select #status="ngModel" [(ngModel)]="product.status" name="status" id="status" class="form-control">
                         <option value="Набор открыт">Открыт</option>
-                        <option value="Набор закрыт">Закрыт</option> 
+                        
                     </select>
                 </div>
+                <div class="form-group">
+                        <label for="eventstatus">Status </label>
+                        <select #eventstatus="ngModel" [(ngModel)]="product.eventstatus" name="eventstatus" id="eventstatus" class="form-control">
+                            <option value=""></option>
+                            <option value="" *ngFor="let c of status$ | async" [value]="c.$key" > {{c.name}} </option>
+                             
+                        </select>
+                    </div>
 
 
             <div class="form-group">

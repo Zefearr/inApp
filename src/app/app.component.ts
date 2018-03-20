@@ -110,8 +110,8 @@ constructor(private userService: UserService, private auth: AuthService, router:
     if(user) { 
       userService.save(user);
      
-      // let returnUrl = localStorage.getItem('returnUrl');
-      // router.navigateByUrl(returnUrl);
+      let returnUrl = localStorage.getItem('returnUrl');
+      router.navigateByUrl(returnUrl);
     }
   });
 }

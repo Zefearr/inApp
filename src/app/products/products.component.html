@@ -2,9 +2,19 @@
 <app-slide></app-slide>    
 <div class="nav-cont">
   <div class="inner-nav">
+    <!-- <mat-form-field>
+        <input placeholder="start typing" matInput type="text" (keydown)="search($event)" >
+    </mat-form-field> -->
+
+    <!-- <input type="text" (keydown)="search($event)" placeholder="search movies..." class="input"> -->
+  <!-- <ul>
+    <li *ngFor="let c of status$ | async">
+      {{c.name}}
+    </li>
+  </ul> -->
   <ul class="category_list">
     
-    
+   
     <li  [class.active2]="!category"
     routerLink="/">
      ВСЕ
@@ -24,37 +34,31 @@
 <div class="main-cont">
 
   
-<!-- <div class="loading-bar"
-  *ngIf="!products">
-  
-  <div class="loading-bar-el" *ngIf="products != 'finished'"></div>
 
- </div> -->
- <div *ngIf="!products">
+  <div *ngIf="!products">
     <app-loading-spinner *ngIf="products != 'finished'"></app-loading-spinner> 
- </div>
+ </div>  
    
 
 <div class="cards-cont">
 
   <div class="row justify-content-start">
-  <!-- <ng-container  *ngFor="let p of filteredProducts; let i = index">   -->
-      <ng-container  *ngFor="let p of filteredProducts; let i = index">  
-         
-           <div class="col-12 col-sm-6 col-lg-4 col-f" >  
-            
-          <app-product-card [product]="p"></app-product-card>  
-        </div> 
-     
-      <!-- <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>  -->
-  
-  </ng-container>
-</div>
-
-</div>
+    
  
+      <ng-container  *ngFor="let p of filteredProducts; let i = index">  
+            <div class="col-12 col-sm-6 col-lg-4 col-f" >  
+         
+              <app-product-card [product]="p"></app-product-card>  
+            </div>
+            <!-- <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>  -->
+      </ng-container>
+</div>
 
 </div>
+
+
+</div>
+
 
 
 
