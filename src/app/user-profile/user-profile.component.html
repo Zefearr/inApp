@@ -1,0 +1,13 @@
+<div class="user-profile-cont" *ngIf="appUser">
+
+<p>{{appUser.email}}</p>
+<p>{{appUser?.name}}</p> 
+
+<!-- <form #f="ngForm" (ngSubmit)="save(f.value)" >
+  <input type="text" placeholder="name" #name="ngModel" ngModel>
+  <input type="date" placeholder="date" #date="ngModel" ngModel>
+  <button mat-raised-button color="primary" (click)="updateInfo()" >update</button>
+</form> -->
+
+</div>
+

@@ -68,7 +68,6 @@ import { EventlistComponent } from './eventlist/eventlist.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionsFormComponent } from './questions-form/questions-form.component'; 
 import { QuestionsService } from './questions.service';   
-import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component'; 
 import { BlogCategoryService } from './blog-category.service';
 import { MatExpansionModule } from '@angular/material/expansion'; 
 
@@ -82,7 +81,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   spaceBetween: 50,
   // effect: 'cube',
-  // slidesPerView: '2',
+  slidesPerView: '2',
 
   autoplay: 5000,
   lazyLoading: true,
@@ -143,9 +142,12 @@ import {
   
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommentFormComponent } from './comment-form/comment-form.component';
 import { CommentService } from './comment.service';
-
+import { FacebookModule, FacebookService, FBPageComponent } from 'ngx-facebook';
+import { FbMirrorComponent } from './fb-mirror/fb-mirror.component';
+import { PricacyComponent } from './pricacy/pricacy.component';
+import { PrivacyFormComponent } from './admin/privacy-form/privacy-form.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 export const MaterialModules = [ 
@@ -217,7 +219,11 @@ export const MaterialModules = [
     EventlistComponent,
     QuestionsComponent,
     QuestionsFormComponent,
-    CommentFormComponent, 
+    FbMirrorComponent,
+    PricacyComponent,
+    PrivacyFormComponent,
+    UserProfileComponent,
+   
   
    
   ],
@@ -236,9 +242,10 @@ export const MaterialModules = [
     AngularFontAwesomeModule,
     ReactiveFormsModule,
     CustomFormsModule,
+    FacebookModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),      
     AngularFireDatabaseModule, 
-    AngularFireAuthModule,
+    AngularFireAuthModule, 
     MaterialModules,
     SwiperModule.forRoot(SWIPER_CONFIG),
     NgbModule.forRoot(), 
@@ -249,6 +256,7 @@ export const MaterialModules = [
       { path: 'products', component: ProductsComponent }, 
       { path: 'signup', component: SignupComponent },
       { path: 'events', component: EventlistComponent },
+      { path: 'privacy-policy', component: PricacyComponent },
       { path: 'signin', component: SigninComponent }, 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},   
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard], data: { depth: 3}},  
@@ -257,7 +265,8 @@ export const MaterialModules = [
       { path: 'events/:id', component: PostComponent, data: { depth: 2} 
       },
 
-      { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}},  
+      { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}}, 
+      { path: 'user-profile/:id', component: UserProfileComponent },  
 
       { path: 'admin/slider',
        component: AdminTutorialsComponent,
@@ -275,13 +284,20 @@ export const MaterialModules = [
        component: QuestionsFormComponent, 
        canActivate: [AuthGuard, AdminAuthGuardService]},
       
-
+       { path: 'admin/privacy/:id', 
+       component: PrivacyFormComponent,
+       canActivate: [AuthGuard, AdminAuthGuardService]  
+      },
 
  
       { path: 'admin/products/new',   
        component: ProductFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
       }, 
+      { path: 'admin/products/:id',   
+      component: ProductFormComponent,
+      canActivate: [AuthGuard, AdminAuthGuardService]  
+     },
       { path: 'admin/slider/new', 
        component: TutorialFormComponent,
        canActivate: [AuthGuard, AdminAuthGuardService]  
@@ -333,7 +349,8 @@ export const MaterialModules = [
     OrderService,
     ContentService,
     ReactionService, 
-    CommentService
+    CommentService,
+    FacebookService
 
 
   ],

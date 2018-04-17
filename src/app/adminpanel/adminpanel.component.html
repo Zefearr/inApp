@@ -11,10 +11,14 @@
 
       <button class="mat-elevation-z0" mat-button color="primary" routerLink="/admin/orders"> <mat-icon>supervisor_account</mat-icon>  Клиенты</button> 
       <button class="mat-elevation-z0" mat-button routerLink="/admin/products"><mat-icon>event</mat-icon>   События</button>
-      <button class="mat-elevation-z0" mat-button  routerLink="/admin/slider"><mat-icon>slideshow</mat-icon>   Слайдер</button>
-      <button class="mat-elevation-z0" mat-button  routerLink="/admin/faq"><mat-icon>help</mat-icon>   FAQ</button>
-      <button class="mat-elevation-z0" mat-button disabled  routerLink="/admin/blog"> Блог</button>
+      <button class="mat-elevation-z0" mat-button routerLink="/admin/slider"><mat-icon>slideshow</mat-icon>   Слайдер</button>
+      <button class="mat-elevation-z0" mat-button routerLink="/admin/faq"><mat-icon>help</mat-icon>   FAQ</button>
+      <button class="mat-elevation-z0" mat-button routerLink="/admin/privacy/-L9FS5oyz8be_mSfo2tX"> Политика конфиденциальности</button> 
       <mat-divider></mat-divider>
+      <!-- <div *ngFor="let p of privacy$ | async">
+        <p> {{p.title}} </p>
+        <a [routerLink]="['/admin/privacy/', p.$key]"> edit</a>
+      </div>  -->
 
     
 

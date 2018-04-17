@@ -2,8 +2,8 @@
  <header class="appheader">
   <div class="container-inapp">
     
-    <!-- <a class="appheader-brand" routerLink="/">in<strong>Dev</strong></a> -->
-    <a class="appheader-brand" routerLink="/">in<strong>DevApp</strong></a>
+    <!-- <a class="head-logo" routerLink="/"></a> -->
+    <a class="appheader-brand" routerLink="/"> <img src="assets/images/logo2.svg" class="site-logo"> </a>
     <div class="menu-icon" (click)="onClick()">
      <div class="menu-icon__top" [class.icon-top-active]="toggle"></div>
      <div class="menu-icon__mid" [class.icon-active]="toggle" ></div> 
@@ -19,29 +19,32 @@
    
     
    
-     
+      
     
     <ng-container *ngIf="!appUser"> 
-      
-       <li> <a  routerLinkActive="route-active" routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Войти</a></li>     
+     
+      <li> <a class="route signup"  routerLinkActive="route-active" routerLink="/signup"> <span> </span>Sign up</a> </li>
+       <li> <a class="route"  routerLinkActive="route-active" routerLink="/login"> <span> <i class="fa fa-sign-in-alt"></i> </span>Log in</a></li>     
     </ng-container> 
+    
      
     
      
-    <li *ngIf="appUser"> <a (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Выйти</a></li>   
+    <li *ngIf="appUser"> <a class="route" (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Exit</a></li>   
     <li *ngIf="appUser">
        
-        <a *ngIf="appUser.isAdmin" routerLink="admin/controls"> 
+        <a class="route" *ngIf="appUser.isAdmin" routerLink="admin/controls"> 
           <span> <i class="fa fa-sun"></i> </span>
           
-   admin
+   Admin
         </a>  
       
     </li>
-    
-    <li>  <a routerLinkActive="route-active"  routerLink="/faq">ЧаВо</a></li>
+     
+    <li>  <a class="route" routerLinkActive="route-active"  routerLink="/faq">FAQ</a></li>
     <!-- <li>  <a routerLinkActive="route-active" routerLink="/blog">Блог</a></li> -->
-    <li>  <a routerLinkActive="route-active" routerLink="/about">Контакт</a></li>
+    <li>  <a class="route" routerLinkActive="route-active" routerLink="/about">Contact</a></li> 
+    <!-- <li *ngIf="appUser">  <a routerLinkActive="route-active" [routerLink]="['/user-profile/', appUser.$key]">Profile</a></li> -->
   
     
    

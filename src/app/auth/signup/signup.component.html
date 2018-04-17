@@ -1,26 +1,26 @@
 <div class="cont">
-<!-- <div class="signup-container">
+<div class="signup-container">
   <h5>Регистрация</h5>
 <form (ngSubmit)="onSignup(f)" #f="ngForm"> 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="name">*Имя</label>
         <input type="name" id="name" name="name" class="form-control" ngModel>
-      </div>
+      </div> -->
 <div class="form-group"> 
-  <label for="email">*E-Mail</label>
-  <input type="email" id="email" name="email" class="form-control" ngModel> 
+  
+  <input type="email" id="email" name="email" class="form-control" placeholder="email*" ngModel> 
 </div>
 <div class="form-group">
-  <label for="password">*Пароль(минимум 6 символов)</label>
-  <input type="password" id="password" name="password" class="form-control" ngModel>
+ 
+  <input placeholder="password*" type="password" id="password" name="password" class="form-control" ngModel>
 </div>
 
 <button class="btn btn-primary" type="submit">SignUp</button>
 
 </form>
 
-</div> -->
-<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+</div>
+<!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
 
 <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
     <form  (ngSubmit)="onSignup(f)" #f="ngForm">
@@ -56,5 +56,5 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
-</mat-horizontal-stepper>
+</mat-horizontal-stepper> -->
 </div>

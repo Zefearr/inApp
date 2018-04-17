@@ -24,7 +24,7 @@ export class AuthService {
     private router: Router,
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute) {   
-    this.user$ = afAuth.authState;  
+    this.user$ = afAuth.authState;   
     
    }
   login() { 
@@ -43,13 +43,7 @@ export class AuthService {
   logout() {
       this.afAuth.auth.signOut();  
   }
-  // get appUser$() : Observable<AppUser> {
-  //   return this.user$.switchMap(user => {
-  //     if(user) return this.userService.get(user.uid);
-  //     return Observable.of(null);
-  //   });
-    
-  // }
+
   get appUser$() : Observable<AppUser> {
     return this.user$.switchMap(user => {
       if(user) return this.userService.get(user.uid);

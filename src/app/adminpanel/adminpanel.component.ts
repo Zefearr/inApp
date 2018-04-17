@@ -4,6 +4,7 @@ import { AppUser } from './../models/app-user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { QuestionsService } from '../questions.service';
 
 @Component({
   selector: 'app-adminpanel',
@@ -13,12 +14,13 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 export class AdminpanelComponent implements OnInit {
 
 
-
+privacy$;
   
 
-  constructor() { 
+  constructor(private questionService: QuestionsService) { 
     
-    // auth.appUser$.subscribe(x => console.log(x));   
+    // auth.appUser$.subscribe(x => console.log(x)); 
+    this.privacy$ = this.questionService.getAllPrivacy();  
       
   }
   ngOnInit() { 

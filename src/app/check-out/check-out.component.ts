@@ -68,9 +68,8 @@ export class CheckOutComponent implements OnInit  {
     let order = {
       title: this.product.title, 
       datePlaced: new Date().toLocaleString(),
-      order: this.order
-    
-     
+      order: this.order,
+      User: this.appUser.email
     } 
  
    this.orderService.storeOrder(order),

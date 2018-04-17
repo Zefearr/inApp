@@ -1,15 +1,13 @@
 .footer {
    
-    background-color:#2E3333;
+    background-color:#080E1B;
     z-index: 1;
     height: 25px;
     transition: .2s linear;
     transform-origin: bottom;
     width:100%;
-    position: fixed;
-    bottom:0;
-    left:0;
-    
+    margin-top:20px;
+    height: 150px;
 }
 ul {
     margin:0;

@@ -7,6 +7,22 @@ export class QuestionsService {
 
   constructor(private db: AngularFireDatabase ) { }
 
+  createPrivacy(privacy) {
+    return this.db.list('/privacy').push(privacy);
+  }
+
+  updatePrivacy(privacyId, privacy) {
+    return this.db.object('/privacy/' + privacyId).update(privacy);
+  }
+ 
+
+  getPrivacy(privacyId) {
+    return this.db.object('/privacy/' + privacyId);
+  }
+  getAllPrivacy() {
+    return this.db.list('/privacy');
+  }
+
   create(question) { 
   
     return this.db.list('/questions').push(question);

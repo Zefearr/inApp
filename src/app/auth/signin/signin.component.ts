@@ -9,15 +9,18 @@ import { AuthService2 } from '../auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private authService: AuthService2) { }
+  constructor(private auth: AuthService2) { }
 
   ngOnInit() {
-  }
+  } 
   onSignIn(form: NgForm) {
     const name = form.value.name;
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signinUser(email, password);    
+    this.auth.signinUser(email, password);    
   }
+  resetPassword(email: string) {
+    this.auth.resetPassword(email)
+}
 
 }

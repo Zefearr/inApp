@@ -10,14 +10,22 @@
 .cards-cont {
    
     max-width: 977px; 
-    background-color:#F4F4F4;
-   
+  
+    background-color:transparent;
+   position: relative;
     padding-top:35px;
    overflow: hidden;
-    margin-bottom: 50px; 
+    margin-bottom: 50px;  
+    
    
     
 }
+.facebook-links {
+    position: absolute;
+    top:50px;
+    right: 0;
+}
+
 .loading-bar {
     width:33%;
     height: 20px;
@@ -118,6 +126,9 @@
 .col-no-p {
     padding: 0;
     margin: auto;
+}
+.row { 
+    border-right: 1px solid gray;
 }
 
 

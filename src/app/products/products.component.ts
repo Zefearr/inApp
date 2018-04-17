@@ -14,7 +14,7 @@ import { UserService } from '../user.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 
 import { Subject } from 'rxjs/Subject'; 
-
+import { FBPageComponent, FacebookService} from 'ngx-facebook';
 
 
 

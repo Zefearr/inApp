@@ -10,7 +10,7 @@
     background-color:#fff;
     border-radius: 3px;    
     padding-top:20px;
-    padding-bottom: 20px;
+   
     min-height: 100vh;
 }
 
@@ -43,7 +43,7 @@ right: 50px;
 
 .register-cont {
    background-color:transparent;
-    position: fixed;
+    position: absolute;
     background-color:#fff;
     z-index: 9;
     /* top:50%;
@@ -55,9 +55,9 @@ right: 50px;
     top:50px;
     left:0;
     width:100%;
-    height: 100%;
+    height: 100%; 
     transform-origin: top;
-    transform: translateX(-100%);
+    transform: scale(1.1);
     margin: auto;
     visibility: hidden;
     transition: all .3s ease;      
@@ -80,7 +80,7 @@ cursor: pointer;
    
  
    transition: all .3s ease; 
-   transform: translateX(0%);
+   transform: scale(1);
  
    visibility: visible;
 }
@@ -194,7 +194,7 @@ cursor: pointer;
     .close-x {
         position: absolute;
         top:60px;
-        right: 10px;
+        right: 60px;
     }
     
 }
@@ -243,10 +243,23 @@ cursor: pointer;
     top:10px;
 }
 .reactions {
- position: absolute;
+ /* position: absolute;
 right:10px;
-bottom:10px;
+bottom:10px; */
+display: block;
+width:35px;
+float: right; 
+margin-right: 20px;
+transform: translateY(10%);
 }
+.bot {
+    margin-top:20px;
+}
+.fb-share-cont {
+   display: block;
+  
+    
+    }
 .event-paragraph {
     padding: 10px;
     padding-top:0;

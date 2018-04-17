@@ -18,10 +18,12 @@ import { productComment } from '../models/comment';
 import { Subscription } from 'rxjs/Subscription';
 import { Http } from '@angular/http';
 
+import { FacebookService, InitParams } from 'ngx-facebook';
+import {Location} from '@angular/common';
  
 
 
-export class comment {
+export class comment { 
   name?: string;
   $key: string;
   content: string;
@@ -48,7 +50,7 @@ export class PostComponent implements OnInit, OnDestroy  {
   isShown = false;
   subscription: Subscription;
   userId:string;
-  comments$: Observable<any>;
+  comments$: Observable<any>; 
   comment$;
 
  
@@ -60,6 +62,8 @@ export class PostComponent implements OnInit, OnDestroy  {
       private db: AngularFireDatabase,
        private productService: ProductService,
         private route: ActivatedRoute,
+        private fb: FacebookService,
+        private _location: Location,
          private renderer: Renderer2) {
 
           let id = this.route.snapshot.paramMap.get('id'); 
@@ -73,6 +77,14 @@ export class PostComponent implements OnInit, OnDestroy  {
 
           } 
 
+       
+          let initParams: InitParams = {  
+            appId: '190229558416176',
+            xfbml: true, 
+            version: 'v2.8'
+          };
+        
+          fb.init(initParams);
           
        
         
@@ -84,7 +96,10 @@ export class PostComponent implements OnInit, OnDestroy  {
         
   }
 
-  
+  backClicked() {
+    this._location.back();
+    console.log('123')
+  } 
 
   ngOnInit() {   
  
@@ -116,11 +131,11 @@ export class PostComponent implements OnInit, OnDestroy  {
  
    onClick() {
      this.isShown = !this.isShown;
-     if(this.isShown) {
-      this.renderer.addClass(document.body, 'modal-open');
-     } else
+    //  if(this.isShown) {
+    //   this.renderer.addClass(document.body, 'modal-open');
+    //  } else
       
-     this.renderer.removeClass(document.body, 'modal-open');
+    //  this.renderer.removeClass(document.body, 'modal-open');
      
    }
    delete(comment$) {

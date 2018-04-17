@@ -7,10 +7,10 @@
 
 <div class="single-event-fullcontent"> 
       
-               
+        <button mat-raised-button (click)="backClicked()" >Назад</button>        
 <div class="event-preview">
 
-
+               
         <div class="img-cont">
                 <div class="img-inner">
                                 <img [src]="product.bigimageUrl" class="event-big-image" *ngIf="product.bigimageUrl">
@@ -63,53 +63,36 @@
 
 
 <div class="event-paragraph">
+       
         <div *ngIf="product.content" [innerHTML]="product.content"></div>
+        <mat-divider></mat-divider>
+        <div class="reactions"> 
+        <app-reactions [productId]='product?.$key'></app-reactions>  
+        </div>
+
+       <div class="fb-share-cont">
+        <fb-share *ngIf="product" href="https://inapp-ae6b8.firebaseapp.com/events/{{product.$key}}"></fb-share>
+       </div>     
 </div>
 
 
 
-<div class="reactions"> 
-                <app-reactions [productId]='product?.$key'></app-reactions>  
-</div>
+
 </div>
 </ng-container> 
 
 
 
-<div class="register-cont" [class.register-active]="isShown">
+<div class="register-cont" [class.register-active]="isShown" >
         <div>
                         <span class="close-x" (click)="onClick()"><i class="fa fa-times"></i></span> 
                         <app-check-out></app-check-out>   
         </div>
-     
+       
+       
 </div>
-<mat-divider></mat-divider>
-
-
-
-
-                <div class="comment-block" *ngFor="let comment of comments$ | async">
-                               <ng-template #nocomment>asd</ng-template>
-                           
-                                        <mat-list >
-                                        <mat-list-item> <span class="user"> <i class="fa fa-user"></i> {{comment?.name}} </span> <span class="comment-timestamp"> <i class="fa fa-clock"></i> {{comment?.datePlaced | date:'MMMM d, h:mm:ss'}}</span> </mat-list-item>       
-                                        </mat-list>
-                                        <p class="comment-content"> {{ comment.productComment?.content }}</p>  
-                     
-                                
-                              
-                </div>
-                
-                <mat-divider class="divide"></mat-divider>
-
-     
-
-
-
-
-
-
-<app-comment-form  [productId]='product?.$key'> </app-comment-form>  
+<mat-divider class="bot"></mat-divider>
+<fb-comments numposts="3"></fb-comments>
 
 </div>
 

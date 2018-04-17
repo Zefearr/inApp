@@ -7,104 +7,107 @@ import * as firebase from 'firebase';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { trigger, transition, group, query, style, animate } from '@angular/animations';
 import { AgmCoreModule } from '@agm/core';  
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', 
   styleUrls: ['./app.component.css'], 
-  animations: [
-    trigger('routeAnimation', [
-      transition('1 => 2', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
+  // animations: [
+  //   trigger('routeAnimation', [
+  //     transition('1 => 2', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
 
-      transition('1 <=> 4', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('2 <=> 4', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('1 <=> 5', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('2 <=> 5', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('2 => 1', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('4 <=> 5', [
-        style({ height: "*"}),
-        query(':enter', style({transform: 'translateX(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateX(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateX(0)'}))])
-        ])
-      ]),
-      transition('2 => 3', [
-        style({ height: "!"}),
-        query(':enter', style({transform: 'translateY(100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
-      transition('3 => 1', [
-        style({ height: "!"}),
-        query(':enter', style({transform: 'translateY(-100%)'})),
-        query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
-        group([
-          query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
-          query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
-        ])
-      ]),
+  //     transition('1 <=> 4', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('2 <=> 4', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('1 <=> 5', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('2 <=> 5', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('2 => 1', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('4 <=> 5', [
+  //       style({ height: "*"}),
+  //       query(':enter', style({transform: 'translateX(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateX(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateX(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('2 => 3', [
+  //       style({ height: "!"}),
+  //       query(':enter', style({transform: 'translateY(100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(-100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
+  //     transition('3 => 1', [
+  //       style({ height: "!"}),
+  //       query(':enter', style({transform: 'translateY(-100%)'})),
+  //       query(':enter, :leave',  style({position: 'absolute', left: 0, top: 0, right: 0})),
+  //       group([
+  //         query(':leave', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform: 'translateY(100%)'}))]), 
+  //         query(':enter', [animate('.3s cubic-bezier(.35, 0, .25, 1)',  style({ transform:  'translateY(0)'}))])
+  //       ])
+  //     ]),
       
 
-    ])
-  ]
+  //   ])
+  // ]
 })
 export class AppComponent  { 
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
 }
+mode = new FormControl('over');
 constructor(private userService: UserService, private auth: AuthService, router: Router) {  
   auth.user$.subscribe(user => { 
     if(user) { 
@@ -114,6 +117,7 @@ constructor(private userService: UserService, private auth: AuthService, router:
       router.navigateByUrl(returnUrl);
     }
   });
+  
 }
 
 getDepth(outlet) {

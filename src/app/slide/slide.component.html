@@ -23,7 +23,7 @@
            
               <div class="swiper-slide" *ngFor="let p of content$ | async"> 
 
-               
+                <div class="slide-overlay"></div>
                   <img class="slider-img-low-op" [src]="p.imageUrl" alt="">  
              
 
@@ -39,13 +39,13 @@
                              
                       
                           
-                            <!-- <div class="desc"  *ngIf="p.desc"> 
+                            <div class="desc"  *ngIf="p.desc"> 
                           
                                  <p> <span> ❝ </span> {{ p.desc}} ... <span> ❞ </span> </p> 
                                  
                               
 
-                            </div> -->
+                            </div>
                            
                             
                      
@@ -53,7 +53,7 @@
                          
                   
                     
-                            <button mat-raised-button color="primary" class="mat-elevation-z1 slider-button"  routerLink="/events/{{p.link}}"> Читать</button>
+                            <button mat-raised-button  class="mat-elevation-z1 slider-button"  routerLink="/events/{{p.link}}"> Читать</button>
                       </div>
                 </div>
                   

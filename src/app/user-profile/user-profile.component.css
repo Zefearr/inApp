@@ -1,0 +1,7 @@
+.user-profile-cont {
+    min-height:100vh;
+    max-width:977px;
+    background-color:#fff;
+    margin: 0 auto;
+    padding-top:50px;
+}
