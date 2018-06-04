@@ -7,6 +7,9 @@
    
    
 }
+:host {
+    display:block;
+}
 .cards-cont {
    
     max-width: 977px; 
@@ -105,8 +108,9 @@
 }
 .active2 {
   /* border:1px solid #2E3333; */
-   background-color:#2E3333;
-    color:rgb(235, 235, 235);
+   
+    
+   border:1px solid #2E3333;
     
   
     

@@ -162,24 +162,7 @@ cursor: pointer;
         min-height: 100vh;
         padding-bottom:50px;
     }
-    .location-map {
-        position: absolute;
-        width:100%;
-        height: 200px;
-        background-color:#777;
-        z-index: 1;
-        background: url('../../assets/images/map_popup.png');
-        border:1px solid lightgray;
-        border-radius: 3px;
-        left: 0;
-        bottom:0;
-        opacity: 0;
-        transform: translateY(100%);
-        visibility:hidden;
-        transition: .3s ease;
-        transform-origin: bottom;
-    
-    }
+  
     
     .event-big-image {
         display: block;

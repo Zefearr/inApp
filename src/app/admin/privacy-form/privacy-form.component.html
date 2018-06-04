@@ -1,7 +1,6 @@
 <div class="privacy-form-container">
   <h2>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h2>
   <form #f="ngForm" (ngSubmit)="save(f.value)"> 
-    <!-- <input type="text" name="title" id="title" #title="ngModel" [(ngModel)]="privacy.title" > -->
     <angular-tinymce class="editor" #content="ngModel" [(ngModel)]="privacy.content" name="content" id="content"></angular-tinymce>
     <button mat-raised-button color="primary" >save</button>
   </form>

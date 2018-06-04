@@ -13,7 +13,14 @@ import * as $ from 'jquery';
 })
 export class TutorialFormComponent implements OnInit { 
   contentcategories$;
-  content = {};
+  content = {
+    title: '',
+    desc: '',
+    link: '',
+    imageUrl: '',
+    
+
+  };
   
   id;
 

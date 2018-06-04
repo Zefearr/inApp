@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppUser } from './models/app-user'; 
-
 import { CustomFormsModule } from "ng2-validation"; 
 import { DatePipe } from '@angular/common'; 
 import * as $ from 'jquery'; 
@@ -50,7 +49,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { DataTableModule } from 'angular5-data-table';   
 import { AdminOrderDetailsComponent } from './admin/admin-order-details/admin-order-details.component';
 import { AuthService2 } from './auth/auth.service';
-import { ContentFormComponent } from './admin/content-form/content-form.component';
+// import { ContentFormComponent } from './admin/content-form/content-form.component';
 import { ContentService } from './content.service'; 
 import { ReactionService } from './reaction.service';
 import { ReactionsComponent } from './reactions/reactions.component';
@@ -66,7 +65,6 @@ import { TinyMceModule } from 'angular-tinymce';
 import { tinymceDefaultSettings } from 'angular-tinymce';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { QuestionsComponent } from './questions/questions.component';
-import { QuestionsFormComponent } from './questions-form/questions-form.component'; 
 import { QuestionsService } from './questions.service';   
 import { BlogCategoryService } from './blog-category.service';
 import { MatExpansionModule } from '@angular/material/expansion'; 
@@ -81,7 +79,7 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   spaceBetween: 50,
   // effect: 'cube',
-  slidesPerView: '2',
+  slidesPerView: '1',
 
   autoplay: 5000,
   lazyLoading: true,
@@ -142,12 +140,12 @@ import {
   
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommentService } from './comment.service';
 import { FacebookModule, FacebookService, FBPageComponent } from 'ngx-facebook';
 import { FbMirrorComponent } from './fb-mirror/fb-mirror.component';
 import { PricacyComponent } from './pricacy/pricacy.component';
-import { PrivacyFormComponent } from './admin/privacy-form/privacy-form.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PrivacyFormComponent } from './admin/privacy-form/privacy-form.component';
+import { QuestionsFormComponent } from './questions-form/questions-form.component';
 
 
 export const MaterialModules = [ 
@@ -209,10 +207,10 @@ export const MaterialModules = [
     SlideComponent,
     TutorialsComponent,
     AdminTutorialsComponent,
-    TutorialFormComponent,
+    TutorialFormComponent, 
     AdminpanelComponent, 
     AdminOrderDetailsComponent,
-    ContentFormComponent,
+    // ContentFormComponent,
     ReactionsComponent,
     LoadingSpinnerComponent,
     AboutComponent,
@@ -250,7 +248,7 @@ export const MaterialModules = [
     SwiperModule.forRoot(SWIPER_CONFIG),
     NgbModule.forRoot(), 
     RouterModule.forRoot([ 
-      { path: '', component: ProductsComponent, data: { depth: 1} },
+      { path: '', component: ProductsComponent, data: { depth: 1} }, 
       { path: 'about', component: AboutComponent, data: { depth: 5} }, 
       { path: 'login', component: LoginComponent,  data: { depth: 2} },
       { path: 'products', component: ProductsComponent }, 
@@ -266,7 +264,6 @@ export const MaterialModules = [
       },
 
       { path: 'tutorials/:id', component: TutorialsComponent, data: { depth: 2}}, 
-      { path: 'user-profile/:id', component: UserProfileComponent },  
 
       { path: 'admin/slider',
        component: AdminTutorialsComponent,
@@ -300,7 +297,7 @@ export const MaterialModules = [
      },
       { path: 'admin/slider/new', 
        component: TutorialFormComponent,
-       canActivate: [AuthGuard, AdminAuthGuardService]  
+       canActivate: [AuthGuard, AdminAuthGuardService]   
       }, 
       { path: 'admin/slider/:id',   
        component: TutorialFormComponent,
@@ -333,7 +330,7 @@ export const MaterialModules = [
     ])  
 
 
- 
+  
   ],
   providers: [ 
     BlogCategoryService,
@@ -349,7 +346,6 @@ export const MaterialModules = [
     OrderService,
     ContentService,
     ReactionService, 
-    CommentService,
     FacebookService
 
 
@@ -358,5 +354,5 @@ export const MaterialModules = [
   bootstrap: [AppComponent] 
 
 }) 
-export class AppModule { }   
+export class AppModule { }    
  

@@ -4,30 +4,20 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service'; 
 import 'rxjs/add/operator/map';
- 
-
-
 import 'rxjs/add/operator/take'; 
 import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { CommentService } from '../comment.service';
 import { Comment } from '@angular/compiler';
 import { Observable } from 'rxjs/Observable';
-import { productComment } from '../models/comment';
 import { Subscription } from 'rxjs/Subscription';
 import { Http } from '@angular/http';
-
 import { FacebookService, InitParams } from 'ngx-facebook';
 import {Location} from '@angular/common';
  
 
 
-export class comment { 
-  name?: string;
-  $key: string;
-  content: string;
-}
+
 
 @Component({
   selector: 'app-post',
@@ -44,32 +34,29 @@ export class PostComponent implements OnInit, OnDestroy  {
 
   toggle = false;
   product;
-  comments;
-  commentId: string;
   productId: string;
   isShown = false;
   subscription: Subscription;
   userId:string;
-  comments$: Observable<any>; 
-  comment$;
+
+
 
  
 
 
 
-  constructor(private commentService: CommentService,
+  constructor(
      private afAuth: AngularFireAuth,
       private db: AngularFireDatabase,
        private productService: ProductService,
         private route: ActivatedRoute,
         private fb: FacebookService,
         private _location: Location,
-         private renderer: Renderer2) {
-
-          let id = this.route.snapshot.paramMap.get('id'); 
-          this.afAuth.authState.subscribe((auth) => {
+        private renderer: Renderer2) {
+        let id = this.route.snapshot.paramMap.get('id'); 
+        this.afAuth.authState.subscribe((auth) => {
             if(auth) this.userId = auth.uid 
-          });
+        });
 
           if(id) {
         
@@ -103,22 +90,11 @@ export class PostComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {   
  
-    // this.comments$ = this.getAllComments();
-    this.comments$ = this.getAllComments();
+  
   }
   
 
-  getAllComments() { 
-    let id = this.route.snapshot.paramMap.get('id'); 
-    return this.db.list('/comments/' + id, {
-      query: {
-      orderByChild: 'reverseDate'
-      }
-    })
-    // .do(console.log)
-    
-
-  }
+ 
  
 
   ngOnDestroy() {
@@ -138,13 +114,7 @@ export class PostComponent implements OnInit, OnDestroy  {
     //  this.renderer.removeClass(document.body, 'modal-open');
      
    }
-   delete(comment$) {
-    let id = this.route.snapshot.paramMap.get('id'); 
-
-    this.commentService.delete(id);
-    console.log(id);
-  
-   }
+   
   onMouseEnter() {
     this.toggle = !this.toggle;
   }

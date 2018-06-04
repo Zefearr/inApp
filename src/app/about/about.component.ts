@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, HostBinding } from '@angular/core';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import * as $ from 'jquery'; 
+import { routeFadeStateTrigger, routeSlideTrigger } from '../shared/routeanimations';
 
 
 
@@ -9,14 +10,19 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css'],
+  animations: [ 
+    routeFadeStateTrigger,
+    routeSlideTrigger 
+  ]
   
 })
 
 
 export class AboutComponent implements OnInit {
-  lat: number = 59.369527; 
-  lng: number = 28.198229;
+  @HostBinding('@routeSlideState') routeAnimation = true;
+  lat: number = 35.003919;
+  lng: number = 135.770320;
 
 
 

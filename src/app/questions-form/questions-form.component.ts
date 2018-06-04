@@ -9,7 +9,11 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./questions-form.component.css']
 })
 export class QuestionsFormComponent implements OnInit {
-  question = {};
+  question = {
+    title: '',
+    ask: '',
+    answer: ''
+  };
   id;
 
   constructor(private router: Router, private questionService: QuestionsService, private route: ActivatedRoute) { 

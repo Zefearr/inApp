@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,6 +15,7 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
 
 import { Subject } from 'rxjs/Subject'; 
 import { FBPageComponent, FacebookService} from 'ngx-facebook';
+import { routeSlideTrigger, routeSlideTriggerReverse } from '../shared/routeanimations';
 
 
 
@@ -23,10 +24,11 @@ import { FBPageComponent, FacebookService} from 'ngx-facebook';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']  
+  styleUrls: ['./products.component.css'],
+  
 })
 export class ProductsComponent   {  
- 
+
 
   
  

@@ -1,5 +1,5 @@
 <div class="cont">
-    <form #f="ngForm" (ngSubmit)="save(f.value)">   
+    <form #f="ngForm" (ngSubmit)="save(f.value)">    
 
         
 
@@ -8,7 +8,7 @@
                 <input  #title="ngModel"  [(ngModel)]="content.title" name="title" id="title" type="text" class="form-control">          
            <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Введите название</div> 
         </div>
-            <img [src]="content.logoUrl" class="content-image-prev" alt="" *ngIf="content.logoUrl">     
+        
             
             <div class="form-group">
                     <label for="imageUrl">Большое изображение на слайдер </label> 
@@ -31,13 +31,7 @@
                    
             </div>
 
-            <!-- <div class="form-group">    
-                    <label for="text"> Content-text</label> 
-                        <textarea #text="ngModel" [(ngModel)]="content.text" name="text" id="text" type="text" class="form-control form-main-content" required> </textarea>
-                        <div class="alert alert-danger" *ngIf="text.touched && text.invalid">textarea is empty</div>    
-                         
-                   
-            </div>   -->
+         
             
          
            

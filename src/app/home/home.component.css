@@ -7,6 +7,9 @@
   
   width:100%;
 }
+:host {
+  display:block; 
+}
 .btn-show {
   float: right;
 }

@@ -24,7 +24,7 @@ import { ContentService } from '../content.service';
 })
  
 export class SlideComponent {
-  
+  config;
   content$;
 
   constructor(contentService: ContentService, route: ActivatedRoute) { 

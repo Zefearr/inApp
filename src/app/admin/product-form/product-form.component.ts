@@ -22,7 +22,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class ProductFormComponent {  
  categories$;
- product = {};  
+
+ product = {
+   price: '',
+   lang: '',
+   startdate: '',
+   status: '', 
+   title: '',
+   desc: '',
+   location: '',
+   imageUrl: '',
+   category: '',
+   content: '',
+   bigimageUrl: ''
+
+ };  
+
  id;
  status$;
  switch = false;

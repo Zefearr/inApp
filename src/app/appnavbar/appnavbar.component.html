@@ -3,7 +3,7 @@
   <div class="container-inapp">
     
     <!-- <a class="head-logo" routerLink="/"></a> -->
-    <a class="appheader-brand" routerLink="/"> <img src="assets/images/logo2.svg" class="site-logo"> </a>
+    <a class="appheader-brand" routerLink="/"> CompanyLogo </a>
     <div class="menu-icon" (click)="onClick()">
      <div class="menu-icon__top" [class.icon-top-active]="toggle"></div>
      <div class="menu-icon__mid" [class.icon-active]="toggle" ></div> 
@@ -30,7 +30,7 @@
      
     
      
-    <li *ngIf="appUser"> <a class="route" (click)="logout()"  class="quit"> <span> <i class="fa fa-sign-out-alt"></i> </span> Exit</a></li>   
+    <li *ngIf="appUser"> <a class="route" (click)="logout()" href="#" > <span> <i class="fa fa-sign-out-alt"></i>  </span> Exit</a></li>   
     <li *ngIf="appUser">
        
         <a class="route" *ngIf="appUser.isAdmin" routerLink="admin/controls"> 
